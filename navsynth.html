@@ -1,0 +1,209 @@
+
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Navsynth</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <base href="/"> -->
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.css">
+    <link rel="stylesheet" href="css/app.css">
+
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Didact+Gothic" />
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.3/clipboard.min.js"></script>
+
+    <script src="js/app.js"></script>
+</head>
+
+<body font-family: 'Didact Gothic'>
+    <div class="container">
+        <div class="row">
+            <h1 class="col-md-12 text-center" font-family: 'Didact Gothic'>
+              Non-Adversarial Video Synthesis with Learned Priors</br>
+                <small>
+                    CVPR 2020
+                </small>
+            </h1>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <ul class="list-inline">
+                    <li>
+                        <a href="https://abhishekaich27.github.io/">
+                            Abhishek Aich
+                        </a>
+                      </br>UC Riverside
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/akash-a-gupta/">
+                          Akash Gupta
+                        </a>
+                        </br>UC Riverside
+                    </li>
+                    <li>
+                        <a href="https://rpand002.github.io/">
+                          Rameswar Panda
+                        </a>
+                      </br>IBM Research AI
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/rakib-hyder-b03123a2/">
+                          Rakib Hyder
+                        </a>
+                        </br>UC Riverside
+                    </li>
+                    <li>
+                        <a href="https://intra.ece.ucr.edu/~sasif/">
+                            M. Salman Asif
+                        </a>
+                        </br>UC Riverside
+                    </li>
+                    <li>
+                        <a href="https://vcg.engr.ucr.edu/people/amit-roy-chowdhury">
+                            Amit K. Roy-Chowdhury
+                        </a>
+                        </br>UC Riverside
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- <div class="row" id="header_img"> -->
+        <!--     <figure class="col&#45;md&#45;8 col&#45;md&#45;offset&#45;2"> -->
+        <!--     <image src="img/teaser.png" class="img&#45;responsive" alt="overview"> -->
+        <!--         <figcaption> -->
+        <!--         </figcaption> -->
+        <!--     </figure> -->
+        <!-- </div> -->
+        <div class="row" id="header_img" align="middle">
+            <figure class="col-md-6 col-md-offset-3" align="middle">
+            <image src="data/Project_pages/CVPR_2020/concept_diag.jpg" class="img-responsive" alt="overview">
+            <figcaption>
+              <b>Figure:</b> Proposed concept of our paper
+            </figcaption>
+            </figure>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Abstract
+                </h3>
+                <p class="text-justify" font-family: 'Didact Gothic'>
+                  Most of the existing works in video synthesis focus on
+  generating videos using adversarial learning. Despite their
+  success, these methods often require input reference frame
+  or fail to generate diverse videos from the given data distribution, with little to no uniformity in the quality of videos
+  that can be generated. Different from these methods, we focus on the problem of generating videos from latent noise
+  vectors, without any reference input frames. To this end,
+  we develop a novel approach that jointly optimizes the input latent space, the weights of a recurrent neural network and a generator without a discriminator, through nonadversarial learning. Optimizing for the input latent space
+  along with the network weights allows us to generate videos
+  in a controlled environment, i.e., we can faithfully generate
+  all videos the model has seen during the learning process as
+  well as new unseen videos. Extensive experiments on three
+  challenging and diverse datasets well demonstrate that our
+  approach generates superior quality videos compared to the
+  existing state-of-the-art methods.
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                <!-- <h3 class="text&#45;center"> -->
+                    Downloads
+                </h3>
+                <div class="col-md-0 col-md-offset-0 text-center">
+                    <ul class="nav nav-pills nav-justified">
+                        <li>
+                            <a href="https://github.com/abhishekaich27/Navsynth">
+                              <center>
+                              <img align="middle" width=250px class="thumbnail" src="data/Project_pages/CVPR_2020/code_cvpr2020_icon.png">
+                                Code
+                              </center>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://arxiv.org/abs/2003.09565">
+                              <center>
+                                <img align="middle" height="200px"width=130px class="thumbnail" src="data/Project_pages/CVPR_2020/paper_cvpr2020_icon.png">
+                                Paper
+                              </center>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="data/Project_pages/CVPR_2020/CVPR_2020_Navsynth_slides.pdf">
+                              <center>
+                                <img align="middle" width=250px class="thumbnail" src="data/Project_pages/CVPR_2020/slide_cvpr2020_icon.png">
+                                Slides
+                              </center>
+                            </a>
+                        </li></br>
+                        <li>
+                            <a href="data/Project_pages/CVPR_2020/CVPR_2020_Navsynth_poster.pdf">
+                              <center>
+                                <img align="middle" width=250px class="thumbnail" src="data/Project_pages/CVPR_2020/poster_cvpr2020_icon.png">
+                                Poster
+                              </center>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    BibTeX
+                </h3>
+                <p class="text-justify">
+                  <font face="Courier New">
+                @InProceedings{Aich_2020_CVPR, </br>
+                  &nbsp; title={Non-Adversarial Video Synthesis with Learned Priors}, </br>
+                  &nbsp; author={{Aich, Abhishek and Gupta, Akash and Panda, Rameswar and Hyder, Rakib and Asif, M. Salman and Roy-Chowdhury, Amit K.},, </br>
+                  &nbsp; booktitle = {The IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},</br>
+                  &nbsp; pages = {6090--6099},</br>
+                  &nbsp; month = {June},</br>
+                  &nbsp; year={2020} </br>
+                }</font>
+              </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3 font-family: 'Didact Gothic'>
+                    Acknowledgements
+                </h3>
+                <p class="text-justify" font-family: 'Didact Gothic'>
+                This work was partially supported by NSF grant 1664172 and ONR grant N00014-19-1-2264.
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <p class="text-justify" font-family: 'Didact Gothic'>
+                <center style="font-size:10px"><b>Credits:</b> Template of this webpage from <a href="http://www.mgharbi.com/">
+                    here.
+                </a></center>
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
