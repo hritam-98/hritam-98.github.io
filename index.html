@@ -176,8 +176,8 @@
 			<div class="col-xs-0 col-md-1"></div>
 			<div class="col-xs-12 col-md-11 update-text" style="margin: 0em; height: 250px; overflow-y: auto;">
 				<strong style="color: #cc0e00">[Sep 2024]</strong> Selected for the <em>MICCAI NIH Travel Award</em> and <em>ECCV DEI Award</em>! <br>				
-				<strong style="color: #cc0e00">[July 2024]</strong> <em>"Forget More to Learn More"</em> paper has been accepted at <strong>ECCV 2024, Italy</strong>! <br>
-				<strong style="color: #cc0e00">[June 2024]</strong> <em>"Quest for Clone"</em> paper has been accepted at <strong>MICCAI 2024, Morocco</strong>! 	<br>
+				<strong style="color: #cc0e00">[July 2024]</strong> <em>"Forget More to Learn More"</em> paper has been accepted at <strong>ECCV 2024, Italy</strong>! <a href="https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/05513.pdf">[Paper]</a> <br>
+				<strong style="color: #cc0e00">[June 2024]</strong> <em>"Quest for Clone"</em> paper has been accepted at <strong>MICCAI 2024, Morocco</strong>! <a href="https://papers.miccai.org/miccai-2024/paper/0297_paper.pdf">[Paper]</a>	<br>
 				<strong style="color: #cc0e00">[May 2024]</strong>  Joined perception team at <a href='https://www.amazon.science/'>Amazon Lab126</a> as an Applied Scientist Intern. Working with <a href="https://www.linkedin.com/in/shreekant-gayaka">Dr. Shreekant Gayaka</a>, <a href="https://www.linkedin.com/in/haditab">Hadi Tabatabai</a>, and <a href="https://aliensunmin.github.io/">Professor Min Sun</a>.<br>
 				<strong style="color: #cc0e00">[Jan 2024]</strong>  Received research internship offers from <a href='https://www.microsoft.com/en-us/research/lab/microsoft-research-cambridge/'>Microsoft Research</a>, <a href="https://en.wikipedia.org/wiki/Amazon_Lab126">Amazon</a>, <a href="https://research.adobe.com/">Adobe Research</a>, <a href="https://research.ibm.com/labs/india">IBM Research</a>, <a href="https://www.gene.com/">Genentech</a>, and <a href="https://www.uii-ai.com/">UII</a> for Summer 2024.<br>
 				<strong style="color: #cc0e00">[Dec 2023]</strong> <em>"DL-TA: Feature Fusion"</em> abstract has been accepted at <strong><a href="https://scmr.org/page/CMR2024-welcome-message">CMR 2024, UK</a></strong>! <!--My first clinical conference, in collaboration with  <a href="https://www.chsli.org/st-francis-hospital">St. Francis Hospital, NY</a>--><br>
@@ -215,6 +215,97 @@
 				<div class="col-md-4 "></div>
 				<div class="col-md-8 " style="margin-bottom: 0em; "><h1>Selected Publications</h1></div>
 			</div>
+
+
+			<h2 class="year">2024</h2>
+
+			<!-- ECCV 2024 -->
+			<div class="row" style="margin: 2.5em 0 ">
+				<div class="col-md-4">
+					<img class="pub-img " style="margin-right: auto; margin-left: auto;" src="img/Publications/eccv24-overall.png"></img>
+				</div>
+				<div class="col-md-8">
+					<li itemscope itemtype="http://schema.org/CreativeWork ">
+						<span itemprop="name">Forget More to Learn More: Domain-specific Feature Unlearning for Semi-supervised and Unsupervised Domain Adaptation</span>
+						<div class="pub-list-item " itemscope itemtype="http://schema.org/CreativeWork ">
+							<div class="pub-authors " itemprop="author ">
+								<!-- <text style="color: black">Nihal Jain</text>, -->
+								<!-- <text style="color: black">Praneetha Vaddamanu</text>, -->
+								<b style="color: #0095eb">Hritam Basak</b>,
+								<text style="color: black">Zhaozheng Yin</text>
+								<!-- <text style="color: black">Kuldeep Kulkarni</text> -->
+							</div>
+							<div class="pub-publication ">European Conference on Computer Vision (ECCV 2024)</div>
+							<p>
+								<a class="btn btn-primary btn-outline btn-xs" onclick="var div = document.getElementById('CanvasAsContext_abstract_publication'); if (div.style.display !== 'none') {div.style.display = 'none';} else {div.style.display = 'block';}">Abstract</a>
+								<a class="btn btn-primary btn-outline btn-xs " href="https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/05513.pdf">PDF</a>
+								<a class="btn btn-primary btn-outline btn-xs " href="https://github.com/hritam-98/FMLM">Code</a>
+								<a class="btn btn-primary btn-outline btn-xs" onclick="var div = document.getElementById('CanvasAsContext_bib_publication'); if (div.style.display !== 'none') {div.style.display = 'none';} else {div.style.display = 'block';}">BibTeX</a>
+<pre id="CanvasAsContext_abstract_publication", style="display:none">
+<!-- In creative workflows, designers compile a collection (or “moodboard”) of inspirational assets for ideation. They may use this as reference for finding additional assets. In this work, we aim to stimulate creative ideation by making suggestions that take cues from the designer’s moodboard but also carefully diverge from it. A collection of images may have rich information along different axes (e.g. color, composition, or style) – these axes or channels can be used to model relevance or divergence of any image from a query collection. So, we develop a self-supervised model that can extract channel-specific representations from collections of images. We propose a search algorithm that uses these representations to obtain results that satisfy the collection’s intent along some channels but diverge from the query along others. We show that this allows for effective exploration of the creative space of possibilities. Finally, we demonstrate a mix-and-match visual querying mechanism that allows us to combine channels from different collections of inspirational content, thus facilitating ease in creative expression. -->
+Semi-supervised Domain Adaptation (SSDA) encompasses the process of adapting representations acquired from the source domain to a new target domain, utilizing a limited number of labeled samples in conjunction with an abundance of unlabeled data from the target domain. Simple aggregation of domain adaptation (DA) and semi-supervised learning (SSL) falls short of optimal performance due to two primary challenges: (1) skewed training data distribution favoring the source representation learning, and (2) the persistence of superfluous domain-specific features, hindering effective domain-agnostic (i.e., task-specific) feature extraction. In pursuit of greater generalizability and robustness, we present an SSDA framework with a new episodic learning strategy: \lq\lq learn, forget, then learn more\rq\rq. First, we train two encoder-classifier pairs, one for the source and the other for the target domain, aiming to learn domain-specific features. This involves minimizing classification loss for in-domain images and maximizing uncertainty loss for out-of-domain images. Subsequently, we transform the images into a new space, strategically unlearning (forgetting) the domain-specific representations while preserving their structural similarity to the originals. 
+This proactive removal of domain-specific attributes is complemented by learning more domain-agnostic features using a Gaussian-guided latent alignment (GLA) strategy that uses a prior distribution to align domain-agnostic source and target representations.  
+The proposed SSDA framework can be further extended to unsupervised domain adaptation (UDA). Evaluation across {two} domain adaptive image classification tasks reveals our method's superiority over state-of-the-art (SoTA) methods in both SSDA and UDA scenarios.</pre>
+<pre id="CanvasAsContext_bib_publication", style="display:none">
+	@inproceedings{basak2024forget,
+		title={Forget More to Learn More: Domain-specific Feature Unlearning for Semi-supervised and Unsupervised Domain Adaptation},
+		author={Basak, Hritam and Yin, Zhaozheng},
+		booktitle={European Conference on Computer Vision},
+		year={2024},
+		organization={Springer}
+	  }
+}}</pre>
+							</p>
+						</div>
+					</li>
+				</div>
+			</div>
+
+
+
+
+			<!-- MICCAI 2024 -->
+			<div class="row" style="margin: 2.5em 0 ">
+				<div class="col-md-4">
+					<img class="pub-img " style="margin-right: auto; margin-left: auto;" src="img/Publications/overall-miccai24-cropped.png"></img>
+				</div>
+				<div class="col-md-8">
+					<li itemscope itemtype="http://schema.org/CreativeWork ">
+						<span itemprop="name">Quest for Clone: Test-Time Domain Adaptation for Medical Image Segmentation by Searching the Closest Clone in Latent Space</span>
+						<div class="pub-list-item " itemscope itemtype="http://schema.org/CreativeWork ">
+							<div class="pub-authors " itemprop="author ">
+								<!-- <text style="color: black">Nihal Jain</text>, -->
+								<!-- <text style="color: black">Praneetha Vaddamanu</text>, -->
+								<b style="color: #0095eb">Hritam Basak</b>,
+								<text style="color: black">Zhaozheng Yin</text>
+								<!-- <text style="color: black">Kuldeep Kulkarni</text> -->
+							</div>
+							<div class="pub-publication ">International Conference on Medical Image Computing and Computer-Assisted Intervention (MICCAI 2024)</div>
+							<p>
+								<a class="btn btn-primary btn-outline btn-xs" onclick="var div = document.getElementById('CanvasAsContext_abstract_publication'); if (div.style.display !== 'none') {div.style.display = 'none';} else {div.style.display = 'block';}">Abstract</a>
+								<a class="btn btn-primary btn-outline btn-xs " href="https://papers.miccai.org/miccai-2024/paper/0297_paper.pdf">PDF</a>
+								<a class="btn btn-primary btn-outline btn-xs " href="https://github.com/hritam-98/Quest4Clone">Code</a>
+								<a class="btn btn-primary btn-outline btn-xs" onclick="var div = document.getElementById('CanvasAsContext_bib_publication'); if (div.style.display !== 'none') {div.style.display = 'none';} else {div.style.display = 'block';}">BibTeX</a>
+<pre id="CanvasAsContext_abstract_publication", style="display:none">
+<!-- In creative workflows, designers compile a collection (or “moodboard”) of inspirational assets for ideation. They may use this as reference for finding additional assets. In this work, we aim to stimulate creative ideation by making suggestions that take cues from the designer’s moodboard but also carefully diverge from it. A collection of images may have rich information along different axes (e.g. color, composition, or style) – these axes or channels can be used to model relevance or divergence of any image from a query collection. So, we develop a self-supervised model that can extract channel-specific representations from collections of images. We propose a search algorithm that uses these representations to obtain results that satisfy the collection’s intent along some channels but diverge from the query along others. We show that this allows for effective exploration of the creative space of possibilities. Finally, we demonstrate a mix-and-match visual querying mechanism that allows us to combine channels from different collections of inspirational content, thus facilitating ease in creative expression. -->
+Unsupervised Domain Adaptation (UDA) aims to align labeled source distribution and unlabeled target distribution by mining domain-agnostic feature representation. However, adapting the source-trained model for new target domains after the model is deployed to users poses a significant challenge. To address this, we propose a generative latent search paradigm to reconstruct the closest clone of every target image from the source latent space. This involves utilizing a test-time adaptation (TTA) strategy, wherein a latent optimization step finds the closest clone of each target image from the source representation space using variational sampling of source latent distribution. Thus, our method facilitates domain adaptation without requiring target-domain supervision during training. Moreover, we demonstrate that our approach can be further fine-tuned using a few labeled target data without the need for unlabeled target data, by leveraging global and local label guidance from available target annotations to enhance the downstream segmentation task. We empirically validate the efficacy of our proposed method, surpassing existing UDA, TTA, and SSDA methods in two domain adaptive image segmentation tasks.</pre>
+<pre id="CanvasAsContext_bib_publication", style="display:none">
+	@inproceedings{basak2024quest,
+		title={Quest for Clone: Test-Time Domain Adaptation for Medical Image Segmentation by Searching the Closest Clone in Latent Space},
+		author={Basak, Hritam and Yin, Zhaozheng},
+		booktitle={International Conference on Medical Image Computing and Computer-Assisted Intervention},
+		pages={555--566},
+		year={2024},
+		organization={Springer}
+	  }
+}}</pre>
+							</p>
+						</div>
+					</li>
+				</div>
+			</div>
+
+
 
 			<h2 class="year">2023</h2>
 
