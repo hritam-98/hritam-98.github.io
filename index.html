@@ -276,6 +276,54 @@ Domain Adaptation (DA) and Semi-supervised Learning (SSL) converge in Semi-super
 					</li>
 				</div>
 			</div>
+			
+			
+			
+			
+			<!-- CVPR 2025 UAPOSE -->
+			<div class="row" style="margin: 2.5em 0 ">
+				<div class="col-md-4">
+					<img class="pub-img " style="margin-right: auto; margin-left: auto;" src="img/Publications/UA-pose.png"></img>
+				</div>
+				<div class="col-md-8">
+					<li itemscope itemtype="http://schema.org/CreativeWork ">
+						<span itemprop="name">UA-Pose: Uncertainty-aware 6D object pose estimation and online object completion with partial references</span>
+						<div class="pub-list-item " itemscope itemtype="http://schema.org/CreativeWork ">
+							<div class="pub-authors " itemprop="author ">
+								<!-- <text style="color: black">Nihal Jain</text>, -->
+								<!-- <text style="color: black">Praneetha Vaddamanu</text>, -->
+								 <!-- Ming-Feng Li, Xin Yang, Fu-En Wang, Hritam Basak, Yuyin Sun, Shreekant Gayaka, Min Sun, Cheng-Hao Kuo -->
+								<text style="color: black">Ming-Feng Li, Xin Yang, Fu-En Wang,</text>
+								<!-- <text style="color: black">Zhaozheng Yin</text> -->
+								<!-- <text style="color: black">Zhaozheng Yin</text> -->
+								 <b style="color: #0095eb">Hritam Basak</b>,
+								 <!--  -->
+								<text style="color: black">Yuyin Sun, Shreekant Gayaka, Min Sun, Cheng-Hao Kuo</text>
+								<!-- <text style="color: black">Kuldeep Kulkarni</text> -->
+							</div>
+							<div class="pub-publication ">International Conference on Computer Vision and Pattern Recognition (CVPR 2025)</div>
+							<p>
+								<a class="btn btn-primary btn-outline btn-xs" onclick="var div = document.getElementById('CanvasAsContext_abstract_publication'); if (div.style.display !== 'none') {div.style.display = 'none';} else {div.style.display = 'block';}">Abstract</a>
+								<a class="btn btn-primary btn-outline btn-xs " href="https://openaccess.thecvf.com/content/CVPR2025/html/Li_UA-Pose_Uncertainty-Aware_6D_Object_Pose_Estimation_and_Online_Object_Completion_CVPR_2025_paper.html">PDF</a>
+								<a class="btn btn-primary btn-outline btn-xs " href="https://minfenli.github.io/UA-Pose/">Code</a>
+								<a class="btn btn-primary btn-outline btn-xs" onclick="var div = document.getElementById('CanvasAsContext_bib_publication'); if (div.style.display !== 'none') {div.style.display = 'none';} else {div.style.display = 'block';}">BibTeX</a>
+<pre id="CanvasAsContext_abstract_publication", style="display:none">
+<!-- In creative workflows, designers compile a collection (or “moodboard”) of inspirational assets for ideation. They may use this as reference for finding additional assets. In this work, we aim to stimulate creative ideation by making suggestions that take cues from the designer’s moodboard but also carefully diverge from it. A collection of images may have rich information along different axes (e.g. color, composition, or style) – these axes or channels can be used to model relevance or divergence of any image from a query collection. So, we develop a self-supervised model that can extract channel-specific representations from collections of images. We propose a search algorithm that uses these representations to obtain results that satisfy the collection’s intent along some channels but diverge from the query along others. We show that this allows for effective exploration of the creative space of possibilities. Finally, we demonstrate a mix-and-match visual querying mechanism that allows us to combine channels from different collections of inspirational content, thus facilitating ease in creative expression. -->
+6D object pose estimation has shown strong generalizability to novel objects. However, existing methods often require either a complete, well-reconstructed 3D model or numerous reference images that fully cover the object. Estimating 6D poses from partial references, which capture only fragments of an object's appearance and geometry, remains challenging. To address this, we propose UA-Pose, an uncertainty-aware approach for 6D object pose estimation and online object completion specifically designed for partial references. We assume access to either (1) a limited set of RGBD images with known poses or (2) a single 2D image. For the first case, we initialize a partial object 3D model based on the provided images and poses, while for the second, we use image-to-3D techniques to generate an initial object 3D model. Our method integrates uncertainty into the incomplete 3D model, distinguishing between seen and unseen regions. This uncertainty enables confidence assessment in pose estimation and guides an uncertainty-aware sampling strategy for online object completion, enhancing robustness in pose estimation accuracy and improving object completeness. We evaluate our method on the YCB-Video, YCBInEOAT, and HO3D datasets, including RGBD sequences of YCB objects manipulated by robots and human hands. Experimental results demonstrate significant performance improvements over existing methods, particularly when object observations are incomplete or partially captured.
+<pre id="CanvasAsContext_bib_publication", style="display:none">
+	@inproceedings{li2025ua,
+  title={UA-Pose: Uncertainty-aware 6D object pose estimation and online object completion with partial references},
+  author={Li, Ming-Feng and Yang, Xin and Wang, Fu-En and Basak, Hritam and Sun, Yuyin and Gayaka, Shreekant and Sun, Min and Kuo, Cheng-Hao},
+  booktitle={Proceedings of the Computer Vision and Pattern Recognition Conference},
+  pages={1180--1189},
+  year={2025}
+}
+</pre>
+							</p>
+						</div>
+					</li>
+				</div>
+			</div>
 
 			
 			<h2 class="year">2024</h2>
