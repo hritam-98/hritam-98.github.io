@@ -152,27 +152,6 @@
 		.collapsible-content > div, .collapsible-content > pre {
 			padding: 1rem;
 		}
-
-		/* Gemini Modal Styles */
-		.gemini-modal-overlay { transition: opacity 0.3s ease; }
-		.gemini-modal-container { transition: transform 0.3s ease, opacity 0.3s ease; }
-		.chat-bubble { max-width: 80%; }
-		.chat-bubble-user { background-color: #e5e1d8; }
-		.chat-bubble-gemini { background-color: #f0ebe4; }
-
-		.loader {
-			border: 4px solid #f3f3f3;
-			border-top: 4px solid var(--accent-color);
-			border-radius: 50%;
-			width: 24px;
-			height: 24px;
-			animation: spin 1s linear infinite;
-		}
-
-		@keyframes spin {
-			0% { transform: rotate(0deg); }
-			100% { transform: rotate(360deg); }
-		}
 	</style>
 
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-GZEW5QH8Y5"></script>
@@ -300,38 +279,7 @@
 		</div>
 	</footer>
 
-	<div id="gemini-modal" class="hidden fixed inset-0 z-50">
-		<div id="gemini-modal-overlay" class="gemini-modal-overlay absolute inset-0 bg-black bg-opacity-50"></div>
-		<div id="gemini-modal-container" class="gemini-modal-container relative w-full max-w-2xl bg-white rounded-lg shadow-xl mx-auto mt-16 transform -translate-y-8 opacity-0">
-			<div class="p-6 border-b" style="border-color: var(--border-color);">
-				<div class="flex justify-between items-center">
-					<h3 class="text-2xl">Ask About This Paper</h3>
-					<button id="close-gemini-modal" class="text-slate-500 hover:text-slate-800 text-3xl leading-none">&times;</button>
-				</div>
-				<p id="gemini-paper-title" class="text-sm text-slate-500 mt-1"></p>
-			</div>
-			<div id="gemini-chat-window" class="p-6 h-96 overflow-y-auto space-y-4"></div>
-			<div class="p-6 border-t" style="border-color: var(--border-color);">
-				<div id="gemini-loading" class="hidden items-center mb-2">
-					<div class="loader"></div>
-					<p class="ml-3 text-sm text-slate-500">Gemini is thinking...</p>
-				</div>
-				<form id="gemini-chat-form" class="flex items-center space-x-3">
-					<input id="gemini-chat-input" type="text" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2" style="border-color: var(--border-color); --tw-ring-color: var(--accent-color);" placeholder="e.g., Explain this in simpler terms...">
-					<button type="submit" class="accent-button text-white px-5 py-2 rounded-md transition-colors font-semibold">Send</button>
-				</form>
-			</div>
-		</div>
-	</div>
-
 	<script>
-		// =================================================================================
-		// IMPORTANT: ADD YOUR GOOGLE AI API KEY HERE
-		// =================================================================================
-		// You can get a key from https://aistudio.google.com/
-		const API_KEY = AIzaSyBV3q8P8N-EcPbXhJLx_FDLHaj_4AkXwFQ;
-		// =================================================================================
-
 		const publicationsData = {
 			"2025": [
 				{ id: 'iros25', conference: 'IROS 2025', title: 'Enhancing Single Image to 3D Generation using Gaussian Splatting and Hybrid Diffusion Priors', authors: ['Hritam Basak', 'Hadi Tabatabaee', 'Shreekant Gayaka', 'Ming-Feng Li', 'Xin Yang', 'Cheng-Hao Kuo', 'Arnie Sen', 'Min Sun', 'Zhaozheng Yin'], image: 'https://hritam-98.github.io/img/Publications/iros-25.png', links: { pdf: 'https://arxiv.org/abs/2410.09467' }, abstract: '3D object generation from a single unposed RGB image is essential for robotic perception... Our approach achieves state-of-the-art 3D reconstruction quality, significantly improving robotic perception pipelines.', bibtex: `@inproceedings{basak2025enhancing, title={Enhancing Single Image to 3D Generation...}, author={Basak, Hritam and ...}, booktitle={IROS}, year={2025}}`}, 
@@ -401,9 +349,6 @@
 									<button class="accent-link toggle-detail-btn" data-target="#${paper.id}-abstract">Abstract</button>
 									<span class="text-slate-300">|</span>
 									<button class="accent-link toggle-detail-btn" data-target="#${paper.id}-bib">BibTeX</button>
-									<button class="ml-auto accent-button text-white px-3 py-1 rounded-md text-xs font-semibold transition-colors open-gemini-btn" data-paper-id="${paper.id}">
-										<i class="fa-solid fa-wand-magic-sparkles mr-1"></i> Ask About Paper
-									</button>
 								</div>
 								<div id="${paper.id}-abstract" class="collapsible-content mt-4 text-sm text-slate-600">
 									<div>${paper.abstract}</div>
@@ -429,20 +374,7 @@
 				if (e.target.matches('.toggle-detail-btn')) {
 					toggleDetail(e.target);
 				}
-				if (e.target.matches('.open-gemini-btn')) {
-					openGeminiModal(e.target.dataset.paperId);
-				}
 			});
-			
-			// Gemini Modal
-			const geminiModal = document.getElementById('gemini-modal');
-			const closeGeminiBtn = document.getElementById('close-gemini-modal');
-			const geminiOverlay = document.getElementById('gemini-modal-overlay');
-			const geminiForm = document.getElementById('gemini-chat-form');
-
-			closeGeminiBtn.addEventListener('click', closeGeminiModal);
-			geminiOverlay.addEventListener('click', closeGeminiModal);
-			geminiForm.addEventListener('submit', handleGeminiChatSubmit);
 		}
 		
 		function initializeAnimations() {
@@ -504,130 +436,6 @@
 				}
 			}
 			type();
-		}
-
-		// --- Gemini Modal Logic ---
-		const geminiModal = document.getElementById('gemini-modal');
-		const geminiModalOverlay = document.getElementById('gemini-modal-overlay');
-		const geminiModalContainer = document.getElementById('gemini-modal-container');
-		const geminiPaperTitle = document.getElementById('gemini-paper-title');
-		const geminiChatWindow = document.getElementById('gemini-chat-window');
-		const geminiChatInput = document.getElementById('gemini-chat-input');
-		const geminiLoading = document.getElementById('gemini-loading');
-		let currentPaperId = null;
-
-		function findPaperById(id) {
-			for (const year in publicationsData) {
-				const paper = publicationsData[year].find(p => p.id === id);
-				if (paper) return paper;
-			}
-			return null;
-		}
-
-		function openGeminiModal(paperId) {
-			currentPaperId = paperId;
-			const paper = findPaperById(paperId);
-			if (!paper) return;
-
-			geminiPaperTitle.textContent = paper.title;
-			geminiChatWindow.innerHTML = '<div class="flex justify-start"><div class="chat-bubble chat-bubble-gemini p-3 rounded-lg">Hello! Ask me anything about this paper, like summarizing the abstract or explaining its main contribution.</div></div>';
-			
-			// Check for API key
-			if (!API_KEY || API_KEY === AIzaSyBV3q8P8N-EcPbXhJLx_FDLHaj_4AkXwFQ) {
-				addMessageToChat("Error: API key is not configured. Please add your key to the script.", 'gemini');
-				geminiChatInput.disabled = true;
-				geminiChatInput.placeholder = "API key missing...";
-				geminiModal.querySelector('button[type="submit"]').disabled = true;
-			} else {
-				geminiChatInput.disabled = false;
-				geminiChatInput.placeholder = "e.g., Explain this in simpler terms...";
-				geminiModal.querySelector('button[type="submit"]').disabled = false;
-			}
-			
-			geminiModal.classList.remove('hidden');
-			setTimeout(() => {
-				geminiModalOverlay.classList.remove('opacity-0');
-				geminiModalContainer.classList.remove('-translate-y-8', 'opacity-0');
-			}, 10);
-		}
-
-		function closeGeminiModal() {
-			geminiModalOverlay.classList.add('opacity-0');
-			geminiModalContainer.classList.add('-translate-y-8', 'opacity-0');
-			setTimeout(() => geminiModal.classList.add('hidden'), 300);
-		}
-
-		async function handleGeminiChatSubmit(e) {
-			e.preventDefault();
-			const userInput = geminiChatInput.value.trim();
-			if (!userInput || !currentPaperId) return;
-
-			addMessageToChat(userInput, 'user');
-			geminiChatInput.value = '';
-			geminiLoading.classList.remove('hidden');
-			geminiLoading.classList.add('flex');
-
-			try {
-				const paper = findPaperById(currentPaperId);
-				const prompt = `Based on the following paper's title and abstract, please answer the user's question concisely and helpfully.\n\n---\nTITLE: "${paper.title}"\nABSTRACT: "${paper.abstract}"\n---\n\nUSER QUESTION: "${userInput}"`;
-				
-				const geminiResponse = await callGeminiAPI(prompt);
-				addMessageToChat(geminiResponse, 'gemini');
-			} catch (error) {
-				console.error("Gemini API call failed:", error);
-				addMessageToChat(`Sorry, I encountered an error: ${error.message}. Please check the console for details.`, 'gemini');
-			} finally {
-				geminiLoading.classList.add('hidden');
-				geminiLoading.classList.remove('flex');
-			}
-		}
-
-		function addMessageToChat(text, sender) {
-			const msgDiv = document.createElement('div');
-			const bubbleDiv = document.createElement('div');
-			msgDiv.className = `flex ${sender === 'user' ? 'justify-end' : 'justify-start'}`;
-			bubbleDiv.className = `chat-bubble p-3 rounded-lg ${sender === 'user' ? 'chat-bubble-user' : 'chat-bubble-gemini'}`;
-			bubbleDiv.textContent = text;
-			msgDiv.appendChild(bubbleDiv);
-			geminiChatWindow.appendChild(msgDiv);
-			geminiChatWindow.scrollTop = geminiChatWindow.scrollHeight;
-		}
-
-		async function callGeminiAPI(prompt) {
-			if (!API_KEY || API_KEY === 'YOUR_GOOGLE_AI_API_KEY_HERE') {
-				throw new Error("Google AI API key is not configured.");
-			}
-			
-			const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${API_KEY}`;
-			const payload = {
-				contents: [{ parts: [{ text: prompt }] }],
-				generationConfig: {
-					temperature: 0.7,
-					topP: 1.0,
-					maxOutputTokens: 512,
-				}
-			};
-
-			const response = await fetch(apiUrl, {
-				method: 'POST',
-				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify(payload)
-			});
-
-			if (!response.ok) {
-				const errorBody = await response.json();
-				const errorMessage = errorBody.error?.message || `HTTP error! Status: ${response.status}`;
-				throw new Error(errorMessage);
-			}
-
-			const result = await response.json();
-			
-			if (result.candidates?.[0]?.content.parts?.[0]?.text) {
-				return result.candidates[0].content.parts[0].text;
-			} else {
-				// This handles cases where the model returns a response with safety blocks, etc.
-				return "I'm sorry, I couldn't generate a response for that request. The reason might be related to safety settings or an empty response from the model.";
-			}
 		}
 	</script>
 </body>
