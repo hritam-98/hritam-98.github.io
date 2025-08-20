@@ -2,8 +2,8 @@
 <html lang="en-us" class="scroll-smooth">
 
 <head>
-	<meta charset="utf-t">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="author" content="Hritam Basak">
 	<title>Hritam Basak | Academic Portfolio</title>
@@ -12,16 +12,12 @@
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link
-		href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Source+Sans+3:wght@400;600;700&display=swap"
-		rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-<!-- 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> -->
+	<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 
-	<link rel="icon" type="image/png" href="https://hritam-98.github.io/img/About/dp-new.jpg"
-		onerror="this.onerror=null;this.src='https://placehold.co/32x32/e2e8f0/334155?text=HB';">
+	<link rel="icon" type="image/png" href="https://hritam-98.github.io/img/About/dp-new.jpg" onerror="this.onerror=null;this.src='https://placehold.co/32x32/e2e8f0/334155?text=HB';">
 
 	<style>
 		:root {
@@ -39,12 +35,7 @@
 			color: var(--text-color);
 		}
 
-		h1,
-		h2,
-		h3,
-		h4,
-		h5,
-		h6 {
+		h1, h2, h3, h4, h5, h6 {
 			font-family: 'Lora', serif;
 			color: var(--heading-color);
 			font-weight: 600;
@@ -92,6 +83,11 @@
 		.accent-button:hover {
 			background-color: var(--accent-hover);
 		}
+		
+		.accent-button:disabled {
+			background-color: #cccccc;
+			cursor: not-allowed;
+		}
 
 		.fade-in-section {
 			opacity: 0;
@@ -104,12 +100,10 @@
 			transform: translateY(0);
 		}
 
-		/* Animated Gradient Background for Hero */
 		.hero-animated-bg {
 			position: relative;
 			overflow: hidden;
 			background-color: #f7f5f1;
-			/* Fallback */
 		}
 
 		.hero-animated-bg::before {
@@ -125,16 +119,10 @@
 		}
 
 		@keyframes rotate-gradient {
-			from {
-				transform: translate(-50%, -50%) rotate(0deg);
-			}
-
-			to {
-				transform: translate(-50%, -50%) rotate(360deg);
-			}
+			from { transform: translate(-50%, -50%) rotate(0deg); }
+			to { transform: translate(-50%, -50%) rotate(360deg); }
 		}
 
-		/* Typing animation */
 		.typewriter-cursor {
 			display: inline-block;
 			width: 2px;
@@ -143,37 +131,34 @@
 		}
 
 		@keyframes blink {
-
-			0%,
-			100% {
-				opacity: 1;
-			}
-
-			50% {
-				opacity: 0;
-			}
+			0%, 100% { opacity: 1; }
+			50% { opacity: 0; }
 		}
 
-		/* Gemini Chat Modal Styles */
-		.gemini-modal-overlay {
-			transition: opacity 0.3s ease;
+		/* Collapsible content for Abstract/BibTeX */
+		.collapsible-content {
+			max-height: 0;
+			overflow: hidden;
+			transition: max-height 0.5s ease-in-out;
+			background-color: #f8f9fa;
+			border: 1px solid var(--border-color);
+			border-radius: 0.375rem;
+		}
+		
+		.collapsible-content.is-expanded {
+			max-height: 500px; /* Adjust if abstracts are very long */
+		}
+		
+		.collapsible-content > div, .collapsible-content > pre {
+			padding: 1rem;
 		}
 
-		.gemini-modal-container {
-			transition: transform 0.3s ease, opacity 0.3s ease;
-		}
-
-		.chat-bubble {
-			max-width: 80%;
-		}
-
-		.chat-bubble-user {
-			background-color: #e5e1d8;
-		}
-
-		.chat-bubble-gemini {
-			background-color: #f0ebe4;
-		}
+		/* Gemini Modal Styles */
+		.gemini-modal-overlay { transition: opacity 0.3s ease; }
+		.gemini-modal-container { transition: transform 0.3s ease, opacity 0.3s ease; }
+		.chat-bubble { max-width: 80%; }
+		.chat-bubble-user { background-color: #e5e1d8; }
+		.chat-bubble-gemini { background-color: #f0ebe4; }
 
 		.loader {
 			border: 4px solid #f3f3f3;
@@ -185,13 +170,8 @@
 		}
 
 		@keyframes spin {
-			0% {
-				transform: rotate(0deg);
-			}
-
-			100% {
-				transform: rotate(360deg);
-			}
+			0% { transform: rotate(0deg); }
+			100% { transform: rotate(360deg); }
 		}
 	</style>
 
@@ -213,23 +193,19 @@
 				<a href="#bio" class="text-slate-600 hover:text-amber-700 transition-colors">Home</a>
 				<a href="#updates" class="text-slate-600 hover:text-amber-700 transition-colors">Updates</a>
 				<a href="#publications" class="text-slate-600 hover:text-amber-700 transition-colors">Publications</a>
-				<a href="https://raw.githubusercontent.com/hritam-98/hritam-98.github.io/main/ResumeCV/2page/Hritam-Resume-Aug25.pdf"
-					download="Hritam-Resume-Aug25.pdf"
-					class="accent-button text-white px-4 py-2 rounded-md transition-colors text-sm font-medium">
+				<a href="https://raw.githubusercontent.com/hritam-98/hritam-98.github.io/main/ResumeCV/2page/Hritam-Resume-Aug25.pdf" download="Hritam-Basak-CV.pdf" class="accent-button text-white px-4 py-2 rounded-md transition-colors text-sm font-medium">
 					Download CV <i class="ai ai-cv ml-1"></i>
 				</a>
 			</div>
 			<button id="mobile-menu-button" class="md:hidden text-slate-700">
-				<i class="fas fa-bars fa-lg"></i>
+				<i class="fa-solid fa-bars fa-lg"></i>
 			</button>
 		</nav>
 		<div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
 			<a href="#bio" class="block text-slate-600 hover:text-amber-700 transition-colors">Home</a>
 			<a href="#updates" class="block text-slate-600 hover:text-amber-700 transition-colors">Updates</a>
 			<a href="#publications" class="block text-slate-600 hover:text-amber-700 transition-colors">Publications</a>
-			<a href="https://raw.githubusercontent.com/hritam-98/hritam-98.github.io/main/ResumeCV/2page/Hritam-Resume-Aug25.pdf"
-				download="Hritam-Resume-Aug25.pdf"
-				class="block accent-button text-white px-4 py-2 rounded-md transition-colors text-sm font-medium mt-2 text-center">
+			<a href="https://raw.githubusercontent.com/hritam-98/hritam-98.github.io/main/ResumeCV/2page/Hritam-Resume-Aug25.pdf" download="Hritam-Basak-CV.pdf" class="block accent-button text-white px-4 py-2 rounded-md transition-colors text-sm font-medium mt-2 text-center">
 				Download CV <i class="ai ai-cv ml-1"></i>
 			</a>
 		</div>
@@ -239,50 +215,25 @@
 		<section id="bio" class="fade-in-section hero-animated-bg rounded-lg my-12 py-16 px-6">
 			<div class="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
 				<div class="md:col-span-1 flex flex-col items-center text-center">
-					<img class="w-48 h-48 rounded-full object-cover shadow-lg mb-4"
-						src="https://hritam-98.github.io/img/About/dp-new.jpg" alt="Portrait of Hritam Basak"
-						onerror="this.onerror=null;this.src='https://placehold.co/192x192/e2e8f0/334155?text=HB';">
+					<img class="w-48 h-48 rounded-full object-cover shadow-lg mb-4" src="https://hritam-98.github.io/img/About/dp-new.jpg" alt="Portrait of Hritam Basak" onerror="this.onerror=null;this.src='https://placehold.co/192x192/e2e8f0/334155?text=HB';">
 					<h2 id="typewriter-name" class="text-3xl h-10"></h2>
 					<p class="text-slate-500 mt-1">Ph.D. Candidate</p>
 					<p class="text-slate-600 font-medium">Stony Brook University</p>
-					<p id="email-display" class="text-sm text-slate-500 mt-2 cursor-pointer"
-						onmouseover="revealEmail()">h...k@cs.stonybrook.edu</p>
+					<p id="email-display" class="text-sm text-slate-500 mt-2 cursor-pointer" onmouseover="revealEmail(this)">h...k@cs.stonybrook.edu</p>
 					<div class="flex space-x-5 mt-6">
-						<a href="mailto:hbasak@cs.stonybrook.edu"
-							class="text-slate-500 hover:text-amber-700 transition-colors text-2xl"><i
-								class="fa fa-envelope"></i></a>
-						<a href="https://scholar.google.com/citations?user=29wTOh4AAAAJ&hl=en"
-							class="text-slate-500 hover:text-amber-700 transition-colors text-2xl"><i
-								class="ai ai-google-scholar"></i></a>
-						<a href="https://github.com/hritam-98"
-							class="text-slate-500 hover:text-amber-700 transition-colors text-2xl"><i
-								class="fa fa-github"></i></a>
-						<a href="https://www.linkedin.com/in/hritam-basak-a66114166/"
-							class="text-slate-500 hover:text-amber-700 transition-colors text-2xl"><i
-								class="fa fa-linkedin-square"></i></a>
+						<a href="mailto:hbasak@cs.stonybrook.edu" class="text-slate-500 hover:text-amber-700 transition-colors text-2xl"><i class="fa-solid fa-envelope"></i></a>
+						<a href="https://scholar.google.com/citations?user=29wTOh4AAAAJ&hl=en" class="text-slate-500 hover:text-amber-700 transition-colors text-2xl"><i class="ai ai-google-scholar"></i></a>
+						<a href="https://github.com/hritam-98" class="text-slate-500 hover:text-amber-700 transition-colors text-2xl"><i class="fa-brands fa-github"></i></a>
+						<a href="https://www.linkedin.com/in/hritam-basak-a66114166/" class="text-slate-500 hover:text-amber-700 transition-colors text-2xl"><i class="fa-brands fa-linkedin"></i></a>
 					</div>
 				</div>
 				<div class="md:col-span-2">
 					<h1 class="text-4xl mb-6 section-heading">Biography</h1>
 					<div class="space-y-4 text-lg leading-relaxed">
-						<p>I am a 3<sup>rd</sup> Year Ph.D. in Computer Science at <a href="https://www.stonybrook.edu/"
-								class="accent-link">Stony Brook University</a>, specializing in Computer Vision and Deep
-							Learning. I am currently a Research Assistant advised by <a
-								href="https://www3.cs.stonybrook.edu/~zyin/index.htm" class="accent-link">Prof.
-								Zhaozheng Yin</a>.</p>
-						<p>My research interests include <b>3D Vision & Robotics</b>, <b>Self-supervised Learning</b>,
-							<b>Generative AI</b>, and <b>Multimodal Learning (Vision + X)</b>. I also
-							apply machine learning to <b>Medical Image Analysis</b> <i class='fa fa-heartbeat'
-								style='color:#d9534f'></i>.</p>
-						<p>I have spent two wonderful summers in <a href="https://www.lab126.com/" class="accent-link" target="_blank">Amazon Lab126</a>, 
-							solving perception and manipulation 
-							problems in embodied AI, working on single image to 3D generation, language-guided 
-							affordance estimation, 6-DoF pose estimation & tracking, view-point translation, to make robots smarter and more adaptable.
-    <i class="fa fa-robot" style="color:#ff9900; margin-left: 8px;" aria-hidden="true"></i></p>
-						<p>Previously, I was a Data Scientist at <a href="https://www.tata.com/tatadigital"
-								class="accent-link">Tata Digital</a>, where I developed a visual search engine for
-							fashion apparel. I earned my Bachelor's degree in Electrical Engineering from <a
-								href="http://www.jaduniv.edu.in/" class="accent-link">Jadavpur University</a>.</p>
+						<p>I am a 3<sup>rd</sup> Year Ph.D. in Computer Science at <a href="https://www.stonybrook.edu/" class="accent-link">Stony Brook University</a>, specializing in Computer Vision and Deep Learning. I am currently a Research Assistant advised by <a href="https://www3.cs.stonybrook.edu/~zyin/index.htm" class="accent-link">Prof. Zhaozheng Yin</a>.</p>
+						<p>My research interests include <b>3D Vision & Robotics</b>, <b>Self-supervised Learning</b>, <b>Generative AI</b>, and <b>Multimodal Learning (Vision + X)</b>. I also apply machine learning to <b>Medical Image Analysis</b> <i class='fa-solid fa-heart-pulse' style='color:#d9534f'></i>.</p>
+						<p>I have spent two wonderful summers in <a href="https://www.lab126.com/" class="accent-link" target="_blank">Amazon Lab126</a>, solving perception and manipulation problems in embodied AI, working on single image to 3D generation, language-guided affordance estimation, 6-DoF pose estimation & tracking, and view-point translation to make robots smarter and more adaptable. <i class="fa-solid fa-robot" style="color:#ff9900;"></i></p>
+						<p>Previously, I was a Data Scientist at <a href="https://www.tata.com/tatadigital" class="accent-link">Tata Digital</a>, where I developed a visual search engine for fashion apparel. I earned my Bachelor's degree in Electrical Engineering from <a href="http://www.jaduniv.edu.in/" class="accent-link">Jadavpur University</a>.</p>
 					</div>
 				</div>
 			</div>
@@ -290,34 +241,17 @@
 
 		<section id="updates" class="mb-24 fade-in-section">
 			<h2 class="text-4xl text-center mb-12 section-heading">Recent Updates</h2>
-			<div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-md border"
-				style="border-color: var(--border-color);">
+			<div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-md border" style="border-color: var(--border-color);">
 				<div class="max-h-80 overflow-y-auto pr-4">
 					<ul class="space-y-4">
-						<li class="update-item"><strong class="font-semibold" style="color: var(--accent-color);">[June
-								2025]</strong> Our "D4Recon" paper was accepted to <strong>MICCAI 2025</strong> and
-							"PRISM" was accepted to <strong>IROS 2025</strong>!</li>
-						<li class="update-item"><strong class="font-semibold" style="color: var(--accent-color);">[May
-								2025]</strong> I completed a successful summer internship at <a
-								href='https://www.amazon.science/research-areas/robotics' class="accent-link">Amazon
-								Robotics</a>.</li>
-						<li class="update-item"><strong class="font-semibold" style="color: var(--accent-color);">[May
-								2025]</strong> Honored to be recognized as an <a href="#"
-								class="accent-link">Outstanding Reviewer</a> at CVPR 2025.</li>
-						<li class="update-item"><strong class="font-semibold" style="color: var(--accent-color);">[Feb
-								2025]</strong> Two papers, "SemiDAViL" and "UA-Pose," were accepted at <strong>CVPR
-								2025</strong>!</li>
-						<li class="update-item"><strong class="font-semibold" style="color: var(--accent-color);">[Nov
-								2024]</strong> Received the IEEE SPS Scholarship for the second consecutive year.</li>
-						<li class="update-item"><strong class="font-semibold" style="color: var(--accent-color);">[Sep
-								2024]</strong> Thrilled to receive the <strong>MICCAI NIH Travel Award</strong> and the
-							<strong>ECCV DEI Award</strong>.</li>
-						<li class="update-item"><strong class="font-semibold" style="color: var(--accent-color);">[July
-								2024]</strong> Our paper "Forget More to Learn More" was accepted at <strong>ECCV
-								2024</strong>.</li>
-						<li class="update-item"><strong class="font-semibold" style="color: var(--accent-color);">[June
-								2024]</strong> Our "Quest for Clone" paper was accepted at <strong>MICCAI 2024</strong>.
-						</li>
+						<li class="update-item"><strong class="font-semibold" style="color: var(--accent-color);">[June 2025]</strong> Our "D4Recon" paper was accepted to <strong>MICCAI 2025</strong> and "PRISM" was accepted to <strong>IROS 2025</strong>!</li>
+						<li class="update-item"><strong class="font-semibold" style="color: var(--accent-color);">[May 2025]</strong> I completed a successful summer internship at <a href='https://www.amazon.science/research-areas/robotics' class="accent-link">Amazon Robotics</a>.</li>
+						<li class="update-item"><strong class="font-semibold" style="color: var(--accent-color);">[May 2025]</strong> Honored to be recognized as an <a href="#" class="accent-link">Outstanding Reviewer</a> at CVPR 2025.</li>
+						<li class="update-item"><strong class="font-semibold" style="color: var(--accent-color);">[Feb 2025]</strong> Two papers, "SemiDAViL" and "UA-Pose," were accepted at <strong>CVPR 2025</strong>!</li>
+						<li class="update-item"><strong class="font-semibold" style="color: var(--accent-color);">[Nov 2024]</strong> Received the IEEE SPS Scholarship for the second consecutive year.</li>
+						<li class="update-item"><strong class="font-semibold" style="color: var(--accent-color);">[Sep 2024]</strong> Thrilled to receive the <strong>MICCAI NIH Travel Award</strong> and the <strong>ECCV DEI Award</strong>.</li>
+						<li class="update-item"><strong class="font-semibold" style="color: var(--accent-color);">[July 2024]</strong> Our paper "Forget More to Learn More" was accepted at <strong>ECCV 2024</strong>.</li>
+						<li class="update-item"><strong class="font-semibold" style="color: var(--accent-color);">[June 2024]</strong> Our "Quest for Clone" paper was accepted at <strong>MICCAI 2024</strong>.</li>
 					</ul>
 				</div>
 			</div>
@@ -328,7 +262,7 @@
 			<div id="publications-list" class="space-y-12"></div>
 		</section>
 
-		<section id="services" class="fade-in-section">
+		<section id="services" class="fade-in-section mb-24">
 			<h2 class="text-4xl text-center mb-12 section-heading">Academic Services</h2>
 			<div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
 				<div class="bg-white p-6 rounded-lg shadow-md border" style="border-color: var(--border-color);">
@@ -346,7 +280,6 @@
 					<ul class="list-disc list-inside space-y-2">
 						<li>IEEE TPAMI, TNNLS, TIP, TCSVT, TMI</li>
 						<li>Elsevier MedIA, Pattern Recognition</li>
-						<!-- <li>IEEE TCSVT</li> -->
 						<li>Nature</li>
 						<li>Intl. Journal of Computer Vision (IJCV)</li>
 					</ul>
@@ -355,33 +288,25 @@
 		</section>
 	</main>
 
-	<footer class="bg-slate-800 text-slate-400 mt-24">
+	<footer class="bg-slate-800 text-slate-400">
 		<div class="container mx-auto px-6 py-8 text-center">
 			<div class="flex justify-center mb-6">
-				<a href="https://info.flagcounter.com/q0IF"><img
-						src="https://s01.flagcounter.com/countxl/q0IF/bg_1A1A1A/txt_CCCCCC/border_3A3A3A/columns_3/maxflags_12/viewers_0/labels_1/pageviews_1/flags_0/percent_0/"
-						alt="Flag Counter" border="0"></a>
-<!-- 				<script type="text/javascript" id="mmvst_globe" src="//mapmyvisitors.com/globe.js?d=tRVa_30eUqS6yhnC7mY7aa5DLfLak1uNmbv6tWHccAc"></script> -->
+				<a href="https://info.flagcounter.com/q0IF"><img src="https://s01.flagcounter.com/countxl/q0IF/bg_1A1A1A/txt_CCCCCC/border_3A3A3A/columns_3/maxflags_12/viewers_0/labels_1/pageviews_1/flags_0/percent_0/" alt="Flag Counter" border="0"></a>
 			</div>
 			<p>&copy; 2025 Hritam Basak. All Rights Reserved.</p>
 			<p id="last-updated" class="text-xs mt-1"></p>
-			<p class="text-xs mt-2">Design inspired by the <a href="https://github.com/gcushen/hugo-academic"
-					target="_blank" class="hover:text-white">Academic theme</a>. Styled with Tailwind CSS.</p>
-			<a href="#" id="back_to_top" class="inline-block mt-6 text-slate-400 hover:text-white transition-colors"><i
-					class="fa fa-chevron-up fa-lg"></i><span class="ml-2">Back to Top</span></a>
+			<p class="text-xs mt-2">Design inspired by the <a href="https://github.com/gcushen/hugo-academic" target="_blank" class="hover:text-white">Academic theme</a>. Styled with Tailwind CSS.</p>
+			<a href="#" id="back_to_top" class="inline-block mt-6 text-slate-400 hover:text-white transition-colors"><i class="fa-solid fa-chevron-up fa-lg"></i><span class="ml-2">Back to Top</span></a>
 		</div>
 	</footer>
 
-	<!-- Gemini Chat Modal -->
 	<div id="gemini-modal" class="hidden fixed inset-0 z-50">
 		<div id="gemini-modal-overlay" class="gemini-modal-overlay absolute inset-0 bg-black bg-opacity-50"></div>
-		<div id="gemini-modal-container"
-			class="gemini-modal-container relative w-full max-w-2xl bg-white rounded-lg shadow-xl mx-auto mt-16 transform -translate-y-8 opacity-0">
+		<div id="gemini-modal-container" class="gemini-modal-container relative w-full max-w-2xl bg-white rounded-lg shadow-xl mx-auto mt-16 transform -translate-y-8 opacity-0">
 			<div class="p-6 border-b" style="border-color: var(--border-color);">
 				<div class="flex justify-between items-center">
 					<h3 class="text-2xl">Ask About This Paper</h3>
-					<button id="close-gemini-modal"
-						class="text-slate-500 hover:text-slate-800 text-3xl leading-none">&times;</button>
+					<button id="close-gemini-modal" class="text-slate-500 hover:text-slate-800 text-3xl leading-none">&times;</button>
 				</div>
 				<p id="gemini-paper-title" class="text-sm text-slate-500 mt-1"></p>
 			</div>
@@ -392,189 +317,175 @@
 					<p class="ml-3 text-sm text-slate-500">Gemini is thinking...</p>
 				</div>
 				<form id="gemini-chat-form" class="flex items-center space-x-3">
-					<input id="gemini-chat-input" type="text"
-						class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2"
-						style="border-color: var(--border-color); --tw-ring-color: var(--accent-color);"
-						placeholder="e.g., Explain this in simpler terms...">
-					<button type="submit"
-						class="accent-button text-white px-5 py-2 rounded-md transition-colors font-semibold">Send</button>
+					<input id="gemini-chat-input" type="text" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2" style="border-color: var(--border-color); --tw-ring-color: var(--accent-color);" placeholder="e.g., Explain this in simpler terms...">
+					<button type="submit" class="accent-button text-white px-5 py-2 rounded-md transition-colors font-semibold">Send</button>
 				</form>
 			</div>
 		</div>
 	</div>
 
 	<script>
+		// =================================================================================
+		// IMPORTANT: ADD YOUR GOOGLE AI API KEY HERE
+		// =================================================================================
+		// You can get a key from https://aistudio.google.com/
+		const API_KEY = 'AIzaSyBV3q8P8N-EcPbXhJLx_FDLHaj_4AkXwFQ';
+		// =================================================================================
+
 		const publicationsData = {
-			"2025": [{
-				id: 'iros25', conference: 'IROS 2025', title: 'Enhancing Single Image to 3D Generation using Gaussian Splatting and Hybrid Diffusion Priors', authors: ['Hritam Basak', 'Hadi Tabatabaee', 'Shreekant Gayaka', 'Ming-Feng Li', 'Xin Yang', 'Cheng-Hao Kuo', 'Arnie Sen', 'Min Sun', 'Zhaozheng Yin'], image: 'https://hritam-98.github.io/img/Publications/iros-25.png', links: { pdf: 'https://arxiv.org/abs/2410.09467' }, abstract: '3D object generation from a single unposed RGB image is essential for robotic perception... Our approach achieves state-of-the-art 3D reconstruction quality, significantly improving robotic perception pipelines.', bibtex: `@inproceedings{basak2025enhancing,
-  title     = {Enhancing Single Image to 3D Generation...},
-  author    = {Basak, Hritam and ...},
-  booktitle = {IROS},
-  year      = {2025}}`}, {
-				id: 'miccai25', conference: 'MICCAI 2025', title: 'D4Recon: Dual-stage Deformation and Dual-scale Depth Guidance for Endoscopic Reconstruction', authors: ['Hritam Basak', 'Zhaozheng Yin'], image: 'https://hritam-98.github.io/img/Publications/overall-miccai25.png', links: { code: 'https://github.com/hritam-98/D4Recon' }, abstract: 'Deformable tissue reconstruction in endoscopy is vital for surgery... D4Recon achieves superior geometric coherence and photorealism with real-time rendering speed, outperforming existing methods.', bibtex: `@inproceedings{basak2025d4recon,
-  title={D4Recon: Dual-stage Deformation...},
-  author={Basak, Hritam and Yin, Zhaozheng},
-  booktitle={MICCAI},
-  year={2025}}`}, {
-				id: 'cvpr25-uapose', conference: 'CVPR 2025', title: 'UA-Pose: Uncertainty-aware 6D Object Pose Estimation and Online Object Completion with Partial References', authors: ['Ming-Feng Li', 'Xin Yang', 'Fu-En Wang', 'Hritam Basak', 'Yuyin Sun', 'Shreekant Gayaka', 'Min Sun', 'Cheng-Hao Kuo'], image: 'https://hritam-98.github.io/img/Publications/UA-pose.png', links: { pdf: 'https://openaccess.thecvf.com/content/CVPR2025/html/Li_UA-Pose_Uncertainty-Aware_6D_Object_Pose_Estimation_and_Online_Object_Completion_CVPR_2025_paper.html', code: 'https://minfenli.github.io/UA-Pose/' }, abstract: 'We propose UA-Pose, an uncertainty-aware approach for 6D object pose estimation... Experimental results demonstrate significant performance improvements.', bibtex: `@inproceedings{li2025ua,
-  title={UA-Pose: Uncertainty-aware 6D object pose estimation...},
-  author={Li, Ming-Feng and ...},
-  booktitle={CVPR},
-  year={2025}}`}, {
-				id: 'cvpr25-semidavil', conference: 'CVPR 2025', title: 'SemiDAViL: Semi-supervised Domain Adaptation with Vision-Language Guidance for Semantic Segmentation', authors: ['Hritam Basak', 'Zhaozheng Yin'], image: 'https://hritam-98.github.io/img/Publications/cvpr-25.png', links: { pdf: 'https://openaccess.thecvf.com/content/CVPR2025/html/Basak_SemiDAViL_Semi-supervised_Domain_Adaptation_with_Vision-Language_Guidance_for_Semantic_Segmentation_CVPR_2025_paper.html', code: 'https://github.com/hritam-98/SemiDAViL' }, abstract: 'We propose the first language-guided SSDA setting for semantic segmentation. We harness the semantic generalization capabilities inherent in vision-language models (VLMs).', bibtex: `@inproceedings{basak2025semidavil,
-  title={SemiDAViL: Semi-supervised Domain Adaptation...},
-  author={Basak, Hritam and Yin, Zhaozheng},
-  booktitle={CVPR},
-  year={2025}}`}],
-			"2024": [{
-				id: 'eccv24', conference: 'ECCV 2024', title: 'Forget More to Learn More: Domain-specific Feature Unlearning for Semi-supervised and Unsupervised Domain Adaptation', authors: ['Hritam Basak', 'Zhaozheng Yin'], image: 'https://hritam-98.github.io/img/Publications/eccv24-overall.png', links: { pdf: 'https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/05513.pdf', code: 'https://github.com/hritam-98/FMLM' }, abstract: 'In pursuit of greater generalizability and robustness, we present an SSDA framework with a new episodic learning strategy: "learn, forget, then learn more".', bibtex: `@inproceedings{basak2024forget,
-  title={Forget More to Learn More...},
-  author={Basak, Hritam and Yin, Zhaozheng},
-  booktitle={ECCV},
-  year={2024}}`}, {
-				id: 'miccai24', conference: 'MICCAI 2024', title: 'Quest for Clone: Test-Time Domain Adaptation for Medical Image Segmentation by Searching the Closest Clone in Latent Space', authors: ['Hritam Basak', 'Zhaozheng Yin'], image: 'https://hritam-98.github.io/img/Publications/overall-miccai24-cropped.png', links: { pdf: 'https://papers.miccai.org/miccai-2024/paper/0297_paper.pdf', code: 'https://github.com/hritam-98/Quest4Clone' }, abstract: 'We propose a generative latent search paradigm to reconstruct the closest clone of every target image from the source latent space... We empirically validate the efficacy of our proposed method.', bibtex: `@inproceedings{basak2024quest,
-  title={Quest for Clone: Test-Time Domain Adaptation...},
-  author={Basak, Hritam and Yin, Zhaozheng},
-  booktitle={MICCAI},
-  year={2024}}`}],
-			"2023": [{
-				id: 'cvpr23', conference: 'CVPR 2023', title: 'Pseudo Label Guided Contrastive Learning for Semi-supervised Medical Image Segmentation', authors: ['Hritam Basak', 'Zhaozheng Yin'], image: 'https://hritam-98.github.io/img/Publications/PLGCL_overall.png', links: { pdf: 'https://openaccess.thecvf.com/content/CVPR2023/papers/Basak_Pseudo-Label_Guided_Contrastive_Learning_for_Semi-Supervised_Medical_Image_Segmentation_CVPR_2023_paper.pdf', code: 'https://github.com/hritam-98/PatchCL-MedSeg' }, abstract: 'We propose a novel semi-supervised patch-based CL framework for medical image segmentation... Experimental analysis reveals the superiority of our proposed method.', bibtex: `@inproceedings{basak2023pseudo,
-  title={Pseudo-Label Guided Contrastive Learning...},
-  author={Basak, Hritam and Yin, Zhaozheng},
-  booktitle={CVPR},
-  year={2023}}`}, {
-				id: 'miccai23', conference: 'MICCAI 2023', title: 'Semi-supervised Domain Adaptive Medical Image Segmentation through Consistency Regularized Disentangled Contrastive Learning', authors: ['Hritam Basak', 'Zhaozheng Yin'], image: 'https://hritam-98.github.io/img/Publications/style-content-miccai23.png', links: { pdf: 'https://link.springer.com/epdf/10.1007/978-3-031-43901-8_25?sharing_token=fKuDPiCxykqg1xU-hoykUPe4RwlQNchNByi7wbcMAY7w2JJtACqQoRPL8LPCRrDOiMd-AD9rORop3ByrXn6ukE75nsnha3KyvBjGQlQg0gauqN36z02fIyGmGiezSJ1c3L9qrlBv2ENrLhqXcJo9rNyy-MwnAm1bjp34Osxh_O4%3D', code: 'https://github.com/hritam-98/GFDA-disentangled' }, abstract: 'We investigate semi-supervised domain adaptation (SSDA) for medical image segmentation... Our proposed method outperforms the SoTA methods.', bibtex: `@inproceedings{basak2023semi,
-  title={Semi-supervised domain adaptive medical image segmentation...},
-  author={Basak, Hritam and Yin, Zhaozheng},
-  booktitle={MICCAI},
-  year={2023}}`}],
-			"2022": [{
-				id: 'miccai22', conference: 'MICCAI 2022', title: 'Addressing Class Imbalance in Semi-supervised Image Segmentation: A Study on Cardiac MRI', authors: ['Hritam Basak', 'Sagnik Ghosal', 'Ram Sarkar'], image: 'https://hritam-98.github.io/img/Publications/MICCAI_Overall_final.png', links: { pdf: 'https://rdcu.be/cVRY4' }, abstract: 'To alleviate the shortcoming of class imbalance, we propose maintaining a confidence array that records class-wise performance during training.', bibtex: `@inproceedings{basak2022addressing,
-  title={Addressing class imbalance in semi-supervised image segmentation...},
-  author={Basak, Hritam and Ghosal, Sagnik and Sarkar, Ram},
-  booktitle={MICCAI},
-  year={2022}}`}, {
-				id: 'isbi22', conference: 'ISBI 2022', title: 'An Embarassingly Simple Consistency Regularization Method for Semi-Supervised Medical Image Segmentation', authors: ['Hritam Basak', 'Rajarshi Bhattacharya', 'Rukhshanda Hussain', 'Agniv Chatterjee'], image: 'https://hritam-98.github.io/img/Publications/ICT-MedSeg-Overall.png', links: { pdf: 'https://arxiv.org/abs/2202.00677', code: 'https://github.com/hritam-98/ICT-MedSeg' }, abstract: 'We introduce a novel regularization strategy involving interpolation-based mixing for semi-supervised medical image segmentation.', bibtex: `@inproceedings{basak2022exceedingly,
-  title={An exceedingly simple consistency regularization method...},
-  author={Basak, Hritam and ...},
-  booktitle={ISBI},
-  year={2022}}`}]
+			"2025": [
+				{ id: 'iros25', conference: 'IROS 2025', title: 'Enhancing Single Image to 3D Generation using Gaussian Splatting and Hybrid Diffusion Priors', authors: ['Hritam Basak', 'Hadi Tabatabaee', 'Shreekant Gayaka', 'Ming-Feng Li', 'Xin Yang', 'Cheng-Hao Kuo', 'Arnie Sen', 'Min Sun', 'Zhaozheng Yin'], image: 'https://hritam-98.github.io/img/Publications/iros-25.png', links: { pdf: 'https://arxiv.org/abs/2410.09467' }, abstract: '3D object generation from a single unposed RGB image is essential for robotic perception... Our approach achieves state-of-the-art 3D reconstruction quality, significantly improving robotic perception pipelines.', bibtex: `@inproceedings{basak2025enhancing, title={Enhancing Single Image to 3D Generation...}, author={Basak, Hritam and ...}, booktitle={IROS}, year={2025}}`}, 
+				{ id: 'miccai25', conference: 'MICCAI 2025', title: 'D4Recon: Dual-stage Deformation and Dual-scale Depth Guidance for Endoscopic Reconstruction', authors: ['Hritam Basak', 'Zhaozheng Yin'], image: 'https://hritam-98.github.io/img/Publications/overall-miccai25.png', links: { code: 'https://github.com/hritam-98/D4Recon' }, abstract: 'Deformable tissue reconstruction in endoscopy is vital for surgery... D4Recon achieves superior geometric coherence and photorealism with real-time rendering speed, outperforming existing methods.', bibtex: `@inproceedings{basak2025d4recon, title={D4Recon: Dual-stage Deformation...}, author={Basak, Hritam and Yin, Zhaozheng}, booktitle={MICCAI}, year={2025}}`}, 
+				{ id: 'cvpr25-uapose', conference: 'CVPR 2025', title: 'UA-Pose: Uncertainty-aware 6D Object Pose Estimation and Online Object Completion with Partial References', authors: ['Ming-Feng Li', 'Xin Yang', 'Fu-En Wang', 'Hritam Basak', 'Yuyin Sun', 'Shreekant Gayaka', 'Min Sun', 'Cheng-Hao Kuo'], image: 'https://hritam-98.github.io/img/Publications/UA-pose.png', links: { pdf: 'https://openaccess.thecvf.com/content/CVPR2025/html/Li_UA-Pose_Uncertainty-Aware_6D_Object_Pose_Estimation_and_Online_Object_Completion_CVPR_2025_paper.html', code: 'https://minfenli.github.io/UA-Pose/' }, abstract: 'We propose UA-Pose, an uncertainty-aware approach for 6D object pose estimation... Experimental results demonstrate significant performance improvements.', bibtex: `@inproceedings{li2025ua, title={UA-Pose: Uncertainty-aware 6D object pose estimation...}, author={Li, Ming-Feng and ...}, booktitle={CVPR}, year={2025}}`}, 
+				{ id: 'cvpr25-semidavil', conference: 'CVPR 2025', title: 'SemiDAViL: Semi-supervised Domain Adaptation with Vision-Language Guidance for Semantic Segmentation', authors: ['Hritam Basak', 'Zhaozheng Yin'], image: 'https://hritam-98.github.io/img/Publications/cvpr-25.png', links: { pdf: 'https://openaccess.thecvf.com/content/CVPR2025/html/Basak_SemiDAViL_Semi-supervised_Domain_Adaptation_with_Vision-Language_Guidance_for_Semantic_Segmentation_CVPR_2025_paper.html', code: 'https://github.com/hritam-98/SemiDAViL' }, abstract: 'We propose the first language-guided SSDA setting for semantic segmentation. We harness the semantic generalization capabilities inherent in vision-language models (VLMs).', bibtex: `@inproceedings{basak2025semidavil, title={SemiDAViL: Semi-supervised Domain Adaptation...}, author={Basak, Hritam and Yin, Zhaozheng}, booktitle={CVPR}, year={2025}}`}
+			],
+			"2024": [
+				{ id: 'eccv24', conference: 'ECCV 2024', title: 'Forget More to Learn More: Domain-specific Feature Unlearning for Semi-supervised and Unsupervised Domain Adaptation', authors: ['Hritam Basak', 'Zhaozheng Yin'], image: 'https://hritam-98.github.io/img/Publications/eccv24-overall.png', links: { pdf: 'https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/05513.pdf', code: 'https://github.com/hritam-98/FMLM' }, abstract: 'In pursuit of greater generalizability and robustness, we present an SSDA framework with a new episodic learning strategy: "learn, forget, then learn more".', bibtex: `@inproceedings{basak2024forget, title={Forget More to Learn More...}, author={Basak, Hritam and Yin, Zhaozheng}, booktitle={ECCV}, year={2024}}`}, 
+				{ id: 'miccai24', conference: 'MICCAI 2024', title: 'Quest for Clone: Test-Time Domain Adaptation for Medical Image Segmentation by Searching the Closest Clone in Latent Space', authors: ['Hritam Basak', 'Zhaozheng Yin'], image: 'https://hritam-98.github.io/img/Publications/overall-miccai24-cropped.png', links: { pdf: 'https://papers.miccai.org/miccai-2024/paper/0297_paper.pdf', code: 'https://github.com/hritam-98/Quest4Clone' }, abstract: 'We propose a generative latent search paradigm to reconstruct the closest clone of every target image from the source latent space... We empirically validate the efficacy of our proposed method.', bibtex: `@inproceedings{basak2024quest, title={Quest for Clone: Test-Time Domain Adaptation...}, author={Basak, Hritam and Yin, Zhaozheng}, booktitle={MICCAI}, year={2024}}`}
+			],
+			"2023": [
+				{ id: 'cvpr23', conference: 'CVPR 2023', title: 'Pseudo Label Guided Contrastive Learning for Semi-supervised Medical Image Segmentation', authors: ['Hritam Basak', 'Zhaozheng Yin'], image: 'https://hritam-98.github.io/img/Publications/PLGCL_overall.png', links: { pdf: 'https://openaccess.thecvf.com/content/CVPR2023/papers/Basak_Pseudo-Label_Guided_Contrastive_Learning_for_Semi-Supervised_Medical_Image_Segmentation_CVPR_2023_paper.pdf', code: 'https://github.com/hritam-98/PatchCL-MedSeg' }, abstract: 'We propose a novel semi-supervised patch-based CL framework for medical image segmentation... Experimental analysis reveals the superiority of our proposed method.', bibtex: `@inproceedings{basak2023pseudo, title={Pseudo-Label Guided Contrastive Learning...}, author={Basak, Hritam and Yin, Zhaozheng}, booktitle={CVPR}, year={2023}}`}, 
+				{ id: 'miccai23', conference: 'MICCAI 2023', title: 'Semi-supervised Domain Adaptive Medical Image Segmentation through Consistency Regularized Disentangled Contrastive Learning', authors: ['Hritam Basak', 'Zhaozheng Yin'], image: 'https://hritam-98.github.io/img/Publications/style-content-miccai23.png', links: { pdf: 'https://link.springer.com/epdf/10.1007/978-3-031-43901-8_25', code: 'https://github.com/hritam-98/GFDA-disentangled' }, abstract: 'We investigate semi-supervised domain adaptation (SSDA) for medical image segmentation... Our proposed method outperforms the SoTA methods.', bibtex: `@inproceedings{basak2023semi, title={Semi-supervised domain adaptive medical image segmentation...}, author={Basak, Hritam and Yin, Zhaozheng}, booktitle={MICCAI}, year={2023}}`}
+			],
+			"2022": [
+				{ id: 'miccai22', conference: 'MICCAI 2022', title: 'Addressing Class Imbalance in Semi-supervised Image Segmentation: A Study on Cardiac MRI', authors: ['Hritam Basak', 'Sagnik Ghosal', 'Ram Sarkar'], image: 'https://hritam-98.github.io/img/Publications/MICCAI_Overall_final.png', links: { pdf: 'https://rdcu.be/cVRY4' }, abstract: 'To alleviate the shortcoming of class imbalance, we propose maintaining a confidence array that records class-wise performance during training.', bibtex: `@inproceedings{basak2022addressing, title={Addressing class imbalance in semi-supervised image segmentation...}, author={Basak, Hritam and Ghosal, Sagnik and Sarkar, Ram}, booktitle={MICCAI}, year={2022}}`}, 
+				{ id: 'isbi22', conference: 'ISBI 2022', title: 'An Embarassingly Simple Consistency Regularization Method for Semi-Supervised Medical Image Segmentation', authors: ['Hritam Basak', 'Rajarshi Bhattacharya', 'Rukhshanda Hussain', 'Agniv Chatterjee'], image: 'https://hritam-98.github.io/img/Publications/ICT-MedSeg-Overall.png', links: { pdf: 'https://arxiv.org/abs/2202.00677', code: 'https://github.com/hritam-98/ICT-MedSeg' }, abstract: 'We introduce a novel regularization strategy involving interpolation-based mixing for semi-supervised medical image segmentation.', bibtex: `@inproceedings{basak2022exceedingly, title={An exceedingly simple consistency regularization method...}, author={Basak, Hritam and ...}, booktitle={ISBI}, year={2022}}`}
+			]
 		};
 
+		document.addEventListener('DOMContentLoaded', () => {
+
+			// --- Core Initializations ---
+			renderPublications();
+			setupEventListeners();
+			initializeAnimations();
+			updateFooter();
+
+			// --- Typewriter Effect ---
+			const nameEl = document.getElementById('typewriter-name');
+			if (nameEl) {
+				typewriterEffect(nameEl, "Hritam Basak");
+			}
+		});
+		
 		function renderPublications() {
 			const container = document.getElementById('publications-list');
 			if (!container) return;
+
 			let html = '';
 			const years = Object.keys(publicationsData).sort((a, b) => b - a);
+			
 			years.forEach(year => {
 				html += `<h3 class="text-3xl font-semibold mb-8">${year}</h3>`;
 				publicationsData[year].forEach(paper => {
-					const authorList = paper.authors.map(author => author === 'Hritam Basak' ? `<strong class="font-semibold" style="color: var(--accent-color);">${author}</strong>` : author).join(', ');
-					const linksHtml = Object.entries(paper.links).map(([key, url]) => `<a href="${url}" target="_blank" class="accent-link capitalize">${key}</a>`).join(' <span class="text-slate-300">|</span> ');
+					const authorList = paper.authors.map(author => 
+						author === 'Hritam Basak' ? `<strong class="font-semibold" style="color: var(--accent-color);">${author}</strong>` : author
+					).join(', ');
+
+					const linksHtml = Object.entries(paper.links || {}).map(([key, url]) => 
+						`<a href="${url}" target="_blank" class="accent-link capitalize">${key}</a>`
+					).join(' <span class="text-slate-300">|</span> ');
+
 					html += `
-                        <div class="publication-card grid grid-cols-1 md:grid-cols-4 gap-8 bg-white p-6 rounded-lg mb-8">
-                            <div class="md:col-span-1"><img class="rounded-md object-cover w-full h-full shadow-sm" src="${paper.image}" alt="${paper.title} Thumbnail" onerror="this.onerror=null;this.src='https://placehold.co/400x300/e2e8f0/334155?text=Image';"></div>
-                            <div class="md:col-span-3">
-                                <p class="text-sm text-slate-500">${paper.conference}</p>
-                                <h4 class="text-xl font-semibold mt-1">${paper.title}</h4>
-                                <p class="text-slate-600 mt-2 text-sm">${authorList}</p>
-                                <div class="flex flex-wrap gap-x-3 items-center mt-4 text-sm">
-                                    ${linksHtml}
-                                    ${linksHtml ? '<span class="text-slate-300">|</span>' : ''}
-                                    <button onclick="toggleDetail('${paper.id}-abstract')" class="accent-link">Abstract</button>
-                                    <span class="text-slate-300">|</span>
-                                    <button onclick="toggleDetail('${paper.id}-bib')" class="accent-link">BibTeX</button>
-                                    <button onclick="openGeminiModal('${paper.id}')" class="ml-auto accent-button text-white px-3 py-1 rounded-md text-xs font-semibold transition-colors">✨ Ask About This Paper</button>
-                                </div>
-                                <div id="${paper.id}-abstract" class="hidden mt-4 text-sm text-slate-600 bg-slate-50 p-4 rounded-md border" style="border-color: var(--border-color);">${paper.abstract}</div>
-                                <pre id="${paper.id}-bib" class="hidden mt-4 text-xs text-slate-600 bg-slate-50 p-4 rounded-md border overflow-x-auto"><code>${paper.bibtex}</code></pre>
-                            </div>
-                        </div>`;
+						<div class="publication-card grid grid-cols-1 md:grid-cols-4 gap-8 bg-white p-6 rounded-lg mb-8">
+							<div class="md:col-span-1">
+								<img class="rounded-md object-cover w-full h-full shadow-sm" src="${paper.image}" alt="${paper.title} Thumbnail" onerror="this.onerror=null;this.src='https://placehold.co/400x300/e2e8f0/334155?text=Image';">
+							</div>
+							<div class="md:col-span-3">
+								<p class="text-sm text-slate-500">${paper.conference}</p>
+								<h4 class="text-xl font-semibold mt-1">${paper.title}</h4>
+								<p class="text-slate-600 mt-2 text-sm">${authorList}</p>
+								<div class="flex flex-wrap gap-x-3 items-center mt-4 text-sm">
+									${linksHtml}
+									${linksHtml ? '<span class="text-slate-300">|</span>' : ''}
+									<button class="accent-link toggle-detail-btn" data-target="#${paper.id}-abstract">Abstract</button>
+									<span class="text-slate-300">|</span>
+									<button class="accent-link toggle-detail-btn" data-target="#${paper.id}-bib">BibTeX</button>
+									<button class="ml-auto accent-button text-white px-3 py-1 rounded-md text-xs font-semibold transition-colors open-gemini-btn" data-paper-id="${paper.id}">
+										<i class="fa-solid fa-wand-magic-sparkles mr-1"></i> Ask About Paper
+									</button>
+								</div>
+								<div id="${paper.id}-abstract" class="collapsible-content mt-4 text-sm text-slate-600">
+									<div>${paper.abstract}</div>
+								</div>
+								<div id="${paper.id}-bib" class="collapsible-content mt-4 text-xs text-slate-600">
+									<pre class="overflow-x-auto"><code>${paper.bibtex}</code></pre>
+								</div>
+							</div>
+						</div>`;
 				});
 			});
 			container.innerHTML = html;
 		}
 
-		const geminiModal = document.getElementById('gemini-modal'), geminiModalOverlay = document.getElementById('gemini-modal-overlay'), geminiModalContainer = document.getElementById('gemini-modal-container'), closeGeminiModalBtn = document.getElementById('close-gemini-modal'), geminiPaperTitle = document.getElementById('gemini-paper-title'), geminiChatWindow = document.getElementById('gemini-chat-window'), geminiChatForm = document.getElementById('gemini-chat-form'), geminiChatInput = document.getElementById('gemini-chat-input'), geminiLoading = document.getElementById('gemini-loading');
-		let currentPaperId = null;
+		function setupEventListeners() {
+			// Mobile menu
+			const mobileMenuButton = document.getElementById('mobile-menu-button');
+			const mobileMenu = document.getElementById('mobile-menu');
+			mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
 
-		function findPaperById(id) {
-			for (const year in publicationsData) {
-				const paper = publicationsData[year].find(p => p.id === id);
-				if (paper) return paper;
-			}
-			return null;
-		}
-
-		function openGeminiModal(paperId) {
-			currentPaperId = paperId;
-			const paper = findPaperById(paperId);
-			if (!paper) return;
-			geminiPaperTitle.textContent = paper.title;
-			geminiChatWindow.innerHTML = '<div class="flex justify-start"><div class="chat-bubble chat-bubble-gemini p-3 rounded-lg">Hello! How can I help you understand this paper? Ask me to summarize it, explain a concept, or anything else about the abstract.</div></div>';
-			geminiModal.classList.remove('hidden');
-			setTimeout(() => {
-				geminiModalOverlay.classList.remove('opacity-0');
-				geminiModalContainer.classList.remove('-translate-y-8', 'opacity-0');
-			}, 10);
-		}
-
-		function closeGeminiModal() {
-			geminiModalOverlay.classList.add('opacity-0');
-			geminiModalContainer.classList.add('-translate-y-8', 'opacity-0');
-			setTimeout(() => geminiModal.classList.add('hidden'), 300);
-		}
-
-		closeGeminiModalBtn.addEventListener('click', closeGeminiModal);
-		geminiModalOverlay.addEventListener('click', closeGeminiModal);
-
-		geminiChatForm.addEventListener('submit', async e => {
-			e.preventDefault();
-			const userInput = geminiChatInput.value.trim();
-			if (!userInput || !currentPaperId) return;
-			addMessageToChat(userInput, 'user');
-			geminiChatInput.value = '';
-			geminiLoading.classList.remove('hidden');
-			geminiLoading.classList.add('flex');
-			try {
-				const paper = findPaperById(currentPaperId);
-				const prompt = `Based on the paper's title and abstract, answer the user's question.\nTitle: "${paper.title}"\nAbstract: "${paper.abstract}"\nUser's Question: "${userInput}"\n\nProvide a concise, helpful response.`;
-				const geminiResponse = await callGeminiAPI(prompt);
-				addMessageToChat(geminiResponse, 'gemini');
-			} catch (error) {
-				console.error("Gemini API call failed:", error);
-				addMessageToChat("Sorry, I encountered an error. Please try again.", 'gemini');
-			} finally {
-				geminiLoading.classList.add('hidden');
-				geminiLoading.classList.remove('flex');
-			}
-		});
-
-		function addMessageToChat(text, sender) {
-			const msgDiv = document.createElement('div'), bubbleDiv = document.createElement('div');
-			msgDiv.className = `flex ${sender === 'user' ? 'justify-end' : 'justify-start'}`;
-			bubbleDiv.className = `chat-bubble p-3 rounded-lg ${sender === 'user' ? 'chat-bubble-user' : 'chat-bubble-gemini'}`;
-			bubbleDiv.textContent = text;
-			msgDiv.appendChild(bubbleDiv);
-			geminiChatWindow.appendChild(msgDiv);
-			geminiChatWindow.scrollTop = geminiChatWindow.scrollHeight;
-		}
-
-		async function callGeminiAPI(prompt, retries = 3, delay = 1000) {
-			const apiKey = "", apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
-			const payload = { contents: [{ parts: [{ text: prompt }] }] };
-			for (let i = 0; i < retries; i++) {
-				try {
-					const response = await fetch(apiUrl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
-					if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-					const result = await response.json();
-					if (result.candidates?.[0]?.content.parts?.[0]) return result.candidates[0].content.parts[0].text;
-					throw new Error("Invalid response structure from Gemini API");
-				} catch (error) {
-					if (i === retries - 1) throw error;
-					await new Promise(res => setTimeout(res, delay * 2 ** i));
+			// Publication buttons (Event Delegation)
+			document.getElementById('publications-list').addEventListener('click', (e) => {
+				if (e.target.matches('.toggle-detail-btn')) {
+					toggleDetail(e.target);
 				}
+				if (e.target.matches('.open-gemini-btn')) {
+					openGeminiModal(e.target.dataset.paperId);
+				}
+			});
+			
+			// Gemini Modal
+			const geminiModal = document.getElementById('gemini-modal');
+			const closeGeminiBtn = document.getElementById('close-gemini-modal');
+			const geminiOverlay = document.getElementById('gemini-modal-overlay');
+			const geminiForm = document.getElementById('gemini-chat-form');
+
+			closeGeminiBtn.addEventListener('click', closeGeminiModal);
+			geminiOverlay.addEventListener('click', closeGeminiModal);
+			geminiForm.addEventListener('submit', handleGeminiChatSubmit);
+		}
+		
+		function initializeAnimations() {
+			const sections = document.querySelectorAll('.fade-in-section');
+			const observer = new IntersectionObserver(entries => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add('is-visible');
+					}
+				});
+			}, { threshold: 0.1 });
+			sections.forEach(section => observer.observe(section));
+		}
+		
+		function updateFooter() {
+			const lastUpdatedEl = document.getElementById('last-updated');
+			if (lastUpdatedEl) {
+				const today = new Date();
+				const options = { year: 'numeric', month: 'long', day: 'numeric' };
+				lastUpdatedEl.textContent = `Last updated on ${today.toLocaleDateString('en-US', options)}`;
 			}
+		}
+
+		function toggleDetail(button) {
+			const targetId = button.dataset.target;
+			const targetElement = document.querySelector(targetId);
+			if (targetElement) {
+				// Close other open sections for a cleaner accordion effect
+				const parentContainer = button.closest('.md\\:col-span-3');
+				parentContainer.querySelectorAll('.collapsible-content.is-expanded').forEach(openEl => {
+					if (openEl !== targetElement) {
+						openEl.classList.remove('is-expanded');
+					}
+				});
+				// Toggle the clicked section
+				targetElement.classList.toggle('is-expanded');
+			}
+		}
+
+		// --- Utility Functions ---
+		function revealEmail(element) {
+			element.textContent = 'hbasak@cs.stonybrook.edu';
+			element.onmouseover = null;
 		}
 
 		function typewriterEffect(element, text, speed = 75) {
@@ -595,38 +506,128 @@
 			type();
 		}
 
-		document.addEventListener('DOMContentLoaded', () => {
-			renderPublications();
-			const lastUpdatedEl = document.getElementById('last-updated');
-			if (lastUpdatedEl) {
-				const today = new Date();
-				const options = { year: 'numeric', month: 'long', day: 'numeric' };
-				lastUpdatedEl.textContent = `Last updated on ${today.toLocaleDateString('en-US', options)}`;
+		// --- Gemini Modal Logic ---
+		const geminiModal = document.getElementById('gemini-modal');
+		const geminiModalOverlay = document.getElementById('gemini-modal-overlay');
+		const geminiModalContainer = document.getElementById('gemini-modal-container');
+		const geminiPaperTitle = document.getElementById('gemini-paper-title');
+		const geminiChatWindow = document.getElementById('gemini-chat-window');
+		const geminiChatInput = document.getElementById('gemini-chat-input');
+		const geminiLoading = document.getElementById('gemini-loading');
+		let currentPaperId = null;
+
+		function findPaperById(id) {
+			for (const year in publicationsData) {
+				const paper = publicationsData[year].find(p => p.id === id);
+				if (paper) return paper;
 			}
-			const mobileMenuButton = document.getElementById('mobile-menu-button');
-			const mobileMenu = document.getElementById('mobile-menu');
-			mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-			const sections = document.querySelectorAll('.fade-in-section');
-			const observer = new IntersectionObserver(entries => {
-				entries.forEach(entry => {
-					if (entry.isIntersecting) entry.target.classList.add('is-visible');
-				});
-			}, { threshold: 0.1 });
-			sections.forEach(section => observer.observe(section));
-
-			const nameEl = document.getElementById('typewriter-name');
-			if (nameEl) typewriterEffect(nameEl, "Hritam Basak");
-		});
-
-		function revealEmail() {
-			const emailDisplay = document.getElementById('email-display');
-			emailDisplay.textContent = 'hbasak@cs.stonybrook.edu';
-			emailDisplay.onmouseover = null;
+			return null;
 		}
 
-		function toggleDetail(id) {
-			const el = document.getElementById(id);
-			if (el) el.classList.toggle('hidden');
+		function openGeminiModal(paperId) {
+			currentPaperId = paperId;
+			const paper = findPaperById(paperId);
+			if (!paper) return;
+
+			geminiPaperTitle.textContent = paper.title;
+			geminiChatWindow.innerHTML = '<div class="flex justify-start"><div class="chat-bubble chat-bubble-gemini p-3 rounded-lg">Hello! Ask me anything about this paper, like summarizing the abstract or explaining its main contribution.</div></div>';
+			
+			// Check for API key
+			if (!API_KEY || API_KEY === 'AIzaSyBV3q8P8N-EcPbXhJLx_FDLHaj_4AkXwFQ') {
+				addMessageToChat("Error: API key is not configured. Please add your key to the script.", 'gemini');
+				geminiChatInput.disabled = true;
+				geminiChatInput.placeholder = "API key missing...";
+				geminiModal.querySelector('button[type="submit"]').disabled = true;
+			} else {
+				geminiChatInput.disabled = false;
+				geminiChatInput.placeholder = "e.g., Explain this in simpler terms...";
+				geminiModal.querySelector('button[type="submit"]').disabled = false;
+			}
+			
+			geminiModal.classList.remove('hidden');
+			setTimeout(() => {
+				geminiModalOverlay.classList.remove('opacity-0');
+				geminiModalContainer.classList.remove('-translate-y-8', 'opacity-0');
+			}, 10);
+		}
+
+		function closeGeminiModal() {
+			geminiModalOverlay.classList.add('opacity-0');
+			geminiModalContainer.classList.add('-translate-y-8', 'opacity-0');
+			setTimeout(() => geminiModal.classList.add('hidden'), 300);
+		}
+
+		async function handleGeminiChatSubmit(e) {
+			e.preventDefault();
+			const userInput = geminiChatInput.value.trim();
+			if (!userInput || !currentPaperId) return;
+
+			addMessageToChat(userInput, 'user');
+			geminiChatInput.value = '';
+			geminiLoading.classList.remove('hidden');
+			geminiLoading.classList.add('flex');
+
+			try {
+				const paper = findPaperById(currentPaperId);
+				const prompt = `Based on the following paper's title and abstract, please answer the user's question concisely and helpfully.\n\n---\nTITLE: "${paper.title}"\nABSTRACT: "${paper.abstract}"\n---\n\nUSER QUESTION: "${userInput}"`;
+				
+				const geminiResponse = await callGeminiAPI(prompt);
+				addMessageToChat(geminiResponse, 'gemini');
+			} catch (error) {
+				console.error("Gemini API call failed:", error);
+				addMessageToChat(`Sorry, I encountered an error: ${error.message}. Please check the console for details.`, 'gemini');
+			} finally {
+				geminiLoading.classList.add('hidden');
+				geminiLoading.classList.remove('flex');
+			}
+		}
+
+		function addMessageToChat(text, sender) {
+			const msgDiv = document.createElement('div');
+			const bubbleDiv = document.createElement('div');
+			msgDiv.className = `flex ${sender === 'user' ? 'justify-end' : 'justify-start'}`;
+			bubbleDiv.className = `chat-bubble p-3 rounded-lg ${sender === 'user' ? 'chat-bubble-user' : 'chat-bubble-gemini'}`;
+			bubbleDiv.textContent = text;
+			msgDiv.appendChild(bubbleDiv);
+			geminiChatWindow.appendChild(msgDiv);
+			geminiChatWindow.scrollTop = geminiChatWindow.scrollHeight;
+		}
+
+		async function callGeminiAPI(prompt) {
+			if (!API_KEY || API_KEY === 'YOUR_GOOGLE_AI_API_KEY_HERE') {
+				throw new Error("Google AI API key is not configured.");
+			}
+			
+			const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${API_KEY}`;
+			const payload = {
+				contents: [{ parts: [{ text: prompt }] }],
+				generationConfig: {
+					temperature: 0.7,
+					topP: 1.0,
+					maxOutputTokens: 512,
+				}
+			};
+
+			const response = await fetch(apiUrl, {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify(payload)
+			});
+
+			if (!response.ok) {
+				const errorBody = await response.json();
+				const errorMessage = errorBody.error?.message || `HTTP error! Status: ${response.status}`;
+				throw new Error(errorMessage);
+			}
+
+			const result = await response.json();
+			
+			if (result.candidates?.[0]?.content.parts?.[0]?.text) {
+				return result.candidates[0].content.parts[0].text;
+			} else {
+				// This handles cases where the model returns a response with safety blocks, etc.
+				return "I'm sorry, I couldn't generate a response for that request. The reason might be related to safety settings or an empty response from the model.";
+			}
 		}
 	</script>
 </body>
