@@ -329,7 +329,7 @@
 		// IMPORTANT: ADD YOUR GOOGLE AI API KEY HERE
 		// =================================================================================
 		// You can get a key from https://aistudio.google.com/
-		const API_KEY = 'AIzaSyBV3q8P8N-EcPbXhJLx_FDLHaj_4AkXwFQ';
+		const API_KEY = AIzaSyBV3q8P8N-EcPbXhJLx_FDLHaj_4AkXwFQ;
 		// =================================================================================
 
 		const publicationsData = {
@@ -533,7 +533,7 @@
 			geminiChatWindow.innerHTML = '<div class="flex justify-start"><div class="chat-bubble chat-bubble-gemini p-3 rounded-lg">Hello! Ask me anything about this paper, like summarizing the abstract or explaining its main contribution.</div></div>';
 			
 			// Check for API key
-			if (!API_KEY || API_KEY === 'AIzaSyBV3q8P8N-EcPbXhJLx_FDLHaj_4AkXwFQ') {
+			if (!API_KEY || API_KEY === AIzaSyBV3q8P8N-EcPbXhJLx_FDLHaj_4AkXwFQ) {
 				addMessageToChat("Error: API key is not configured. Please add your key to the script.", 'gemini');
 				geminiChatInput.disabled = true;
 				geminiChatInput.placeholder = "API key missing...";
