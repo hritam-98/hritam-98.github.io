@@ -1,446 +1,889 @@
 <!DOCTYPE html>
 <html lang="en-us" class="scroll-smooth">
-
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="author" content="Hritam Basak">
-	<title>Hritam Basak | Academic Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Hritam Basak">
+  <title>Hritam Basak · PhD Researcher · Computer Vision & AI</title>
 
-	<script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
-	
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GZEW5QH8Y5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-GZEW5QH8Y5');
+  </script>
 
-	<link rel="icon" type="image/png" href="https://hritam-98.github.io/img/About/dp-new.jpg" onerror="this.onerror=null;this.src='https://placehold.co/32x32/e2e8f0/334155?text=HB';">
+  <style>
+    :root {
+      --bg:        #07090f;
+      --surface:   #0c1018;
+      --card:      #111825;
+      --card-hover:#151e2d;
+      --border:    rgba(255,255,255,0.07);
+      --border-glow: rgba(79,158,248,0.3);
+      --text:      #dde3ee;
+      --muted:     #6b7a96;
+      --dim:       #3c4558;
+      --gold:      #f0a53a;
+      --gold-dim:  rgba(240,165,58,0.15);
+      --blue:      #4f9ef8;
+      --blue-dim:  rgba(79,158,248,0.12);
+      --teal:      #2dd4bf;
+      --red:       #f87171;
+      --heading-font: 'Instrument Serif', Georgia, serif;
+      --body-font:    'Sora', sans-serif;
+      --mono-font:    'JetBrains Mono', monospace;
+    }
 
-	<style>
-		:root {
-			--bg-color: #fdfcf9;
-			--text-color: #3a3a3a;
-			--heading-color: #1a1a1a;
-			--accent-color: #b28448;
-			--accent-hover: #946d3a;
-			--border-color: #e5e1d8;
-		}
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-		body {
-			font-family: 'Source Sans 3', sans-serif;
-			background-color: var(--bg-color);
-			color: var(--text-color);
-		}
+    html { scroll-behavior: smooth; }
 
-		h1, h2, h3, h4, h5, h6 {
-			font-family: 'Lora', serif;
-			color: var(--heading-color);
-			font-weight: 600;
-		}
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--dim); border-radius: 99px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--blue); }
 
-		.section-heading {
-			border-bottom: 2px solid var(--accent-color);
-			padding-bottom: 0.5rem;
-			display: inline-block;
-		}
+    body {
+      font-family: var(--body-font);
+      background-color: var(--bg);
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
 
-		.publication-card {
-			transition: transform 0.3s ease, box-shadow 0.3s ease;
-			border: 1px solid var(--border-color);
-		}
+    /* ── NAV ───────────────────────────────────────────────── */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+      padding: 0 2rem;
+      background: rgba(7,9,15,0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+    .nav-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      font-family: var(--heading-font);
+      font-size: 1.35rem;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+    .nav-logo span { color: var(--gold); }
+    .nav-links { display: flex; align-items: center; gap: 2rem; }
+    .nav-links a {
+      font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--muted); text-decoration: none;
+      transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; left: 0; bottom: -4px;
+      width: 0; height: 1px; background: var(--gold); transition: width 0.25s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.active { color: var(--gold); }
+    .nav-links a.active::after { width: 100%; }
 
-		.publication-card:hover {
-			transform: translateY(-5px);
-			box-shadow: 0 0 25px rgba(178, 132, 72, 0.2);
-		}
+    .btn-cv {
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--bg) !important; background: var(--gold);
+      padding: 0.45rem 1.1rem; border-radius: 4px; text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-cv::after { display: none !important; }
+    .btn-cv:hover { background: #ffc05e; transform: translateY(-1px); color: var(--bg) !important; }
 
-		.update-item::before {
-			content: '•';
-			color: var(--accent-color);
-			font-weight: bold;
-			display: inline-block;
-			width: 1em;
-			margin-left: -1em;
-		}
+    .nav-hamburger {
+      display: none; background: none; border: none; cursor: pointer; color: var(--text);
+      font-size: 1.2rem; padding: 0.25rem;
+    }
+    .mobile-menu {
+      display: none; flex-direction: column; gap: 1rem;
+      padding: 1rem 0 1.5rem; border-top: 1px solid var(--border);
+    }
+    .mobile-menu a {
+      font-size: 0.9rem; font-weight: 500; color: var(--muted); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .mobile-menu a:hover { color: var(--gold); }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: block; }
+      .mobile-menu.open { display: flex; }
+    }
 
-		.accent-link {
-			color: var(--accent-color);
-			font-weight: 600;
-		}
+    /* ── CANVAS HERO ────────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      position: relative;
+      display: flex; align-items: center;
+      padding: 100px 2rem 4rem;
+      overflow: hidden;
+    }
+    #hero-canvas {
+      position: absolute; inset: 0; z-index: 0;
+    }
+    .hero-inner {
+      position: relative; z-index: 1;
+      max-width: 1100px; margin: 0 auto; width: 100%;
+      display: grid; grid-template-columns: 260px 1fr; gap: 5rem; align-items: center;
+    }
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; text-align: center; }
+      .hero-left { align-items: center; }
+    }
 
-		.accent-link:hover {
-			color: var(--accent-hover);
-			text-decoration: underline;
-		}
+    /* profile card */
+    .hero-left {
+      display: flex; flex-direction: column; align-items: flex-start; gap: 1.2rem;
+    }
+    .profile-ring {
+      width: 200px; height: 200px; border-radius: 50%;
+      background: conic-gradient(from 0deg, var(--gold), var(--blue), var(--teal), var(--gold));
+      padding: 3px;
+      animation: spin-ring 8s linear infinite;
+    }
+    @keyframes spin-ring {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+    .profile-ring-inner {
+      width: 100%; height: 100%; border-radius: 50%;
+      background: var(--card); padding: 4px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .profile-img {
+      width: 100%; height: 100%; border-radius: 50%; object-fit: cover;
+      filter: brightness(1.05) contrast(1.05);
+    }
+    .profile-name-small {
+      font-family: var(--heading-font);
+      font-size: 1.5rem; color: var(--text);
+    }
+    .profile-role {
+      font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--gold); font-family: var(--mono-font);
+    }
+    .profile-place {
+      font-size: 0.82rem; color: var(--muted);
+    }
+    .profile-email {
+      font-family: var(--mono-font); font-size: 0.72rem; color: var(--muted);
+      cursor: pointer; transition: color 0.2s;
+    }
+    .profile-email:hover { color: var(--blue); }
+    .social-icons { display: flex; gap: 0.9rem; margin-top: 0.3rem; }
+    .social-icons a {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: var(--card); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--muted); text-decoration: none; font-size: 0.95rem;
+      transition: all 0.2s;
+    }
+    .social-icons a:hover {
+      background: var(--blue-dim); border-color: var(--blue);
+      color: var(--blue); transform: translateY(-2px);
+    }
 
-		.accent-button {
-			background-color: var(--accent-color);
-		}
+    /* bio text */
+    .hero-right {}
+    .hero-eyebrow {
+      font-family: var(--mono-font); font-size: 0.7rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--blue); margin-bottom: 0.75rem;
+    }
+    .hero-heading {
+      font-family: var(--heading-font); font-size: clamp(2.6rem, 5vw, 3.8rem);
+      font-weight: 400; line-height: 1.1; color: var(--text); margin-bottom: 1.5rem;
+    }
+    .hero-heading em { color: var(--gold); font-style: italic; }
+    .bio-text {
+      color: var(--muted); font-size: 0.92rem; line-height: 1.9;
+      max-width: 580px; margin-bottom: 1.5rem;
+    }
+    .bio-text a { color: var(--blue); text-decoration: none; }
+    .bio-text a:hover { text-decoration: underline; }
+    .bio-text strong { color: var(--text); font-weight: 600; }
 
-		.accent-button:hover {
-			background-color: var(--accent-hover);
-		}
-		
-		.accent-button:disabled {
-			background-color: #cccccc;
-			cursor: not-allowed;
-		}
+    .research-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; }
+    .tag {
+      font-size: 0.72rem; font-weight: 500; letter-spacing: 0.06em;
+      padding: 0.3rem 0.75rem; border-radius: 99px;
+      border: 1px solid var(--border); color: var(--muted);
+      transition: all 0.2s; cursor: default;
+    }
+    .tag:hover { border-color: var(--gold); color: var(--gold); background: var(--gold-dim); }
+    .tag.blue:hover { border-color: var(--blue); color: var(--blue); background: var(--blue-dim); }
 
-		.fade-in-section {
-			opacity: 0;
-			transform: translateY(30px);
-			transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-		}
+    .hero-stats { display: flex; gap: 2.5rem; }
+    .stat { }
+    .stat-num {
+      font-family: var(--heading-font); font-size: 2rem; color: var(--text);
+      display: block; line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--dim); font-family: var(--mono-font); margin-top: 0.25rem; display: block;
+    }
 
-		.fade-in-section.is-visible {
-			opacity: 1;
-			transform: translateY(0);
-		}
+    /* ── SECTION WRAPPER ────────────────────────────────────── */
+    .section {
+      max-width: 1100px; margin: 0 auto; padding: 5rem 2rem;
+    }
+    .section-label {
+      font-family: var(--mono-font); font-size: 0.68rem; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--blue); margin-bottom: 0.6rem;
+    }
+    .section-title {
+      font-family: var(--heading-font); font-size: clamp(1.9rem, 3.5vw, 2.6rem);
+      font-weight: 400; color: var(--text); margin-bottom: 3rem; line-height: 1.2;
+    }
+    .section-title em { color: var(--gold); font-style: italic; }
+    .section-divider {
+      border: none; border-top: 1px solid var(--border); margin: 0 2rem;
+    }
 
-		.hero-animated-bg {
-			position: relative;
-			overflow: hidden;
-			background-color: #f7f5f1;
-		}
+    /* ── UPDATES ─────────────────────────────────────────────── */
+    .updates-scroll {
+      max-height: 360px; overflow-y: auto; padding-right: 0.5rem;
+    }
+    .updates-scroll::-webkit-scrollbar { width: 3px; }
+    .updates-scroll::-webkit-scrollbar-thumb { background: var(--dim); border-radius: 99px; }
 
-		.hero-animated-bg::before {
-			content: '';
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			width: 150%;
-			height: 150%;
-			background: radial-gradient(circle, rgba(229, 225, 216, 0.8) 0%, rgba(253, 252, 249, 0) 60%);
-			animation: rotate-gradient 20s linear infinite;
-			transform-origin: center center;
-		}
+    .update-item {
+      display: flex; gap: 1.5rem; padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+      animation: fadeUp 0.5s ease backwards;
+    }
+    .update-item:last-child { border-bottom: none; }
+    .update-date {
+      font-family: var(--mono-font); font-size: 0.7rem; color: var(--gold);
+      white-space: nowrap; padding-top: 0.15rem; min-width: 70px;
+    }
+    .update-dot {
+      width: 6px; height: 6px; background: var(--blue); border-radius: 50%;
+      flex-shrink: 0; margin-top: 0.55rem;
+    }
+    .update-text { font-size: 0.88rem; color: var(--muted); line-height: 1.65; }
+    .update-text strong { color: var(--text); font-weight: 600; }
+    .update-text a { color: var(--blue); text-decoration: none; }
+    .update-text a:hover { text-decoration: underline; }
 
-		@keyframes rotate-gradient {
-			from { transform: translate(-50%, -50%) rotate(0deg); }
-			to { transform: translate(-50%, -50%) rotate(360deg); }
-		}
+    .update-badge {
+      display: inline-flex; align-items: center; gap: 0.3rem;
+      font-family: var(--mono-font); font-size: 0.65rem; font-weight: 500;
+      letter-spacing: 0.08em; padding: 0.2rem 0.55rem; border-radius: 4px;
+      vertical-align: middle; margin-left: 0.4rem;
+    }
+    .badge-gold { background: var(--gold-dim); color: var(--gold); border: 1px solid rgba(240,165,58,0.3); }
+    .badge-blue { background: var(--blue-dim); color: var(--blue); border: 1px solid rgba(79,158,248,0.3); }
+    .badge-teal { background: rgba(45,212,191,0.1); color: var(--teal); border: 1px solid rgba(45,212,191,0.3); }
 
-		.typewriter-cursor {
-			display: inline-block;
-			width: 2px;
-			background-color: var(--heading-color);
-			animation: blink 0.7s infinite;
-		}
+    .updates-box {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 16px; padding: 2rem 2rem 2rem 1.5rem;
+    }
 
-		@keyframes blink {
-			0%, 100% { opacity: 1; }
-			50% { opacity: 0; }
-		}
+    /* ── PUBLICATIONS ────────────────────────────────────────── */
+    .pub-year-group { margin-bottom: 3.5rem; }
+    .pub-year-badge {
+      font-family: var(--mono-font); font-size: 0.72rem; font-weight: 500;
+      letter-spacing: 0.15em; color: var(--bg);
+      background: var(--gold); padding: 0.25rem 0.75rem; border-radius: 4px;
+      display: inline-block; margin-bottom: 1.5rem;
+    }
 
-		/* Collapsible content for Abstract/BibTeX */
-		.collapsible-content {
-			max-height: 0;
-			overflow: hidden;
-			transition: max-height 0.5s ease-in-out;
-			background-color: #f8f9fa;
-			border: 1px solid var(--border-color);
-			border-radius: 0.375rem;
-		}
-		
-		.collapsible-content.is-expanded {
-			max-height: 500px; /* Adjust if abstracts are very long */
-		}
-		
-		.collapsible-content > div, .collapsible-content > pre {
-			padding: 1rem;
-		}
-	</style>
+    .pub-card {
+      display: grid; grid-template-columns: 200px 1fr;
+      gap: 2rem; background: var(--card);
+      border: 1px solid var(--border); border-radius: 14px;
+      padding: 1.5rem; margin-bottom: 1.25rem;
+      transition: all 0.25s ease; position: relative; overflow: hidden;
+    }
+    .pub-card::before {
+      content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+      width: 3px; background: var(--border); border-radius: 14px 0 0 14px;
+      transition: background 0.25s;
+    }
+    .pub-card:hover { border-color: var(--border-glow); background: var(--card-hover); }
+    .pub-card:hover::before { background: var(--blue); }
 
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-GZEW5QH8Y5"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag() { dataLayer.push(arguments); }
-		gtag('js', new Date());
-		gtag('config', 'G-GZEW5QH8Y5');
-	</script>
+    @media (max-width: 700px) {
+      .pub-card { grid-template-columns: 1fr; }
+    }
+
+    .pub-img {
+      width: 100%; aspect-ratio: 4/3; object-fit: cover;
+      border-radius: 8px; background: var(--surface);
+    }
+    .pub-conference {
+      font-family: var(--mono-font); font-size: 0.68rem; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--teal); margin-bottom: 0.4rem;
+    }
+    .pub-title {
+      font-size: 0.95rem; font-weight: 600; color: var(--text);
+      line-height: 1.4; margin-bottom: 0.6rem;
+    }
+    .pub-authors { font-size: 0.8rem; color: var(--muted); margin-bottom: 0.9rem; }
+    .pub-authors strong { color: var(--gold); font-weight: 600; }
+    .pub-links { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .pub-link {
+      font-size: 0.72rem; font-weight: 500; letter-spacing: 0.06em;
+      text-transform: uppercase; padding: 0.25rem 0.65rem; border-radius: 5px;
+      text-decoration: none; transition: all 0.2s;
+      border: 1px solid var(--border); color: var(--muted);
+    }
+    .pub-link:hover { border-color: var(--blue); color: var(--blue); background: var(--blue-dim); }
+    .pub-link.toggle-btn { cursor: pointer; background: none; font-family: var(--body-font); }
+    .pub-link.toggle-btn.active { border-color: var(--gold); color: var(--gold); background: var(--gold-dim); }
+
+    .collapsible {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+    }
+    .collapsible.open { max-height: 400px; }
+    .collapsible-inner {
+      margin-top: 1rem; padding: 1rem 1.2rem;
+      background: var(--surface); border-radius: 8px;
+      font-size: 0.82rem; color: var(--muted); line-height: 1.75;
+      border: 1px solid var(--border);
+    }
+    .collapsible-inner pre {
+      font-family: var(--mono-font); font-size: 0.72rem; overflow-x: auto;
+      white-space: pre-wrap; color: var(--text);
+    }
+
+    /* ── SERVICES ────────────────────────────────────────────── */
+    .services-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+    }
+    @media (max-width: 650px) { .services-grid { grid-template-columns: 1fr; } }
+
+    .service-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 1.75rem;
+      transition: border-color 0.25s;
+    }
+    .service-card:hover { border-color: var(--border-glow); }
+    .service-card-title {
+      font-size: 0.9rem; font-weight: 600; color: var(--text);
+      margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.6rem;
+    }
+    .service-card-title i { color: var(--gold); }
+    .service-list { list-style: none; }
+    .service-list li {
+      font-size: 0.83rem; color: var(--muted); padding: 0.35rem 0;
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 0.6rem;
+    }
+    .service-list li:last-child { border-bottom: none; }
+    .service-list li::before {
+      content: ''; width: 4px; height: 4px; background: var(--dim);
+      border-radius: 50%; flex-shrink: 0;
+    }
+    .service-highlight { color: var(--teal) !important; font-weight: 500; }
+
+    /* ── FOOTER ─────────────────────────────────────────────── */
+    footer {
+      background: var(--surface); border-top: 1px solid var(--border);
+      padding: 3rem 2rem;
+    }
+    .footer-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; flex-direction: column; align-items: center; gap: 1.25rem;
+      text-align: center;
+    }
+    .footer-logo { font-family: var(--heading-font); font-size: 1.3rem; color: var(--text); }
+    .footer-tagline { font-family: var(--mono-font); font-size: 0.7rem; color: var(--dim); letter-spacing: 0.15em; text-transform: uppercase; }
+    .footer-social { display: flex; gap: 1rem; }
+    .footer-social a { color: var(--dim); text-decoration: none; font-size: 1rem; transition: color 0.2s; }
+    .footer-social a:hover { color: var(--gold); }
+    .footer-copy { font-size: 0.75rem; color: var(--dim); }
+    .footer-copy a { color: var(--muted); text-decoration: none; }
+    .footer-copy a:hover { color: var(--text); }
+
+    /* ── SCROLL ANIMATIONS ───────────────────────────────────── */
+    .reveal {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── BACK TO TOP ──────────────────────────────────────────── */
+    #btt {
+      position: fixed; bottom: 2rem; right: 2rem; z-index: 100;
+      width: 42px; height: 42px; border-radius: 10px;
+      background: var(--card); border: 1px solid var(--border);
+      color: var(--muted); display: flex; align-items: center; justify-content: center;
+      text-decoration: none; font-size: 0.9rem; opacity: 0; pointer-events: none;
+      transition: all 0.3s; transform: translateY(8px);
+    }
+    #btt.show { opacity: 1; pointer-events: auto; transform: translateY(0); }
+    #btt:hover { background: var(--blue-dim); border-color: var(--blue); color: var(--blue); }
+
+    /* ── GLOW BLOBS ──────────────────────────────────────────── */
+    .blob {
+      position: absolute; border-radius: 50%; pointer-events: none; filter: blur(90px);
+    }
+    .blob-gold { background: rgba(240,165,58,0.06); width: 600px; height: 600px; top: -100px; right: -200px; }
+    .blob-blue { background: rgba(79,158,248,0.05); width: 500px; height: 500px; bottom: 0; left: -100px; }
+  </style>
 </head>
 
-<body class="antialiased">
+<body>
 
-	<header class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
-		<nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-			<a href="#" class="text-2xl font-bold" style="color: var(--heading-color);">Hritam Basak</a>
-			<div class="hidden md:flex space-x-8 items-center">
-				<a href="#bio" class="text-slate-600 hover:text-amber-700 transition-colors">Home</a>
-				<a href="#updates" class="text-slate-600 hover:text-amber-700 transition-colors">Updates</a>
-				<a href="#publications" class="text-slate-600 hover:text-amber-700 transition-colors">Publications</a>
-				<a href="https://raw.githubusercontent.com/hritam-98/hritam-98.github.io/main/ResumeCV/2page/HritamBasak_CV.pdf" download="HritamBasak_CV.pdf" class="accent-button text-white px-4 py-2 rounded-md transition-colors text-sm font-medium">
-					Download CV <i class="ai ai-cv ml-1"></i>
-				</a>
-			</div>
-			<button id="mobile-menu-button" class="md:hidden text-slate-700">
-				<i class="fa-solid fa-bars fa-lg"></i>
-			</button>
-		</nav>
-		<div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
-			<a href="#bio" class="block text-slate-600 hover:text-amber-700 transition-colors">Home</a>
-			<a href="#updates" class="block text-slate-600 hover:text-amber-700 transition-colors">Updates</a>
-			<a href="#publications" class="block text-slate-600 hover:text-amber-700 transition-colors">Publications</a>
-			<a href="https://raw.githubusercontent.com/hritam-98/hritam-98.github.io/main/ResumeCV/2page/Hritam-Resume-Aug25.pdf" download="Hritam-Basak-CV.pdf" class="block accent-button text-white px-4 py-2 rounded-md transition-colors text-sm font-medium mt-2 text-center">
-				Download CV <i class="ai ai-cv ml-1"></i>
-			</a>
-		</div>
-	</header>
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">Hritam <span>Basak</span></a>
+      <div class="nav-links">
+        <a href="#bio" data-section="bio">About</a>
+        <a href="#updates" data-section="updates">Updates</a>
+        <a href="#publications" data-section="publications">Publications</a>
+        <a href="#services" data-section="services">Service</a>
+        <a href="https://raw.githubusercontent.com/hritam-98/hritam-98.github.io/main/ResumeCV/2page/HritamBasak_CV.pdf" download="HritamBasak_CV.pdf" class="btn-cv">
+          <i class="ai ai-cv"></i> CV
+        </a>
+      </div>
+      <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="#bio">About</a>
+      <a href="#updates">Updates</a>
+      <a href="#publications">Publications</a>
+      <a href="#services">Service</a>
+      <a href="https://raw.githubusercontent.com/hritam-98/hritam-98.github.io/main/ResumeCV/2page/HritamBasak_CV.pdf" download class="btn-cv" style="align-self:flex-start">Download CV</a>
+    </div>
+  </nav>
 
-	<main class="container mx-auto px-6">
-		<section id="bio" class="fade-in-section hero-animated-bg rounded-lg my-12 py-16 px-6">
-			<div class="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
-				<div class="md:col-span-1 flex flex-col items-center text-center">
-					<img class="w-48 h-48 rounded-full object-cover shadow-lg mb-4" src="https://hritam-98.github.io/img/About/dp-new.jpg" alt="Portrait of Hritam Basak" onerror="this.onerror=null;this.src='https://placehold.co/192x192/e2e8f0/334155?text=HB';">
-					<h2 id="typewriter-name" class="text-3xl h-10"></h2>
-					<p class="text-slate-500 mt-1">Ph.D. Candidate</p>
-					<p class="text-slate-600 font-medium">Stony Brook University</p>
-					<p id="email-display" class="text-sm text-slate-500 mt-2 cursor-pointer" onmouseover="revealEmail(this)">h...k@...edu</p>
-					<div class="flex space-x-5 mt-6">
-						<a href="mailto:hbasak@cs.stonybrook.edu" class="text-slate-500 hover:text-amber-700 transition-colors text-2xl"><i class="fa-solid fa-envelope"></i></a>
-						<a href="https://scholar.google.com/citations?user=29wTOh4AAAAJ&hl=en" class="text-slate-500 hover:text-amber-700 transition-colors text-2xl"><i class="ai ai-google-scholar"></i></a>
-						<a href="https://github.com/hritam-98" class="text-slate-500 hover:text-amber-700 transition-colors text-2xl"><i class="fa-brands fa-github"></i></a>
-						<a href="https://www.linkedin.com/in/hritam-basak-a66114166/" class="text-slate-500 hover:text-amber-700 transition-colors text-2xl"><i class="fa-brands fa-linkedin"></i></a>
-					</div>
-				</div>
-				<div class="md:col-span-2">
-					<h1 class="text-4xl mb-6 section-heading">Biography</h1>
-					<div class="space-y-4 text-lg leading-relaxed">
-						<p>I am a 4<sup>th</sup> year Ph.D. in Computer Science at <a href="https://www.stonybrook.edu/" class="accent-link">Stony Brook University</a>, specializing in Computer Vision and Deep Learning. I am currently a Research Assistant advised by <a href="https://www3.cs.stonybrook.edu/~zyin/index.htm" class="accent-link">Prof. Zhaozheng Yin</a>.</p>
-						<p>My research interests include <b>3D Vision & Robotics</b>, <b>Self-supervised Learning</b>, <b>Generative AI</b>, and <b>Multimodal Learning (Vision + X)</b>. I also apply machine learning to <b>Medical Image Analysis</b> <i class='fa-solid fa-heart-pulse' style='color:#d9534f'></i>.</p>
-						<p>I have spent two wonderful summers in <a href="https://www.lab126.com/" class="accent-link" target="_blank">Amazon Lab126</a>, solving perception and manipulation problems in embodied AI, working on single image to 3D generation, language-guided affordance estimation, 6-DoF pose estimation & tracking, and view-point translation to make robots smarter and more adaptable. <i class="fa-solid fa-robot" style="color:#ff9900;"></i></p>
-						<p>Previously, I was a Data Scientist at <a href="https://www.tata.com/tatadigital" class="accent-link">Tata Digital</a>, where I developed a visual search engine for fashion apparel. I earned my Bachelor's degree in Electrical Engineering from <a href="http://www.jaduniv.edu.in/" class="accent-link">Jadavpur University</a>.</p>
-					</div>
-				</div>
-			</div>
-		</section>
+  <!-- HERO -->
+  <section id="bio">
+    <canvas id="hero-canvas"></canvas>
+    <div class="blob blob-gold"></div>
+    <div class="blob blob-blue"></div>
+    <div class="hero-inner">
+      <div class="hero-left reveal">
+        <div class="profile-ring">
+          <div class="profile-ring-inner">
+            <img class="profile-img"
+              src="https://hritam-98.github.io/img/About/dp-new.jpg"
+              alt="Hritam Basak"
+              onerror="this.src='https://placehold.co/192x192/111825/4f9ef8?text=HB'">
+          </div>
+        </div>
+        <div>
+          <div class="profile-role">PhD Candidate · CS</div>
+          <div class="profile-name-small">Hritam Basak</div>
+          <div class="profile-place"><i class="fa-solid fa-location-dot" style="color:var(--dim);margin-right:0.35rem;font-size:0.75rem"></i>Stony Brook University</div>
+        </div>
+        <div class="profile-email" id="email-el" onclick="revealEmail(this)" title="Click to reveal email">
+          h••••k@cs.stonybrook.edu
+        </div>
+        <div class="social-icons">
+          <a href="mailto:hbasak@cs.stonybrook.edu" title="Email"><i class="fa-solid fa-envelope"></i></a>
+          <a href="https://scholar.google.com/citations?user=29wTOh4AAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="ai ai-google-scholar"></i></a>
+          <a href="https://github.com/hritam-98" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/hritam-basak-a66114166/" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+      </div>
 
-		<section id="updates" class="mb-24 fade-in-section">
-			<h2 class="text-4xl text-center mb-12 section-heading">Recent Updates</h2>
-			<div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-md border" style="border-color: var(--border-color);">
-				<div class="max-h-80 overflow-y-auto pr-4">
-					<ul class="space-y-4">
-						<li class="update-item"><strong class="font-semibold" style="color: var(--accent-color);">[June 2025]</strong> Our "VisPLA" paper was accepted to <strong>NeurIPS 2025</strong>!</li>
-						<li class="update-item"><strong class="font-semibold" style="color: var(--accent-color);">[June 2025]</strong> Thrilled to receive the <strong>ICCV Travel Award</strong>!</li>
-						
-						<li class="update-item"><strong class="font-semibold" style="color: var(--accent-color);">[June 2025]</strong> Our "D4Recon" paper was accepted to <strong>MICCAI 2025</strong> and "PRISM" was accepted to <strong>IROS 2025</strong>!</li>
-						<li class="update-item"><strong class="font-semibold" style="color: var(--accent-color);">[May 2025]</strong> I completed a successful summer internship at <a href='https://www.amazon.science/research-areas/robotics' class="accent-link">Amazon Robotics</a>.</li>
-						<li class="update-item"><strong class="font-semibold" style="color: var(--accent-color);">[May 2025]</strong> Honored to be recognized as an <a href="#" class="accent-link">Outstanding Reviewer</a> at CVPR 2025.</li>
-						<li class="update-item"><strong class="font-semibold" style="color: var(--accent-color);">[Feb 2025]</strong> Two papers, "SemiDAViL" and "UA-Pose," were accepted at <strong>CVPR 2025</strong>!</li>
-						<li class="update-item"><strong class="font-semibold" style="color: var(--accent-color);">[Nov 2024]</strong> Received the IEEE SPS Scholarship for the second consecutive year.</li>
-						<li class="update-item"><strong class="font-semibold" style="color: var(--accent-color);">[Sep 2024]</strong> Thrilled to receive the <strong>MICCAI NIH Travel Award</strong> and the <strong>ECCV DEI Award</strong>.</li>
-						<li class="update-item"><strong class="font-semibold" style="color: var(--accent-color);">[July 2024]</strong> Our paper "Forget More to Learn More" was accepted at <strong>ECCV 2024</strong>.</li>
-						<li class="update-item"><strong class="font-semibold" style="color: var(--accent-color);">[June 2024]</strong> Our "Quest for Clone" paper was accepted at <strong>MICCAI 2024</strong>.</li>
-					</ul>
-				</div>
-			</div>
-		</section>
+      <div class="hero-right">
+        <div class="hero-eyebrow reveal">// Computer Vision & Deep Learning</div>
+        <h1 class="hero-heading reveal reveal-delay-1">
+          Researching the <em>visual intelligence</em> of machines
+        </h1>
+        <div class="bio-text reveal reveal-delay-2">
+          <p style="margin-bottom:0.85rem">I'm a 4<sup>th</sup>-year PhD student in Computer Science at <a href="https://www.stonybrook.edu/">Stony Brook University</a>, advised by <a href="https://www3.cs.stonybrook.edu/~zyin/index.htm">Prof. Zhaozheng Yin</a>. My work spans <strong>3D Vision, Self-supervised Learning, Generative AI,</strong> and <strong>Multimodal Learning</strong>, with applications in medical image analysis <i class='fa-solid fa-heart-pulse' style='color:var(--red)'></i>.</p>
+          <p style="margin-bottom:0.85rem">I've spent two summers at <a href="https://www.lab126.com/">Amazon Lab126</a> tackling embodied AI — single-image 3D generation, 6-DoF pose estimation, language-guided affordance, and view-point translation for smarter robots <i class="fa-solid fa-robot" style="color:var(--gold)"></i>.</p>
+          <p>Previously a Data Scientist at <a href="https://www.tata.com/tatadigital">Tata Digital</a> building visual search for fashion. B.E. in Electrical Engineering from <a href="http://www.jaduniv.edu.in/">Jadavpur University</a>.</p>
+        </div>
+        <div class="research-tags reveal reveal-delay-2">
+          <span class="tag">3D Vision</span>
+          <span class="tag">Generative AI</span>
+          <span class="tag blue">Self-supervised Learning</span>
+          <span class="tag">Medical Image Analysis</span>
+          <span class="tag blue">Multimodal Learning</span>
+          <span class="tag">Robotics Perception</span>
+          <span class="tag blue">Domain Adaptation</span>
+        </div>
+        <div class="hero-stats reveal reveal-delay-3">
+          <div class="stat">
+            <span class="stat-num" data-count="10">0</span>
+            <span class="stat-label">Publications</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num" data-count="5">0</span>
+            <span class="stat-label">Top Venues</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num" data-count="2">0</span>
+            <span class="stat-label">Internships</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-		<section id="publications" class="mb-24 fade-in-section">
-			<h2 class="text-4xl text-center mb-12 section-heading">Selected Publications</h2>
-			<div id="publications-list" class="space-y-12"></div>
-		</section>
+  <hr class="section-divider">
 
-		<section id="services" class="fade-in-section mb-24">
-			<h2 class="text-4xl text-center mb-12 section-heading">Academic Services</h2>
-			<div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
-				<div class="bg-white p-6 rounded-lg shadow-md border" style="border-color: var(--border-color);">
-					<h3 class="text-2xl mb-4">Conference Reviewing</h3>
-					<ul class="list-disc list-inside space-y-2">
-						<li>CVPR ('24, '25)</li>
-						<li>MICCAI ('23, '24, '25)</li>
-						<li>ECCV ('24)</li>
-						<li>ICCV ('25)</li>
-						<li>AAAI ('23, '24, '25)</li>
-					</ul>
-				</div>
-				<div class="bg-white p-6 rounded-lg shadow-md border" style="border-color: var(--border-color);">
-					<h3 class="text-2xl mb-4">Journal Reviewing</h3>
-					<ul class="list-disc list-inside space-y-2">
-						<li>IEEE TPAMI, TNNLS, TIP, TCSVT, TMI</li>
-						<li>Elsevier MedIA, Pattern Recognition</li>
-						<li>Nature</li>
-						<li>Intl. Journal of Computer Vision (IJCV)</li>
-					</ul>
-				</div>
-			</div>
-		</section>
-	</main>
+  <!-- UPDATES -->
+  <div id="updates" class="section">
+    <div class="section-label reveal">// News</div>
+    <h2 class="section-title reveal">Recent <em>Updates</em></h2>
+    <div class="updates-box reveal">
+      <div class="updates-scroll">
+        <div class="update-item">
+          <div class="update-date">Jun 2025</div>
+          <div class="update-dot"></div>
+          <div class="update-text">Our <strong>"VisPLA"</strong> paper was accepted to <strong>NeurIPS 2025</strong>! <span class="update-badge badge-gold">NeurIPS</span></div>
+        </div>
+        <div class="update-item">
+          <div class="update-date">Jun 2025</div>
+          <div class="update-dot"></div>
+          <div class="update-text">Thrilled to receive the <strong>ICCV 2025 Travel Award</strong>! <span class="update-badge badge-teal">Award</span></div>
+        </div>
+        <div class="update-item">
+          <div class="update-date">Jun 2025</div>
+          <div class="update-dot"></div>
+          <div class="update-text"><strong>"D4Recon"</strong> accepted at <strong>MICCAI 2025</strong>; <strong>"PRISM"</strong> accepted at <strong>IROS 2025</strong>. <span class="update-badge badge-blue">2 Papers</span></div>
+        </div>
+        <div class="update-item">
+          <div class="update-date">May 2025</div>
+          <div class="update-dot"></div>
+          <div class="update-text">Wrapped up a successful research internship at <a href="https://www.amazon.science/research-areas/robotics">Amazon Robotics</a>. <span class="update-badge badge-gold">Internship</span></div>
+        </div>
+        <div class="update-item">
+          <div class="update-date">May 2025</div>
+          <div class="update-dot"></div>
+          <div class="update-text">Honored as an <strong>Outstanding Reviewer</strong> at <strong>CVPR 2025</strong>. <span class="update-badge badge-teal">Award</span></div>
+        </div>
+        <div class="update-item">
+          <div class="update-date">Feb 2025</div>
+          <div class="update-dot"></div>
+          <div class="update-text"><strong>"SemiDAViL"</strong> and <strong>"UA-Pose"</strong> accepted at <strong>CVPR 2025</strong>! <span class="update-badge badge-blue">2 Papers</span></div>
+        </div>
+        <div class="update-item">
+          <div class="update-date">Nov 2024</div>
+          <div class="update-dot"></div>
+          <div class="update-text">Received the <strong>IEEE SPS Scholarship</strong> for the second consecutive year. <span class="update-badge badge-gold">Award</span></div>
+        </div>
+        <div class="update-item">
+          <div class="update-date">Sep 2024</div>
+          <div class="update-dot"></div>
+          <div class="update-text">Received the <strong>MICCAI NIH Travel Award</strong> and the <strong>ECCV DEI Award</strong>. <span class="update-badge badge-teal">2 Awards</span></div>
+        </div>
+        <div class="update-item">
+          <div class="update-date">Jul 2024</div>
+          <div class="update-dot"></div>
+          <div class="update-text"><strong>"Forget More to Learn More"</strong> accepted at <strong>ECCV 2024</strong>. <span class="update-badge badge-blue">ECCV</span></div>
+        </div>
+        <div class="update-item">
+          <div class="update-date">Jun 2024</div>
+          <div class="update-dot"></div>
+          <div class="update-text"><strong>"Quest for Clone"</strong> accepted at <strong>MICCAI 2024</strong>. <span class="update-badge badge-blue">MICCAI</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-	<footer class="bg-slate-800 text-slate-400">
-		<div class="container mx-auto px-6 py-8 text-center">
-			<div class="flex justify-center mb-6">
-				<a href="https://info.flagcounter.com/q0IF"><img src="https://s01.flagcounter.com/countxl/q0IF/bg_1A1A1A/txt_CCCCCC/border_3A3A3A/columns_3/maxflags_12/viewers_0/labels_1/pageviews_1/flags_0/percent_0/" alt="Flag Counter" border="0"></a>
-			</div>
-			<p>&copy; 2025 Hritam Basak. All Rights Reserved.</p>
-			<p id="last-updated" class="text-xs mt-1"></p>
-			<p class="text-xs mt-2">Design inspired by the <a href="https://github.com/gcushen/hugo-academic" target="_blank" class="hover:text-white">Academic theme</a>. Styled with Tailwind CSS.</p>
-			<a href="#" id="back_to_top" class="inline-block mt-6 text-slate-400 hover:text-white transition-colors"><i class="fa-solid fa-chevron-up fa-lg"></i><span class="ml-2">Back to Top</span></a>
-		</div>
-	</footer>
+  <hr class="section-divider">
 
-	<script>
-		const publicationsData = {
-			"2025": [
-				{ id: 'iros25', conference: 'IROS 2025', title: 'Enhancing Single Image to 3D Generation using Gaussian Splatting and Hybrid Diffusion Priors', authors: ['Hritam Basak', 'Hadi Tabatabaee', 'Shreekant Gayaka', 'Ming-Feng Li', 'Xin Yang', 'Cheng-Hao Kuo', 'Arnie Sen', 'Min Sun', 'Zhaozheng Yin'], image: 'https://hritam-98.github.io/img/Publications/iros-25.png', links: { pdf: 'https://arxiv.org/abs/2410.09467' }, abstract: '3D object generation from a single unposed RGB image is essential for robotic perception... Our approach achieves state-of-the-art 3D reconstruction quality, significantly improving robotic perception pipelines.', bibtex: `@inproceedings{basak2025enhancing, title={Enhancing Single Image to 3D Generation...}, author={Basak, Hritam and ...}, booktitle={IROS}, year={2025}}`}, 
-				{ id: 'miccai25', conference: 'MICCAI 2025', title: 'D4Recon: Dual-stage Deformation and Dual-scale Depth Guidance for Endoscopic Reconstruction', authors: ['Hritam Basak', 'Zhaozheng Yin'], image: 'https://hritam-98.github.io/img/Publications/overall-miccai25.png', links: { code: 'https://github.com/hritam-98/D4Recon' }, abstract: 'Deformable tissue reconstruction in endoscopy is vital for surgery... D4Recon achieves superior geometric coherence and photorealism with real-time rendering speed, outperforming existing methods.', bibtex: `@inproceedings{basak2025d4recon, title={D4Recon: Dual-stage Deformation...}, author={Basak, Hritam and Yin, Zhaozheng}, booktitle={MICCAI}, year={2025}}`}, 
-				{ id: 'cvpr25-uapose', conference: 'CVPR 2025', title: 'UA-Pose: Uncertainty-aware 6D Object Pose Estimation and Online Object Completion with Partial References', authors: ['Ming-Feng Li', 'Xin Yang', 'Fu-En Wang', 'Hritam Basak', 'Yuyin Sun', 'Shreekant Gayaka', 'Min Sun', 'Cheng-Hao Kuo'], image: 'https://hritam-98.github.io/img/Publications/UA-pose.png', links: { pdf: 'https://openaccess.thecvf.com/content/CVPR2025/html/Li_UA-Pose_Uncertainty-Aware_6D_Object_Pose_Estimation_and_Online_Object_Completion_CVPR_2025_paper.html', code: 'https://minfenli.github.io/UA-Pose/' }, abstract: 'We propose UA-Pose, an uncertainty-aware approach for 6D object pose estimation... Experimental results demonstrate significant performance improvements.', bibtex: `@inproceedings{li2025ua, title={UA-Pose: Uncertainty-aware 6D object pose estimation...}, author={Li, Ming-Feng and ...}, booktitle={CVPR}, year={2025}}`}, 
-				{ id: 'cvpr25-semidavil', conference: 'CVPR 2025', title: 'SemiDAViL: Semi-supervised Domain Adaptation with Vision-Language Guidance for Semantic Segmentation', authors: ['Hritam Basak', 'Zhaozheng Yin'], image: 'https://hritam-98.github.io/img/Publications/cvpr-25.png', links: { pdf: 'https://openaccess.thecvf.com/content/CVPR2025/html/Basak_SemiDAViL_Semi-supervised_Domain_Adaptation_with_Vision-Language_Guidance_for_Semantic_Segmentation_CVPR_2025_paper.html', code: 'https://github.com/hritam-98/SemiDAViL' }, abstract: 'We propose the first language-guided SSDA setting for semantic segmentation. We harness the semantic generalization capabilities inherent in vision-language models (VLMs).', bibtex: `@inproceedings{basak2025semidavil, title={SemiDAViL: Semi-supervised Domain Adaptation...}, author={Basak, Hritam and Yin, Zhaozheng}, booktitle={CVPR}, year={2025}}`}
-			],
-			"2024": [
-				{ id: 'eccv24', conference: 'ECCV 2024', title: 'Forget More to Learn More: Domain-specific Feature Unlearning for Semi-supervised and Unsupervised Domain Adaptation', authors: ['Hritam Basak', 'Zhaozheng Yin'], image: 'https://hritam-98.github.io/img/Publications/eccv24-overall.png', links: { pdf: 'https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/05513.pdf', code: 'https://github.com/hritam-98/FMLM' }, abstract: 'In pursuit of greater generalizability and robustness, we present an SSDA framework with a new episodic learning strategy: "learn, forget, then learn more".', bibtex: `@inproceedings{basak2024forget, title={Forget More to Learn More...}, author={Basak, Hritam and Yin, Zhaozheng}, booktitle={ECCV}, year={2024}}`}, 
-				{ id: 'miccai24', conference: 'MICCAI 2024', title: 'Quest for Clone: Test-Time Domain Adaptation for Medical Image Segmentation by Searching the Closest Clone in Latent Space', authors: ['Hritam Basak', 'Zhaozheng Yin'], image: 'https://hritam-98.github.io/img/Publications/overall-miccai24-cropped.png', links: { pdf: 'https://papers.miccai.org/miccai-2024/paper/0297_paper.pdf', code: 'https://github.com/hritam-98/Quest4Clone' }, abstract: 'We propose a generative latent search paradigm to reconstruct the closest clone of every target image from the source latent space... We empirically validate the efficacy of our proposed method.', bibtex: `@inproceedings{basak2024quest, title={Quest for Clone: Test-Time Domain Adaptation...}, author={Basak, Hritam and Yin, Zhaozheng}, booktitle={MICCAI}, year={2024}}`}
-			],
-			"2023": [
-				{ id: 'cvpr23', conference: 'CVPR 2023', title: 'Pseudo Label Guided Contrastive Learning for Semi-supervised Medical Image Segmentation', authors: ['Hritam Basak', 'Zhaozheng Yin'], image: 'https://hritam-98.github.io/img/Publications/PLGCL_overall.png', links: { pdf: 'https://openaccess.thecvf.com/content/CVPR2023/papers/Basak_Pseudo-Label_Guided_Contrastive_Learning_for_Semi-Supervised_Medical_Image_Segmentation_CVPR_2023_paper.pdf', code: 'https://github.com/hritam-98/PatchCL-MedSeg' }, abstract: 'We propose a novel semi-supervised patch-based CL framework for medical image segmentation... Experimental analysis reveals the superiority of our proposed method.', bibtex: `@inproceedings{basak2023pseudo, title={Pseudo-Label Guided Contrastive Learning...}, author={Basak, Hritam and Yin, Zhaozheng}, booktitle={CVPR}, year={2023}}`}, 
-				{ id: 'miccai23', conference: 'MICCAI 2023', title: 'Semi-supervised Domain Adaptive Medical Image Segmentation through Consistency Regularized Disentangled Contrastive Learning', authors: ['Hritam Basak', 'Zhaozheng Yin'], image: 'https://hritam-98.github.io/img/Publications/style-content-miccai23.png', links: { pdf: 'https://link.springer.com/epdf/10.1007/978-3-031-43901-8_25', code: 'https://github.com/hritam-98/GFDA-disentangled' }, abstract: 'We investigate semi-supervised domain adaptation (SSDA) for medical image segmentation... Our proposed method outperforms the SoTA methods.', bibtex: `@inproceedings{basak2023semi, title={Semi-supervised domain adaptive medical image segmentation...}, author={Basak, Hritam and Yin, Zhaozheng}, booktitle={MICCAI}, year={2023}}`}
-			],
-			"2022": [
-				{ id: 'miccai22', conference: 'MICCAI 2022', title: 'Addressing Class Imbalance in Semi-supervised Image Segmentation: A Study on Cardiac MRI', authors: ['Hritam Basak', 'Sagnik Ghosal', 'Ram Sarkar'], image: 'https://hritam-98.github.io/img/Publications/MICCAI_Overall_final.png', links: { pdf: 'https://rdcu.be/cVRY4' }, abstract: 'To alleviate the shortcoming of class imbalance, we propose maintaining a confidence array that records class-wise performance during training.', bibtex: `@inproceedings{basak2022addressing, title={Addressing class imbalance in semi-supervised image segmentation...}, author={Basak, Hritam and Ghosal, Sagnik and Sarkar, Ram}, booktitle={MICCAI}, year={2022}}`}, 
-				{ id: 'isbi22', conference: 'ISBI 2022', title: 'An Embarassingly Simple Consistency Regularization Method for Semi-Supervised Medical Image Segmentation', authors: ['Hritam Basak', 'Rajarshi Bhattacharya', 'Rukhshanda Hussain', 'Agniv Chatterjee'], image: 'https://hritam-98.github.io/img/Publications/ICT-MedSeg-Overall.png', links: { pdf: 'https://arxiv.org/abs/2202.00677', code: 'https://github.com/hritam-98/ICT-MedSeg' }, abstract: 'We introduce a novel regularization strategy involving interpolation-based mixing for semi-supervised medical image segmentation.', bibtex: `@inproceedings{basak2022exceedingly, title={An exceedingly simple consistency regularization method...}, author={Basak, Hritam and ...}, booktitle={ISBI}, year={2022}}`}
-			]
-		};
+  <!-- PUBLICATIONS -->
+  <div id="publications" class="section">
+    <div class="section-label reveal">// Research</div>
+    <h2 class="section-title reveal">Selected <em>Publications</em></h2>
+    <div id="pub-list"></div>
+  </div>
 
-		document.addEventListener('DOMContentLoaded', () => {
+  <hr class="section-divider">
 
-			// --- Core Initializations ---
-			renderPublications();
-			setupEventListeners();
-			initializeAnimations();
-			updateFooter();
+  <!-- SERVICES -->
+  <div id="services" class="section">
+    <div class="section-label reveal">// Community</div>
+    <h2 class="section-title reveal">Academic <em>Service</em></h2>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-card-title"><i class="fa-solid fa-users-gear"></i> Conference Reviewing</div>
+        <ul class="service-list">
+          <li><span class="service-highlight">CVPR</span>&nbsp;'24, '25</li>
+          <li><span class="service-highlight">MICCAI</span>&nbsp;'23, '24, '25</li>
+          <li><span class="service-highlight">ECCV</span>&nbsp;'24</li>
+          <li><span class="service-highlight">ICCV</span>&nbsp;'25</li>
+          <li><span class="service-highlight">AAAI</span>&nbsp;'23, '24, '25</li>
+        </ul>
+      </div>
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-card-title"><i class="fa-solid fa-book-open"></i> Journal Reviewing</div>
+        <ul class="service-list">
+          <li>IEEE TPAMI, TNNLS, TIP, TCSVT, TMI</li>
+          <li>Elsevier MedIA, Pattern Recognition</li>
+          <li>Nature</li>
+          <li>Int'l Journal of Computer Vision (IJCV)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
-			// --- Typewriter Effect ---
-			const nameEl = document.getElementById('typewriter-name');
-			if (nameEl) {
-				typewriterEffect(nameEl, "Hritam Basak");
-			}
-		});
-		
-		function renderPublications() {
-			const container = document.getElementById('publications-list');
-			if (!container) return;
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">Hritam Basak</div>
+      <div class="footer-tagline">PhD Researcher · Computer Vision & Deep Learning</div>
+      <div class="footer-social">
+        <a href="mailto:hbasak@cs.stonybrook.edu"><i class="fa-solid fa-envelope"></i></a>
+        <a href="https://scholar.google.com/citations?user=29wTOh4AAAAJ&hl=en" target="_blank"><i class="ai ai-google-scholar"></i></a>
+        <a href="https://github.com/hritam-98" target="_blank"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/hritam-basak-a66114166/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+      </div>
+      <div class="footer-copy">
+        &copy; 2025 Hritam Basak · <span id="last-updated"></span>
+      </div>
+    </div>
+  </footer>
 
-			let html = '';
-			const years = Object.keys(publicationsData).sort((a, b) => b - a);
-			
-			years.forEach(year => {
-				html += `<h3 class="text-3xl font-semibold mb-8">${year}</h3>`;
-				publicationsData[year].forEach(paper => {
-					const authorList = paper.authors.map(author => 
-						author === 'Hritam Basak' ? `<strong class="font-semibold" style="color: var(--accent-color);">${author}</strong>` : author
-					).join(', ');
+  <!-- BACK TO TOP -->
+  <a href="#" id="btt" title="Back to top"><i class="fa-solid fa-chevron-up"></i></a>
 
-					const linksHtml = Object.entries(paper.links || {}).map(([key, url]) => 
-						`<a href="${url}" target="_blank" class="accent-link capitalize">${key}</a>`
-					).join(' <span class="text-slate-300">|</span> ');
+  <script>
+  // ── DATA ────────────────────────────────────────────────────
+  const pubs = {
+    "2025": [
+      { id:"iros25", conf:"IROS 2025", title:"Enhancing Single Image to 3D Generation using Gaussian Splatting and Hybrid Diffusion Priors", authors:["Hritam Basak","Hadi Tabatabaee","Shreekant Gayaka","Ming-Feng Li","Xin Yang","Cheng-Hao Kuo","Arnie Sen","Min Sun","Zhaozheng Yin"], img:"https://hritam-98.github.io/img/Publications/iros-25.png", links:{pdf:"https://arxiv.org/abs/2410.09467"}, abstract:"3D object generation from a single unposed RGB image is essential for robotic perception. Our approach achieves state-of-the-art 3D reconstruction quality, significantly improving robotic perception pipelines using Gaussian Splatting and hybrid diffusion priors.", bibtex:`@inproceedings{basak2025enhancing,\n  title={Enhancing Single Image to 3D Generation using Gaussian Splatting and Hybrid Diffusion Priors},\n  author={Basak, Hritam and others},\n  booktitle={IROS},\n  year={2025}\n}`},
+      { id:"miccai25", conf:"MICCAI 2025", title:"D4Recon: Dual-stage Deformation and Dual-scale Depth Guidance for Endoscopic Reconstruction", authors:["Hritam Basak","Zhaozheng Yin"], img:"https://hritam-98.github.io/img/Publications/overall-miccai25.png", links:{code:"https://github.com/hritam-98/D4Recon"}, abstract:"Deformable tissue reconstruction in endoscopy is vital for surgical guidance. D4Recon achieves superior geometric coherence and photorealism with real-time rendering speed, outperforming existing methods.", bibtex:`@inproceedings{basak2025d4recon,\n  title={D4Recon},\n  author={Basak, Hritam and Yin, Zhaozheng},\n  booktitle={MICCAI},\n  year={2025}\n}`},
+      { id:"cvpr25-uapose", conf:"CVPR 2025", title:"UA-Pose: Uncertainty-aware 6D Object Pose Estimation and Online Object Completion with Partial References", authors:["Ming-Feng Li","Xin Yang","Fu-En Wang","Hritam Basak","Yuyin Sun","Shreekant Gayaka","Min Sun","Cheng-Hao Kuo"], img:"https://hritam-98.github.io/img/Publications/UA-pose.png", links:{pdf:"https://openaccess.thecvf.com/content/CVPR2025/html/Li_UA-Pose_Uncertainty-Aware_6D_Object_Pose_Estimation_and_Online_Object_Completion_CVPR_2025_paper.html", code:"https://minfenli.github.io/UA-Pose/"}, abstract:"UA-Pose is an uncertainty-aware approach for 6D object pose estimation that achieves significant performance improvements through online object completion with partial references.", bibtex:`@inproceedings{li2025ua,\n  title={UA-Pose},\n  author={Li, Ming-Feng and others},\n  booktitle={CVPR},\n  year={2025}\n}`},
+      { id:"cvpr25-semidavil", conf:"CVPR 2025", title:"SemiDAViL: Semi-supervised Domain Adaptation with Vision-Language Guidance for Semantic Segmentation", authors:["Hritam Basak","Zhaozheng Yin"], img:"https://hritam-98.github.io/img/Publications/cvpr-25.png", links:{pdf:"https://openaccess.thecvf.com/content/CVPR2025/html/Basak_SemiDAViL_Semi-supervised_Domain_Adaptation_with_Vision-Language_Guidance_for_Semantic_Segmentation_CVPR_2025_paper.html", code:"https://github.com/hritam-98/SemiDAViL"}, abstract:"We propose the first language-guided SSDA setting for semantic segmentation, harnessing the semantic generalization capabilities of vision-language models (VLMs) to bridge domain gaps effectively.", bibtex:`@inproceedings{basak2025semidavil,\n  title={SemiDAViL},\n  author={Basak, Hritam and Yin, Zhaozheng},\n  booktitle={CVPR},\n  year={2025}\n}`}
+    ],
+    "2024": [
+      { id:"eccv24", conf:"ECCV 2024", title:"Forget More to Learn More: Domain-specific Feature Unlearning for Semi-supervised and Unsupervised Domain Adaptation", authors:["Hritam Basak","Zhaozheng Yin"], img:"https://hritam-98.github.io/img/Publications/eccv24-overall.png", links:{pdf:"https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/05513.pdf", code:"https://github.com/hritam-98/FMLM"}, abstract:"An SSDA framework with a new episodic learning strategy: learn, forget, then learn more. By strategically unlearning domain-specific features, the model achieves greater generalizability and robustness.", bibtex:`@inproceedings{basak2024forget,\n  title={Forget More to Learn More},\n  author={Basak, Hritam and Yin, Zhaozheng},\n  booktitle={ECCV},\n  year={2024}\n}`},
+      { id:"miccai24", conf:"MICCAI 2024", title:"Quest for Clone: Test-Time Domain Adaptation for Medical Image Segmentation by Searching the Closest Clone in Latent Space", authors:["Hritam Basak","Zhaozheng Yin"], img:"https://hritam-98.github.io/img/Publications/overall-miccai24-cropped.png", links:{pdf:"https://papers.miccai.org/miccai-2024/paper/0297_paper.pdf", code:"https://github.com/hritam-98/Quest4Clone"}, abstract:"A generative latent search paradigm to reconstruct the closest clone of every target image from the source latent space, enabling robust test-time domain adaptation for medical image segmentation.", bibtex:`@inproceedings{basak2024quest,\n  title={Quest for Clone},\n  author={Basak, Hritam and Yin, Zhaozheng},\n  booktitle={MICCAI},\n  year={2024}\n}`}
+    ],
+    "2023": [
+      { id:"cvpr23", conf:"CVPR 2023", title:"Pseudo Label Guided Contrastive Learning for Semi-supervised Medical Image Segmentation", authors:["Hritam Basak","Zhaozheng Yin"], img:"https://hritam-98.github.io/img/Publications/PLGCL_overall.png", links:{pdf:"https://openaccess.thecvf.com/content/CVPR2023/papers/Basak_Pseudo-Label_Guided_Contrastive_Learning_for_Semi-Supervised_Medical_Image_Segmentation_CVPR_2023_paper.pdf", code:"https://github.com/hritam-98/PatchCL-MedSeg"}, abstract:"A novel semi-supervised patch-based contrastive learning framework for medical image segmentation, using pseudo-label guidance to bridge the gap between labeled and unlabeled training data.", bibtex:`@inproceedings{basak2023pseudo,\n  title={Pseudo-Label Guided Contrastive Learning for Semi-Supervised Medical Image Segmentation},\n  author={Basak, Hritam and Yin, Zhaozheng},\n  booktitle={CVPR},\n  year={2023}\n}`},
+      { id:"miccai23", conf:"MICCAI 2023", title:"Semi-supervised Domain Adaptive Medical Image Segmentation through Consistency Regularized Disentangled Contrastive Learning", authors:["Hritam Basak","Zhaozheng Yin"], img:"https://hritam-98.github.io/img/Publications/style-content-miccai23.png", links:{pdf:"https://link.springer.com/epdf/10.1007/978-3-031-43901-8_25", code:"https://github.com/hritam-98/GFDA-disentangled"}, abstract:"An SSDA framework for medical image segmentation using consistency-regularized disentangled contrastive learning to separate style and content features across domains.", bibtex:`@inproceedings{basak2023semi,\n  title={Semi-supervised domain adaptive medical image segmentation},\n  author={Basak, Hritam and Yin, Zhaozheng},\n  booktitle={MICCAI},\n  year={2023}\n}`}
+    ],
+    "2022": [
+      { id:"miccai22", conf:"MICCAI 2022", title:"Addressing Class Imbalance in Semi-supervised Image Segmentation: A Study on Cardiac MRI", authors:["Hritam Basak","Sagnik Ghosal","Ram Sarkar"], img:"https://hritam-98.github.io/img/Publications/MICCAI_Overall_final.png", links:{pdf:"https://rdcu.be/cVRY4"}, abstract:"A confidence-array strategy to alleviate class imbalance during training, recording class-wise performance to dynamically weight unlabeled cardiac MRI samples.", bibtex:`@inproceedings{basak2022addressing,\n  title={Addressing class imbalance in semi-supervised image segmentation},\n  author={Basak, Hritam and Ghosal, Sagnik and Sarkar, Ram},\n  booktitle={MICCAI},\n  year={2022}\n}`},
+      { id:"isbi22", conf:"ISBI 2022", title:"An Embarrassingly Simple Consistency Regularization Method for Semi-Supervised Medical Image Segmentation", authors:["Hritam Basak","Rajarshi Bhattacharya","Rukhshanda Hussain","Agniv Chatterjee"], img:"https://hritam-98.github.io/img/Publications/ICT-MedSeg-Overall.png", links:{pdf:"https://arxiv.org/abs/2202.00677", code:"https://github.com/hritam-98/ICT-MedSeg"}, abstract:"An interpolation-based mixing regularization strategy for semi-supervised medical image segmentation — remarkably simple, yet highly effective at leveraging unlabeled data.", bibtex:`@inproceedings{basak2022exceedingly,\n  title={An embarrassingly simple consistency regularization method},\n  author={Basak, Hritam and others},\n  booktitle={ISBI},\n  year={2022}\n}`}
+    ]
+  };
 
-					html += `
-						<div class="publication-card grid grid-cols-1 md:grid-cols-4 gap-8 bg-white p-6 rounded-lg mb-8">
-							<div class="md:col-span-1">
-								<img class="rounded-md object-cover w-full h-full shadow-sm" src="${paper.image}" alt="${paper.title} Thumbnail" onerror="this.onerror=null;this.src='https://placehold.co/400x300/e2e8f0/334155?text=Image';">
-							</div>
-							<div class="md:col-span-3">
-								<p class="text-sm text-slate-500">${paper.conference}</p>
-								<h4 class="text-xl font-semibold mt-1">${paper.title}</h4>
-								<p class="text-slate-600 mt-2 text-sm">${authorList}</p>
-								<div class="flex flex-wrap gap-x-3 items-center mt-4 text-sm">
-									${linksHtml}
-									${linksHtml ? '<span class="text-slate-300">|</span>' : ''}
-									<button class="accent-link toggle-detail-btn" data-target="#${paper.id}-abstract">Abstract</button>
-									<span class="text-slate-300">|</span>
-									<button class="accent-link toggle-detail-btn" data-target="#${paper.id}-bib">BibTeX</button>
-								</div>
-								<div id="${paper.id}-abstract" class="collapsible-content mt-4 text-sm text-slate-600">
-									<div>${paper.abstract}</div>
-								</div>
-								<div id="${paper.id}-bib" class="collapsible-content mt-4 text-xs text-slate-600">
-									<pre class="overflow-x-auto"><code>${paper.bibtex}</code></pre>
-								</div>
-							</div>
-						</div>`;
-				});
-			});
-			container.innerHTML = html;
-		}
+  // ── RENDER PUBLICATIONS ──────────────────────────────────────
+  function renderPubs() {
+    const container = document.getElementById('pub-list');
+    let html = '';
+    Object.keys(pubs).sort((a,b)=>b-a).forEach(year => {
+      html += `<div class="pub-year-group reveal"><div class="pub-year-badge">${year}</div>`;
+      pubs[year].forEach(p => {
+        const authors = p.authors.map(a =>
+          a === 'Hritam Basak' ? `<strong>${a}</strong>` : a
+        ).join(', ');
+        const links = Object.entries(p.links||{}).map(([k,v]) =>
+          `<a href="${v}" target="_blank" class="pub-link">${k === 'pdf' ? '<i class="fa-solid fa-file-pdf"></i> PDF' : k === 'code' ? '<i class="fa-brands fa-github"></i> Code' : k}</a>`
+        ).join('');
+        html += `
+        <div class="pub-card">
+          <div>
+            <img class="pub-img" src="${p.img}" alt="${p.title}"
+              onerror="this.src='https://placehold.co/400x300/111825/4f9ef8?text=${encodeURIComponent(p.conf)}'">
+          </div>
+          <div>
+            <div class="pub-conference">${p.conf}</div>
+            <div class="pub-title">${p.title}</div>
+            <div class="pub-authors">${authors}</div>
+            <div class="pub-links">
+              ${links}
+              <button class="pub-link toggle-btn" data-target="${p.id}-abs">Abstract</button>
+              <button class="pub-link toggle-btn" data-target="${p.id}-bib">BibTeX</button>
+            </div>
+            <div class="collapsible" id="${p.id}-abs">
+              <div class="collapsible-inner">${p.abstract}</div>
+            </div>
+            <div class="collapsible" id="${p.id}-bib">
+              <div class="collapsible-inner"><pre>${p.bibtex}</pre></div>
+            </div>
+          </div>
+        </div>`;
+      });
+      html += '</div>';
+    });
+    container.innerHTML = html;
+  }
 
-		function setupEventListeners() {
-			// Mobile menu
-			const mobileMenuButton = document.getElementById('mobile-menu-button');
-			const mobileMenu = document.getElementById('mobile-menu');
-			mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+  // ── CANVAS PARTICLES ────────────────────────────────────────
+  function initCanvas() {
+    const canvas = document.getElementById('hero-canvas');
+    const ctx = canvas.getContext('2d');
+    let W, H, dots;
 
-			// Publication buttons (Event Delegation)
-			document.getElementById('publications-list').addEventListener('click', (e) => {
-				if (e.target.matches('.toggle-detail-btn')) {
-					toggleDetail(e.target);
-				}
-			});
-		}
-		
-		function initializeAnimations() {
-			const sections = document.querySelectorAll('.fade-in-section');
-			const observer = new IntersectionObserver(entries => {
-				entries.forEach(entry => {
-					if (entry.isIntersecting) {
-						entry.target.classList.add('is-visible');
-					}
-				});
-			}, { threshold: 0.1 });
-			sections.forEach(section => observer.observe(section));
-		}
-		
-		function updateFooter() {
-			const lastUpdatedEl = document.getElementById('last-updated');
-			if (lastUpdatedEl) {
-				const today = new Date();
-				const options = { year: 'numeric', month: 'long', day: 'numeric' };
-				lastUpdatedEl.textContent = `Last updated on ${today.toLocaleDateString('en-US', options)}`;
-			}
-		}
+    function resize() {
+      W = canvas.width = canvas.offsetWidth;
+      H = canvas.height = canvas.offsetHeight;
+      makeDots();
+    }
 
-		function toggleDetail(button) {
-			const targetId = button.dataset.target;
-			const targetElement = document.querySelector(targetId);
-			if (targetElement) {
-				// Close other open sections for a cleaner accordion effect
-				const parentContainer = button.closest('.md\\:col-span-3');
-				parentContainer.querySelectorAll('.collapsible-content.is-expanded').forEach(openEl => {
-					if (openEl !== targetElement) {
-						openEl.classList.remove('is-expanded');
-					}
-				});
-				// Toggle the clicked section
-				targetElement.classList.toggle('is-expanded');
-			}
-		}
+    function makeDots() {
+      const count = Math.floor((W * H) / 14000);
+      dots = Array.from({length: count}, () => ({
+        x: Math.random() * W, y: Math.random() * H,
+        vx: (Math.random() - 0.5) * 0.35,
+        vy: (Math.random() - 0.5) * 0.35,
+        r: Math.random() * 1.8 + 0.6
+      }));
+    }
 
-		// --- Utility Functions ---
-		function revealEmail(element) {
-			element.textContent = 'hbasak@cs.stonybrook.edu';
-			element.onmouseover = null;
-		}
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+      dots.forEach(d => {
+        d.x += d.vx; d.y += d.vy;
+        if (d.x < 0) d.x = W; if (d.x > W) d.x = 0;
+        if (d.y < 0) d.y = H; if (d.y > H) d.y = 0;
+        ctx.beginPath();
+        ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(79,158,248,0.45)';
+        ctx.fill();
+      });
+      // connections
+      for (let i = 0; i < dots.length; i++) {
+        for (let j = i+1; j < dots.length; j++) {
+          const dx = dots[i].x - dots[j].x;
+          const dy = dots[i].y - dots[j].y;
+          const dist = Math.sqrt(dx*dx + dy*dy);
+          if (dist < 120) {
+            ctx.beginPath();
+            ctx.moveTo(dots[i].x, dots[i].y);
+            ctx.lineTo(dots[j].x, dots[j].y);
+            ctx.strokeStyle = `rgba(79,158,248,${0.12 * (1 - dist/120)})`;
+            ctx.lineWidth = 0.6;
+            ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(draw);
+    }
 
-		function typewriterEffect(element, text, speed = 75) {
-			let i = 0;
-			element.innerHTML = "";
-			const cursor = document.createElement('span');
-			cursor.className = 'typewriter-cursor';
-			cursor.innerHTML = '&nbsp;';
-			element.appendChild(cursor);
+    resize();
+    window.addEventListener('resize', resize);
+    draw();
+  }
 
-			function type() {
-				if (i < text.length) {
-					element.insertBefore(document.createTextNode(text.charAt(i)), cursor);
-					i++;
-					setTimeout(type, speed);
-				}
-			}
-			type();
-		}
-	</script>
+  // ── SCROLL REVEAL ────────────────────────────────────────────
+  function initReveal() {
+    const els = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.08 });
+    els.forEach(el => obs.observe(el));
+  }
+
+  // ── COUNTER ANIMATION ────────────────────────────────────────
+  function animateCounters() {
+    document.querySelectorAll('[data-count]').forEach(el => {
+      const target = +el.dataset.count;
+      let cur = 0;
+      const step = Math.ceil(target / 30);
+      const t = setInterval(() => {
+        cur = Math.min(cur + step, target);
+        el.textContent = cur + (target >= 10 ? '+' : '');
+        if (cur >= target) clearInterval(t);
+      }, 40);
+    });
+  }
+
+  // ── ACTIVE NAV ───────────────────────────────────────────────
+  function updateActiveNav() {
+    const sections = ['bio','updates','publications','services'];
+    const links = document.querySelectorAll('.nav-links a[data-section]');
+    let current = '';
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el && window.scrollY >= el.offsetTop - 120) current = id;
+    });
+    links.forEach(a => {
+      a.classList.toggle('active', a.dataset.section === current);
+    });
+  }
+
+  // ── TOGGLE COLLAPSE ──────────────────────────────────────────
+  function setupToggles() {
+    document.addEventListener('click', e => {
+      const btn = e.target.closest('.toggle-btn');
+      if (!btn) return;
+      const id = btn.dataset.target;
+      const el = document.getElementById(id);
+      if (!el) return;
+      const isOpen = el.classList.contains('open');
+      // close siblings in same card
+      btn.closest('.pub-card').querySelectorAll('.collapsible').forEach(c => c.classList.remove('open'));
+      btn.closest('.pub-card').querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+      if (!isOpen) { el.classList.add('open'); btn.classList.add('active'); }
+    });
+  }
+
+  // ── BACK TO TOP ──────────────────────────────────────────────
+  function setupBTT() {
+    const btt = document.getElementById('btt');
+    window.addEventListener('scroll', () => {
+      btt.classList.toggle('show', window.scrollY > 400);
+      updateActiveNav();
+    });
+  }
+
+  // ── MOBILE MENU ──────────────────────────────────────────────
+  function setupMobileMenu() {
+    const btn = document.getElementById('hamburger');
+    const menu = document.getElementById('mobile-menu');
+    btn.addEventListener('click', () => menu.classList.toggle('open'));
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+  }
+
+  // ── EMAIL ─────────────────────────────────────────────────────
+  function revealEmail(el) {
+    el.textContent = 'hbasak@cs.stonybrook.edu';
+    el.onclick = null;
+    el.style.cursor = 'text';
+  }
+
+  // ── FOOTER DATE ──────────────────────────────────────────────
+  function setFooterDate() {
+    const el = document.getElementById('last-updated');
+    if (el) el.textContent = 'Last updated ' + new Date().toLocaleDateString('en-US', {year:'numeric',month:'long'});
+  }
+
+  // ── INIT ─────────────────────────────────────────────────────
+  document.addEventListener('DOMContentLoaded', () => {
+    renderPubs();
+    initReveal();
+    initCanvas();
+    setupToggles();
+    setupBTT();
+    setupMobileMenu();
+    setFooterDate();
+    setTimeout(animateCounters, 600);
+  });
+  </script>
 </body>
-
 </html>
