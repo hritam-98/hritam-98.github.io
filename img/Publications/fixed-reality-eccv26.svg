@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 360" font-family="'Segoe UI',Helvetica,Arial,sans-serif">
+  <defs>
+    <marker id="arr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#6b7280"/>
+    </marker>
+    <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fef3e2"/><stop offset="1" stop-color="#fce4c4"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e6f0ff"/><stop offset="1" stop-color="#cfe0ff"/>
+    </linearGradient>
+    <linearGradient id="g3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e7f8ec"/><stop offset="1" stop-color="#cdeed7"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    .box{rx:10;ry:10;stroke-width:1.5;}
+    .t{font-size:13px;font-weight:600;fill:#1f2433;text-anchor:middle;}
+    .s{font-size:10.5px;fill:#5b6472;text-anchor:middle;}
+    .lab{font-size:11px;fill:#6b7280;text-anchor:middle;font-style:italic;}
+    .edge{stroke:#6b7280;stroke-width:1.6;fill:none;marker-end:url(#arr);}
+  </style>
+
+  <!-- inputs -->
+  <rect class="box" x="20" y="60" width="120" height="56" fill="#eef2f7" stroke="#9aa6b5"/>
+  <text class="t" x="80" y="83">Point Cloud X</text>
+  <text class="s" x="80" y="101">partial 3D scan</text>
+
+  <rect class="box" x="20" y="200" width="120" height="56" fill="#eef2f7" stroke="#9aa6b5"/>
+  <text class="t" x="80" y="223">RGB Image</text>
+  <text class="s" x="80" y="241">context c = f_I(Img)</text>
+
+  <!-- encoder -->
+  <rect class="box" x="185" y="60" width="135" height="56" fill="url(#g1)" stroke="#d99b4a"/>
+  <text class="t" x="252" y="82">Multi-view Enc.</text>
+  <text class="s" x="252" y="100">E_φ → h_fixed (det.)</text>
+
+  <!-- GCD -->
+  <rect class="box" x="185" y="200" width="135" height="56" fill="url(#g3)" stroke="#5aa06e"/>
+  <text class="t" x="252" y="222">Global Cond. Diff.</text>
+  <text class="s" x="252" y="240">GCD → h_diffused</text>
+
+  <!-- global latent -->
+  <rect class="box" x="370" y="128" width="120" height="60" fill="#fff7ec" stroke="#d99b4a"/>
+  <text class="t" x="430" y="150">h_G</text>
+  <text class="s" x="430" y="168">[h_fixed ; h_diffused]</text>
+
+  <!-- LCD -->
+  <rect class="box" x="540" y="128" width="130" height="60" fill="url(#g2)" stroke="#5b86d6"/>
+  <text class="t" x="605" y="150">Local Cond. Diff.</text>
+  <text class="s" x="605" y="168">LCD → h_L field</text>
+
+  <!-- HGF -->
+  <rect class="box" x="540" y="240" width="130" height="56" fill="url(#g1)" stroke="#d99b4a"/>
+  <text class="t" x="605" y="262">Harmonic Field</text>
+  <text class="s" x="605" y="280">HGF → h_L′ (smooth)</text>
+
+  <!-- grasp VAE -->
+  <rect class="box" x="720" y="128" width="135" height="60" fill="url(#g3)" stroke="#5aa06e"/>
+  <text class="t" x="787" y="150">Grasp VAE</text>
+  <text class="s" x="787" y="168">D_gr → [R, T]</text>
+
+  <!-- output -->
+  <rect class="box" x="745" y="248" width="110" height="50" fill="#1f2433" stroke="#1f2433"/>
+  <text class="t" x="800" y="270" fill="#fff">6-DoF Grasp</text>
+  <text class="s" x="800" y="287" fill="#cbd5e1">[R, T]</text>
+
+  <!-- edges -->
+  <path class="edge" d="M140 88 L182 88"/>
+  <path class="edge" d="M140 228 L182 228"/>
+  <path class="edge" d="M320 92 L368 145"/>
+  <text class="lab" x="345" y="118">h_fixed</text>
+  <path class="edge" d="M320 224 L368 172"/>
+  <text class="lab" x="345" y="205">h_diffused</text>
+  <!-- conditioning: fixed + c condition GCD -->
+  <path class="edge" d="M252 116 L252 198" stroke-dasharray="4 3"/>
+  <text class="lab" x="285" y="160">condition</text>
+  <path class="edge" d="M490 158 L538 158"/>
+  <path class="edge" d="M605 188 L605 238"/>
+  <path class="edge" d="M670 268 L743 230" />
+  <text class="lab" x="710" y="240">h_L′</text>
+  <path class="edge" d="M670 158 L718 158"/>
+  <path class="edge" d="M787 188 L795 246"/>
+
+  <text x="430" y="36" text-anchor="middle" font-size="15" font-weight="700" fill="#1f2433">Split-Latent Hierarchical Diffusion</text>
+  <text x="430" y="335" text-anchor="middle" font-size="11" fill="#6b7280">Fixed latent (deterministic geometry) ⊕ Diffused latent (stochastic context) → harmonic-regularized grasp field</text>
+</svg>
