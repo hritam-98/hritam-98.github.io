@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="Hritam Basak">
   <meta name="description" content="Hritam Basak, Applied Scientist II at Amazon Robotics. Research in humanoid manipulation, whole-body control, 3D vision, vision-language-action models, and generative AI.">
-  <meta name="theme-color" content="#f8f7f3">
+  <meta name="theme-color" content="#f4f3ef">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Hritam Basak · Robotics &amp; 3D Vision">
   <meta property="og:description" content="Applied Scientist II at Amazon Robotics. Teaching robots to see, reason, and act in the real world.">
@@ -13,7 +13,14 @@
   <meta property="og:image" content="https://hritam-98.github.io/img/About/dp-new.jpg">
   <link rel="canonical" href="https://hritam-98.github.io/">
   <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <script>
+    try {
+      const savedTheme = localStorage.getItem('hritam-theme');
+      if (savedTheme === 'dark') document.documentElement.dataset.theme = 'dark';
+    } catch {}
+  </script>
   <link rel="stylesheet" href="css/site.css">
+  <script type="importmap">{"imports":{"three":"./js/vendor/three.module.min.js"}}</script>
   <script src="js/site.js" defer></script>
   <title>Hritam Basak | Applied Scientist @ Amazon Robotics</title>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-GZEW5QH8Y5"></script>
@@ -27,55 +34,87 @@
 <body>
   <a href="#main-content" class="skip-link">Skip to content</a>
   <header class="site-header">
+    <div class="reading-progress" aria-hidden="true"></div>
     <div class="header-inner container">
-      <a href="#bio" class="wordmark" aria-label="Hritam Basak, home">hritam<span>.</span></a>
-      <button class="menu-toggle" id="mobile-menu-button" type="button" aria-label="Open navigation" aria-controls="site-navigation" aria-expanded="false" hidden><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 8h16M4 16h16"/></svg></button>
+      <a href="#bio" class="wordmark" aria-label="Hritam Basak, home"><span class="brand-symbol" aria-hidden="true">h.</span><span class="brand-name">hritam basak<span class="brand-note">Robotics &amp; embodied intelligence</span></span></a>
       <nav class="site-nav" id="site-navigation" aria-label="Main navigation">
-        <a href="#bio">About</a><a href="#updates">Updates</a><a href="#publications">Publications</a><a href="#services">Service</a><a href="#collaborate">Contact</a>
+        <a href="#bio">About</a><a href="#research">Research</a><a href="#publications">Publications</a><a href="#updates">Updates</a><a href="#services">Service</a><a href="#collaborate">Contact</a>
         <a href="ResumeCV/Hritam_Basak_CV.pdf" class="nav-cv" download="Hritam_Basak_CV.pdf">CV <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 18 18 6M6 6h12v12"/></svg></a>
       </nav>
+      <div class="header-controls">
+        <button id="command-button" class="command-button" type="button" aria-label="Open quick navigation" aria-keyshortcuts="Meta+K Control+K" hidden><kbd>⌘ K</kbd></button>
+        <button id="theme-button" class="theme-button" type="button" aria-label="Switch to dark theme" aria-pressed="false" hidden><svg class="moon-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.6 13.4A8.7 8.7 0 0 1 10.6 3.4a8.7 8.7 0 1 0 10 10Z"/></svg><svg class="sun-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.4 1.4m11.2 11.2L19 19M5 19l1.4-1.4M17.6 6.4 19 5"/></svg></button>
+        <button class="menu-toggle" id="mobile-menu-button" type="button" aria-label="Open navigation" aria-controls="site-navigation" aria-expanded="false" hidden><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 8h16M4 16h16"/></svg></button>
+      </div>
     </div>
   </header>
-  <main id="main-content" class="container" tabindex="-1">
+  <main id="main-content" tabindex="-1">
     <section id="bio" class="hero" aria-labelledby="hero-title">
-      <div class="hero-main">
-        <div class="hero-copy">
-          <p class="eyebrow">Applied Scientist II · Amazon Robotics</p>
+      <div class="hero-scene" id="hero-scene">
+        <div id="scene-canvas" aria-hidden="true"></div>
+        <div class="scene-title container">
+          <p class="eyebrow">Robotics · Computer vision · Embodied intelligence</p>
           <h1 id="hero-title">Hritam Basak<span>.</span></h1>
-          <p class="hero-statement">Teaching robots to <em>see, reason,</em> and act in the real world.</p>
-          <p class="hero-intro">I develop whole-body control and manipulation policies for humanoid robots at <a href="https://www.amazon.science/research-areas/robotics" target="_blank" rel="noopener noreferrer">Amazon Robotics</a>. Working with the Fauna Robotics and Industrial Robotics groups, I turn language goals into navigation and manipulation behaviors through agentic navigation and skill orchestration.</p>
-          <div class="hero-links">
-            <a class="button" href="ResumeCV/Hritam_Basak_CV.pdf" download="Hritam_Basak_CV.pdf">Download CV <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 18 18 6M6 6h12v12"/></svg></a>
-            <a class="text-link" href="https://scholar.google.com/citations?user=29wTOh4AAAAJ&hl=en" aria-label="Google Scholar" target="_blank" rel="noopener noreferrer">Scholar <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 18 18 6M6 6h12v12"/></svg></a>
-            <a class="text-link" href="https://github.com/hritam-98" target="_blank" rel="noopener noreferrer">GitHub <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 18 18 6M6 6h12v12"/></svg></a>
-            <a class="text-link" href="https://www.linkedin.com/in/hritam-basak-a66114166/" target="_blank" rel="noopener noreferrer">LinkedIn <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 18 18 6M6 6h12v12"/></svg></a>
+          <p class="scene-statement">Teaching robots to see, reason, and act.</p>
+        </div>
+        <div class="scene-footer container">
+          <div class="scene-identity"><p>Applied Scientist II <span> / </span> Amazon Robotics</p><p class="scene-focus">Whole-body control. Manipulation. Intelligence in the physical world.</p></div>
+          <div class="scene-actions"><a class="button" href="#research">Explore my research <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 18 18 6M6 6h12v12"/></svg></a><a class="text-link" href="ResumeCV/Hritam_Basak_CV.pdf" download="Hritam_Basak_CV.pdf">Download CV <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 18 18 6M6 6h12v12"/></svg></a></div>
+        </div>
+        <div class="scene-controls" id="scene-controls" hidden>
+          <button id="experience-button" type="button" aria-label="Switch to the reading view" aria-pressed="true">Reading view</button>
+          <button id="motion-button" type="button" aria-label="Pause scene animation" aria-pressed="false">Pause motion</button>
+        </div>
+        <a href="#about-profile" class="scene-scroll" aria-label="Read about Hritam">Scroll to discover <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 4v16m-6-6 6 6 6-6"/></svg></a>
+      </div>
+      <div class="container about-profile" id="about-profile">
+        <div class="profile-main">
+          <figure class="portrait">
+            <a class="portrait-frame" href="img/About/dp-new.jpg" target="_blank" rel="noopener noreferrer" aria-label="View portrait of Hritam Basak"><picture><source srcset="img/optimized/portrait.webp" type="image/webp"><img src="img/About/dp-new.jpg" width="2951" height="3072" alt="Hritam Basak overlooking the city" fetchpriority="high" decoding="async"></picture></a>
+            <figcaption>Hritam Basak · Researcher &amp; scientist</figcaption>
+          </figure>
+          <div class="profile-copy">
+            <p class="eyebrow">A little about me</p>
+            <h2>From seeing the world<br>to acting in it.</h2>
+            <p>I develop whole-body control and manipulation policies for humanoid robots at <a href="https://www.amazon.science/research-areas/robotics" target="_blank" rel="noopener noreferrer">Amazon Robotics</a>. Working with the Fauna Robotics and Industrial Robotics groups, I turn language goals into navigation and manipulation behaviors through agentic navigation and skill orchestration.</p>
+            <div class="hero-links">
+              <a class="text-link" href="https://scholar.google.com/citations?user=29wTOh4AAAAJ&amp;hl=en" aria-label="Google Scholar" target="_blank" rel="noopener noreferrer">Scholar <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 18 18 6M6 6h12v12"/></svg></a>
+              <a class="text-link" href="https://github.com/hritam-98" target="_blank" rel="noopener noreferrer">GitHub <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 18 18 6M6 6h12v12"/></svg></a>
+              <a class="text-link" href="https://www.linkedin.com/in/hritam-basak-a66114166/" target="_blank" rel="noopener noreferrer">LinkedIn <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 18 18 6M6 6h12v12"/></svg></a>
+              <a class="text-link" href="mailto:hritambasak48@gmail.com">Email <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 18 18 6M6 6h12v12"/></svg></a>
+            </div>
           </div>
         </div>
-        <figure class="portrait">
-          <div class="portrait-frame"><picture><source srcset="img/optimized/portrait.webp" type="image/webp"><img src="img/About/dp-new.jpg" width="2951" height="3072" alt="Hritam Basak overlooking the city" fetchpriority="high" decoding="async"></picture></div>
-          <figcaption><span>Vision · Language · Action</span></figcaption>
-        </figure>
-      </div>
       <div class="bio-details">
         <p>My research spans <strong>3D vision &amp; robotics</strong>, <strong>vision-language-action models</strong>, <strong>generative AI</strong>, and <strong>multimodal learning (Vision + X)</strong>, with applications in <strong>medical image analysis</strong>. I also mentor interns working on dexterous manipulation and robust grasping in cluttered environments.</p>
         <p>I completed my <strong>Ph.D. in Computer Science</strong> at <a href="https://www.stonybrook.edu/" target="_blank" rel="noopener noreferrer">Stony Brook University</a> in May 2026, advised by <a href="https://www3.cs.stonybrook.edu/~zyin/index.htm" target="_blank" rel="noopener noreferrer">Prof. Zhaozheng Yin</a>. Previously: two research internships at <a href="https://www.amazon.science/research-areas/robotics" target="_blank" rel="noopener noreferrer">Amazon</a>, data science at <a href="https://www.tata.com/tatadigital" target="_blank" rel="noopener noreferrer">Tata Digital / Tata Neu</a>, and research visits at ETH Zurich and Sorbonne University. I earned my B.E. in Electrical Engineering from <a href="http://www.jaduniv.edu.in/" target="_blank" rel="noopener noreferrer">Jadavpur University</a>.</p>
       </div>
-      <ul class="research-topics" aria-label="Research interests"><li>VLA Models</li><li>Manipulation</li><li>Diffusion Models</li><li>3D Generation</li><li>Domain Adaptation</li></ul>
+        <ul class="research-topics" aria-label="Research interests"><li>VLA Models</li><li>Manipulation</li><li>Diffusion Models</li><li>3D Generation</li><li>Domain Adaptation</li></ul>
       <div class="highlights" aria-label="Research highlights">
         <div><span class="highlight-value">20+</span><span class="highlight-label">Publications</span></div>
         <div><span class="highlight-value venues">CVPR · ECCV</span><span class="highlight-label">NeurIPS · MICCAI</span></div>
         <div><span class="highlight-value">9+</span><span class="highlight-label">Awards &amp; grants</span></div>
         <div><span class="highlight-value">3</span><span class="highlight-label">Continents of research</span></div>
       </div>
+      </div>
     </section>
-    <section id="updates" class="section" aria-labelledby="updates-title">
-      <div class="section-heading"><div><p class="eyebrow">01 / Along the way</p><h2 id="updates-title">Recent updates</h2></div></div>
+    <section id="research" class="section container" aria-labelledby="research-title">
+      <div class="section-heading"><div><p class="eyebrow">Ideas in motion</p><h2 id="research-title">Research directions</h2><p class="section-description">Perception, action, and learning in the physical world.</p></div></div>
+      <div class="research-grid">
+        <a class="research-feature" href="#eccv26-exo2ego"><div class="research-image"><img src="img/optimized/exo2ego-eccv26.webp" width="900" height="453" loading="lazy" decoding="async" alt="Exo2EgoPolicy research overview"></div><div><p class="eyebrow">Vision → Language → Action</p><h3>Learning to act</h3><p>Cross-view policy learning, human demonstrations, and vision-language-action models for robot manipulation.</p><span class="feature-link">Explore Exo2EgoPolicy <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 18 18 6M6 6h12v12"/></svg></span></div></a>
+        <a class="research-feature" href="#eccv26-fixed"><div class="research-image"><img src="img/optimized/fixed-reality-eccv26.webp" width="900" height="387" loading="lazy" decoding="async" alt="SplitDiffGrasp research overview"></div><div><p class="eyebrow">Geometry meets possibility</p><h3>Manipulation in 3D</h3><p>Affordance learning, diffusion models, and uncertainty-aware grasp generation in cluttered environments.</p><span class="feature-link">Explore SplitDiffGrasp <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 18 18 6M6 6h12v12"/></svg></span></div></a>
+        <a class="research-feature" href="#miccai26-physiosplat"><div class="research-image"><img src="img/optimized/physiosplat-miccai26.webp" width="900" height="322" loading="lazy" decoding="async" alt="PhysioSplat research overview"></div><div><p class="eyebrow">Reconstructing dynamic worlds</p><h3>Vision &amp; generative models</h3><p>Physics-informed Gaussian Splatting, deformable scene reconstruction, and 3D generation.</p><span class="feature-link">Explore PhysioSplat <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 18 18 6M6 6h12v12"/></svg></span></div></a>
+        <a class="research-feature" href="#cvpr25-semidavil"><div class="research-image"><img src="img/optimized/cvpr-25.webp" width="900" height="450" loading="lazy" decoding="async" alt="SemiDAViL research overview"></div><div><p class="eyebrow">Making supervision go further</p><h3>Learning with less</h3><p>Domain adaptation and semi-supervised learning for semantic segmentation and medical image analysis.</p><span class="feature-link">Explore SemiDAViL <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 18 18 6M6 6h12v12"/></svg></span></div></a>
+      </div>
+    </section>
+    <section id="updates" class="section container" aria-labelledby="updates-title">
+      <div class="section-heading"><div><p class="eyebrow">Along the way</p><h2 id="updates-title">Recent updates</h2></div></div>
       <ul class="updates-list"><li class="update-item"><time datetime="2026-06">June 2026</time><div>Started as a full-time <strong>Applied Scientist II at <a href="https://www.amazon.science/research-areas/robotics" target="_blank" rel="noopener noreferrer">Amazon Robotics</a></strong>, working on humanoid manipulation and whole-body control!</div></li><li class="update-item"><time datetime="2026-06">June 2026</time><div>Two papers accepted at <strong>ECCV 2026</strong> &mdash; "Exo2EgoPolicy" (pose-aligned cross-view policy learning) and "Fixed Reality, Diffused Possibility" (cluttered grasping)!</div></li><li class="update-item"><time datetime="2026-06">June 2026</time><div>Our "PhysioSplat" paper on physics-informed dynamic Gaussian Splatting was accepted to <strong>MICCAI 2026</strong>!</div></li><li class="update-item"><time datetime="2026-05">May 2026</time><div>Completed my <strong>Ph.D. in Computer Science</strong> at Stony Brook University!</div></li></ul>
       <details class="update-archive"><summary>Earlier updates · 9 entries</summary><ul class="updates-list"><li class="update-item"><time datetime="2025-09">Sep 2025</time><div>Honored to receive the <strong>ICCV/CVF Travel Grant</strong> and the <strong>IEEE RAS Travel Award</strong> for IROS 2025.</div></li><li class="update-item"><time datetime="2025-06">June 2025</time><div>Our "ViSPLA" paper was accepted to <strong>NeurIPS 2025</strong>!</div></li><li class="update-item"><time datetime="2025-06">June 2025</time><div>Our "D4Recon" paper was accepted to <strong>MICCAI 2025</strong> and our Gaussian Splatting work to <strong>IROS 2025</strong>!</div></li><li class="update-item"><time datetime="2025-05">May 2025</time><div>Back at <a href='https://www.amazon.science/research-areas/robotics' target="_blank" rel="noopener noreferrer">Amazon</a> for a second research internship on VLA models and manipulation.</div></li><li class="update-item"><time datetime="2025-02">Feb 2025</time><div>Two papers, "SemiDAViL" and "UA-Pose," were accepted at <strong>CVPR 2025</strong>!</div></li><li class="update-item"><time datetime="2024-11">Nov 2024</time><div>Received the IEEE SPS Scholarship for the second consecutive year.</div></li><li class="update-item"><time datetime="2024-09">Sep 2024</time><div>Thrilled to receive the <strong>MICCAI NIH Travel Award</strong> and the <strong>ECCV DEI Award</strong>.</div></li><li class="update-item"><time datetime="2024-07">July 2024</time><div>Our paper "Forget More to Learn More" was accepted at <strong>ECCV 2024</strong>.</div></li><li class="update-item"><time datetime="2024-06">June 2024</time><div>Our "Quest for Clone" paper was accepted at <strong>MICCAI 2024</strong>.</div></li></ul></details>
     </section>
-    <section id="publications" class="section" aria-labelledby="publications-title">
+    <section id="publications" class="section container" aria-labelledby="publications-title">
       <div class="section-heading">
-        <div><p class="eyebrow">02 / Ideas into practice</p><h2 id="publications-title">Selected publications</h2><p class="section-description">Robotics, 3D vision, and learning from limited supervision.</p></div>
+        <div><p class="eyebrow">Selected work</p><h2 id="publications-title">Selected publications</h2><p class="section-description">Robotics, 3D vision, and learning from limited supervision.</p></div>
         <a class="text-link" href="https://scholar.google.com/citations?user=29wTOh4AAAAJ&hl=en" target="_blank" rel="noopener noreferrer">All publications on Scholar <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 18 18 6M6 6h12v12"/></svg></a>
       </div>
       <div class="publication-toolbar" id="publication-toolbar" hidden><span class="filter-label">Browse by year</span><div class="publication-filters" id="publication-filters" role="group" aria-label="Filter publications by year"><button type="button" class="filter-button" data-year="all" aria-pressed="true">All</button><button type="button" class="filter-button" data-year="2026" aria-pressed="false">2026</button><button type="button" class="filter-button" data-year="2025" aria-pressed="false">2025</button><button type="button" class="filter-button" data-year="2024" aria-pressed="false">2024</button><button type="button" class="filter-button" data-year="2023" aria-pressed="false">2023</button><button type="button" class="filter-button" data-year="2022" aria-pressed="false">2022</button></div></div>
@@ -429,11 +468,11 @@
         <li><a href="https://ieeexplore.ieee.org/abstract/document/10094869/" target="_blank" rel="noopener noreferrer">IDEAL: Improved Dense Local Contrastive Learning for Semi-Supervised Medical Image Segmentation</a><span>IEEE ICASSP 2023</span></li>
         <li><a href="https://www.sciencedirect.com/science/article/pii/S0031320322001546" target="_blank" rel="noopener noreferrer">MFSNet: A Multi Focus Segmentation Network for Skin Lesion Segmentation</a><span>Pattern Recognition · 2022</span></li>
         <li><a href="https://www.nature.com/articles/s41598-021-93658-y" target="_blank" rel="noopener noreferrer">Fuzzy rank-based fusion of CNN models using Gompertz function for screening COVID-19 CT-scans</a><span>Scientific Reports · 2021</span></li>
-        <li><a href="https://link.springer.com/article/10.1007/s42979-021-00835-x" target="_blank" rel="noopener noreferrer">DFENet: A novel dimension fusion edge guided network for brain MRI segmentation</a><span>SN Computer Science</span></li>
+        <li><a href="https://link.springer.com/article/10.1007/s42979-021-00835-x" target="_blank" rel="noopener noreferrer">DFENet: A novel dimension fusion edge guided network for brain MRI segmentation</a><span>SN Computer Science · 2021</span></li>
       </ul></div>
     </section>
-    <section id="services" class="section" aria-labelledby="services-title">
-      <div class="section-heading"><div><p class="eyebrow">03 / The research community</p><h2 id="services-title">Academic service</h2></div></div>
+    <section id="services" class="section container" aria-labelledby="services-title">
+      <div class="section-heading"><div><p class="eyebrow">The research community</p><h2 id="services-title">Academic service</h2></div></div>
       <div class="service-grid">
         <div><h3>Conference reviewing</h3><ul><li>CVPR (2024, 2025)</li><li>MICCAI (2023, 2024, 2025)</li><li>ECCV (2024) · ICCV (2025)</li><li>IJCAI · AAAI (2023, 2024, 2025)</li><li>ICASSP</li></ul></div>
         <div><h3>Journal reviewing</h3><ul><li>IEEE TPAMI · TNNLS · TIP · TCSVT · TMI</li><li>Elsevier Medical Image Analysis · Pattern Recognition</li><li>Nature</li><li>International Journal of Computer Vision (IJCV)</li></ul></div>
@@ -443,9 +482,9 @@
         <li><strong>ICCV/CVF Travel Grant</strong> · 2025</li><li><strong>IEEE RAS Travel Award</strong> · 2025</li><li><strong>ECCV DEI Award</strong> · 2024</li><li><strong>MICCAI NIH Travel Grant</strong> · 2024</li><li><strong>IEEE SPS Scholarship</strong> · 2023 &amp; 2024</li><li><strong>IEEE ICASSP Travel Grant</strong> · 2022</li><li><strong>MICCAI STAR Award</strong> · 2022</li><li><strong>Gandhi Fellowship</strong> · 2021</li><li><strong>Charpak Fellowship</strong> · 2020</li>
       </ul></details>
     </section>
-    <section id="collaborate" class="section contact" aria-labelledby="contact-title">
-      <p class="eyebrow">04 / Let's build together</p>
-      <div class="contact-main"><div><h2 id="contact-title">Good ideas start with a conversation.</h2><p>Always open to collaboration. Whether it's robotics &amp; manipulation, vision-language-action models, generative AI, or medical imaging — if you have an exciting idea or want to chat about research, I'd love to hear from you.</p></div><a class="button" href="mailto:hritambasak48@gmail.com">Get in touch <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 18 18 6M6 6h12v12"/></svg></a></div>
+    <section id="collaborate" class="section container contact" aria-labelledby="contact-title">
+      <p class="eyebrow">Let’s build together</p>
+      <div class="contact-main"><div><h2 id="contact-title">Let’s move<br>ideas <em>forward.</em></h2><p>Always open to collaboration. Whether it's robotics &amp; manipulation, vision-language-action models, generative AI, or medical imaging — if you have an exciting idea or want to chat about research, I'd love to hear from you.</p></div><a class="button" href="mailto:hritambasak48@gmail.com">Get in touch <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 18 18 6M6 6h12v12"/></svg></a></div>
       <div class="contact-email"><a href="mailto:hritambasak48@gmail.com">hritambasak48@gmail.com</a><button class="copy-button" type="button" data-copy="email" aria-label="Copy email address" hidden><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V4H4v12h4"/></svg><span data-copy-label>Copy email</span></button></div>
     </section>
   </main>
@@ -453,6 +492,18 @@
     <div class="footer-main"><p class="footer-copyright">© <span id="footer-year">2026</span> Hritam Basak. All rights reserved.</p><div class="footer-links"><a href="mailto:hritambasak48@gmail.com">Email</a><a href="https://scholar.google.com/citations?user=29wTOh4AAAAJ&hl=en">Scholar</a><a href="https://github.com/hritam-98">GitHub</a><a href="https://www.linkedin.com/in/hritam-basak-a66114166/">LinkedIn</a><a href="https://raw.githubusercontent.com/hritam-98/hritam-98.github.io/main/ResumeCV/Hritam_Basak_CV.pdf">Résumé</a><a href="#bio" id="back_to_top">Back to top ↑</a></div></div>
     <details class="visitor-statistics"><summary>Visitor statistics</summary><a href="https://info.flagcounter.com/q0IF"><img src="https://s01.flagcounter.com/countxl/q0IF/bg_0F172A/txt_CCCCCC/border_3A3A3A/columns_3/maxflags_12/viewers_0/labels_1/pageviews_1/flags_0/percent_0/" alt="Visitor statistics from Flag Counter" loading="lazy"></a></details>
   </div></footer>
+  <dialog id="command-palette" class="command-palette" aria-labelledby="command-title">
+    <div class="dialog-heading"><h2 id="command-title">Where to?</h2><button class="dialog-close" type="button" data-close-dialog aria-label="Close quick navigation">×</button></div>
+    <label class="sr-only" for="command-search">Find a section</label><input id="command-search" type="search" placeholder="Find a section…" autocomplete="off">
+    <div class="command-results">
+      <a href="#bio" data-command>About me <span>01 ↗</span></a><a href="#research" data-command>Research directions <span>↗</span></a><a href="#updates" data-command>Recent updates <span>02 ↗</span></a><a href="#publications" data-command>Selected publications <span>03 ↗</span></a><a href="#services" data-command>Academic service <span>04 ↗</span></a><a href="#collaborate" data-command>Let's collaborate <span>05 ↗</span></a><a href="ResumeCV/Hritam_Basak_CV.pdf" download="Hritam_Basak_CV.pdf" data-command>Download CV <span>PDF ↗</span></a>
+    </div><p class="command-help">Search, tab to a destination, and press enter. <kbd>esc</kbd> to close.</p>
+  </dialog>
+  <dialog id="figure-viewer" class="figure-viewer" aria-labelledby="figure-viewer-title">
+    <div class="dialog-heading"><h2 id="figure-viewer-title">Research figure</h2><button class="dialog-close" type="button" data-close-dialog aria-label="Close figure preview">×</button></div>
+    <div class="figure-viewer-image"><img id="figure-viewer-image" alt="Selected research figure"></div>
+    <a id="figure-original" class="text-link" target="_blank" rel="noopener noreferrer">Open original image ↗</a>
+  </dialog>
   <p class="sr-only" id="site-status" role="status" aria-live="polite"></p>
 </body>
 </html>
