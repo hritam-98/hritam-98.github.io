@@ -1,560 +1,458 @@
 <!DOCTYPE html>
-<html lang="en-us" class="scroll-smooth">
-
+<html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="author" content="Hritam Basak">
-	<meta name="description" content="Hritam Basak — Applied Scientist II at Amazon Robotics. Research in 3D Vision, Robotics, Vision-Language-Action models, Generative AI, and Multimodal Learning.">
-	<title>Hritam Basak | Applied Scientist @ Amazon Robotics</title>
-
-	<script src="https://cdn.tailwindcss.com"></script>
-
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-
-	<link rel="icon" type="image/png" href="https://hritam-98.github.io/img/About/dp-new.jpg" onerror="this.onerror=null;this.src='https://placehold.co/32x32/e2e8f0/334155?text=HB';">
-
-	<style>
-		:root {
-			--bg-color: #fbfaf7;
-			--text-color: #3a3a3a;
-			--heading-color: #161616;
-			--accent-color: #b07a37;
-			--accent-2: #d99b4a;
-			--accent-hover: #8a5f29;
-			--border-color: #e8e3d8;
-			--ink: #1f2433;
-		}
-
-		body {
-			font-family: 'Source Sans 3', sans-serif;
-			background-color: var(--bg-color);
-			color: var(--text-color);
-		}
-
-		h1, h2, h3, h4, h5, h6 {
-			font-family: 'Lora', serif;
-			color: var(--heading-color);
-			font-weight: 600;
-		}
-
-		.display-font { font-family: 'Space Grotesk', sans-serif; }
-
-		.section-heading {
-			position: relative;
-			display: inline-block;
-			padding-bottom: 0.6rem;
-		}
-		.section-heading::after {
-			content: '';
-			position: absolute;
-			left: 50%;
-			transform: translateX(-50%);
-			bottom: 0;
-			height: 3px;
-			width: 64px;
-			border-radius: 999px;
-			background: linear-gradient(90deg, var(--accent-color), var(--accent-2));
-		}
-		.section-heading.left::after { left: 0; transform: none; }
-
-		.gradient-text {
-			background: linear-gradient(120deg, var(--accent-color), var(--accent-2) 60%, #e0b15f);
-			-webkit-background-clip: text;
-			background-clip: text;
-			-webkit-text-fill-color: transparent;
-		}
-
-		.publication-card {
-			transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-			border: 1px solid var(--border-color);
-		}
-		.publication-card:hover {
-			transform: translateY(-6px);
-			box-shadow: 0 18px 40px -18px rgba(176, 122, 55, 0.45);
-			border-color: var(--accent-2);
-		}
-
-		.conf-badge {
-			background: linear-gradient(120deg, rgba(176,122,55,0.12), rgba(217,155,74,0.18));
-			color: var(--accent-hover);
-			border: 1px solid rgba(176,122,55,0.25);
-		}
-
-		.update-item::before {
-			content: '';
-			position: absolute;
-			left: 0;
-			top: 0.55rem;
-			width: 9px;
-			height: 9px;
-			border-radius: 999px;
-			background: linear-gradient(120deg, var(--accent-color), var(--accent-2));
-			box-shadow: 0 0 0 4px rgba(176,122,55,0.12);
-		}
-		.update-item {
-			position: relative;
-			padding-left: 1.6rem;
-		}
-
-		.accent-link { color: var(--accent-color); font-weight: 600; }
-		.accent-link:hover { color: var(--accent-hover); text-decoration: underline; }
-
-		.accent-button {
-			background: linear-gradient(120deg, var(--accent-color), var(--accent-2));
-			box-shadow: 0 8px 20px -8px rgba(176,122,55,0.6);
-		}
-		.accent-button:hover { filter: brightness(1.05); transform: translateY(-1px); }
-		.accent-button:disabled { background: #cccccc; cursor: not-allowed; }
-
-		.fade-in-section {
-			opacity: 0;
-			transform: translateY(30px);
-			transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-		}
-		.fade-in-section.is-visible { opacity: 1; transform: translateY(0); }
-
-		.hero-animated-bg {
-			position: relative;
-			overflow: hidden;
-			background:
-				radial-gradient(1200px 500px at 15% -10%, rgba(217,155,74,0.16), transparent 60%),
-				radial-gradient(900px 500px at 110% 120%, rgba(31,36,51,0.10), transparent 55%),
-				#f7f4ee;
-			border: 1px solid var(--border-color);
-		}
-		.hero-animated-bg::before {
-			content: '';
-			position: absolute;
-			top: 50%; left: 50%;
-			width: 150%; height: 150%;
-			background: radial-gradient(circle, rgba(217,155,74,0.18) 0%, rgba(253, 252, 249, 0) 60%);
-			animation: rotate-gradient 22s linear infinite;
-			transform-origin: center center;
-		}
-		@keyframes rotate-gradient {
-			from { transform: translate(-50%, -50%) rotate(0deg); }
-			to { transform: translate(-50%, -50%) rotate(360deg); }
-		}
-
-		.avatar-ring {
-			background: linear-gradient(135deg, var(--accent-color), var(--accent-2), #e7c07a);
-			padding: 4px;
-			border-radius: 999px;
-			box-shadow: 0 16px 40px -16px rgba(176,122,55,0.7);
-		}
-
-		.stat-card {
-			background: rgba(255,255,255,0.7);
-			border: 1px solid var(--border-color);
-			backdrop-filter: blur(6px);
-			transition: transform 0.25s ease, box-shadow 0.25s ease;
-		}
-		.stat-card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px -16px rgba(176,122,55,0.5); }
-
-		.chip {
-			background: rgba(176,122,55,0.08);
-			border: 1px solid rgba(176,122,55,0.22);
-			color: var(--accent-hover);
-		}
-
-		.typewriter-cursor {
-			display: inline-block;
-			width: 2px;
-			background-color: var(--accent-color);
-			animation: blink 0.7s infinite;
-		}
-		@keyframes blink {
-			0%, 100% { opacity: 1; }
-			50% { opacity: 0; }
-		}
-
-		.collapsible-content {
-			max-height: 0;
-			overflow: hidden;
-			transition: max-height 0.5s ease-in-out;
-			background-color: #f8f6f1;
-			border: 1px solid var(--border-color);
-			border-radius: 0.375rem;
-		}
-		.collapsible-content.is-expanded { max-height: 500px; }
-		.collapsible-content > div, .collapsible-content > pre { padding: 1rem; }
-
-		.collab-card {
-			background:
-				radial-gradient(700px 300px at 0% 0%, rgba(217,155,74,0.18), transparent 60%),
-				linear-gradient(135deg, #1f2433, #2a3146);
-		}
-	</style>
-
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-GZEW5QH8Y5"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag() { dataLayer.push(arguments); }
-		gtag('js', new Date());
-		gtag('config', 'G-GZEW5QH8Y5');
-	</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Hritam Basak">
+  <meta name="description" content="Hritam Basak, Applied Scientist II at Amazon Robotics. Research in humanoid manipulation, whole-body control, 3D vision, vision-language-action models, and generative AI.">
+  <meta name="theme-color" content="#f8f7f3">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Hritam Basak · Robotics &amp; 3D Vision">
+  <meta property="og:description" content="Applied Scientist II at Amazon Robotics. Teaching robots to see, reason, and act in the real world.">
+  <meta property="og:url" content="https://hritam-98.github.io/">
+  <meta property="og:image" content="https://hritam-98.github.io/img/About/dp-new.jpg">
+  <link rel="canonical" href="https://hritam-98.github.io/">
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <link rel="stylesheet" href="css/site.css">
+  <script src="js/site.js" defer></script>
+  <title>Hritam Basak | Applied Scientist @ Amazon Robotics</title>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GZEW5QH8Y5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-GZEW5QH8Y5');
+  </script>
 </head>
-
-<body class="antialiased">
-
-	<header class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b" style="border-color: var(--border-color);">
-		<nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-			<a href="#" class="text-2xl font-bold display-font" style="color: var(--heading-color);">Hritam<span class="gradient-text">.</span>Basak</a>
-			<div class="hidden md:flex space-x-8 items-center">
-				<a href="#bio" class="text-slate-600 hover:text-amber-700 transition-colors">Home</a>
-				<a href="#updates" class="text-slate-600 hover:text-amber-700 transition-colors">Updates</a>
-				<a href="#publications" class="text-slate-600 hover:text-amber-700 transition-colors">Publications</a>
-				<a href="#collaborate" class="text-slate-600 hover:text-amber-700 transition-colors">Collaborate</a>
-				<a href="https://raw.githubusercontent.com/hritam-98/hritam-98.github.io/main/ResumeCV/Hritam_Basak_CV.pdf" download="Hritam_Basak_CV.pdf" class="accent-button text-white px-4 py-2 rounded-md transition-all text-sm font-medium">
-					Download CV <i class="ai ai-cv ml-1"></i>
-				</a>
-			</div>
-			<button id="mobile-menu-button" class="md:hidden text-slate-700">
-				<i class="fa-solid fa-bars fa-lg"></i>
-			</button>
-		</nav>
-		<div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
-			<a href="#bio" class="block text-slate-600 hover:text-amber-700 transition-colors">Home</a>
-			<a href="#updates" class="block text-slate-600 hover:text-amber-700 transition-colors">Updates</a>
-			<a href="#publications" class="block text-slate-600 hover:text-amber-700 transition-colors">Publications</a>
-			<a href="#collaborate" class="block text-slate-600 hover:text-amber-700 transition-colors">Collaborate</a>
-			<a href="https://raw.githubusercontent.com/hritam-98/hritam-98.github.io/main/ResumeCV/Hritam_Basak_CV.pdf" download="Hritam_Basak_CV.pdf" class="block accent-button text-white px-4 py-2 rounded-md transition-all text-sm font-medium mt-2 text-center">
-				Download CV <i class="ai ai-cv ml-1"></i>
-			</a>
-		</div>
-	</header>
-
-	<main class="container mx-auto px-6">
-		<section id="bio" class="fade-in-section hero-animated-bg rounded-2xl my-12 py-16 px-6">
-			<div class="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
-				<div class="md:col-span-1 flex flex-col items-center text-center">
-					<div class="avatar-ring">
-						<img class="w-44 h-44 rounded-full object-cover" src="https://hritam-98.github.io/img/About/dp-new.jpg" alt="Portrait of Hritam Basak" onerror="this.onerror=null;this.src='https://placehold.co/192x192/e2e8f0/334155?text=HB';">
-					</div>
-					<h2 id="typewriter-name" class="text-3xl h-10 mt-5"></h2>
-					<p class="font-semibold mt-1 display-font gradient-text">Applied Scientist II</p>
-					<p class="text-slate-600 font-medium flex items-center gap-1.5"><i class="fa-solid fa-robot" style="color:#ff9900;"></i> Amazon Robotics</p>
-					<p id="email-display" class="text-sm text-slate-500 mt-2 cursor-pointer" onmouseover="revealEmail(this)" title="Click to copy" onclick="copyEmail(this)">h...8@gmail.com</p>
-					<div class="flex space-x-5 mt-6">
-						<a href="mailto:hritambasak48@gmail.com" aria-label="Email" class="text-slate-500 hover:text-amber-700 transition-colors text-2xl"><i class="fa-solid fa-envelope"></i></a>
-						<a href="https://scholar.google.com/citations?user=29wTOh4AAAAJ&hl=en" aria-label="Google Scholar" class="text-slate-500 hover:text-amber-700 transition-colors text-2xl"><i class="ai ai-google-scholar"></i></a>
-						<a href="https://github.com/hritam-98" aria-label="GitHub" class="text-slate-500 hover:text-amber-700 transition-colors text-2xl"><i class="fa-brands fa-github"></i></a>
-						<a href="https://www.linkedin.com/in/hritam-basak-a66114166/" aria-label="LinkedIn" class="text-slate-500 hover:text-amber-700 transition-colors text-2xl"><i class="fa-brands fa-linkedin"></i></a>
-					</div>
-				</div>
-				<div class="md:col-span-2">
-					<p class="text-sm font-semibold tracking-widest uppercase text-amber-700/80 mb-2 display-font">Embodied AI &middot; 3D Vision &middot; Robotics</p>
-					<h1 class="text-4xl md:text-5xl mb-6 leading-tight">Teaching robots to <span class="gradient-text">see, reason,</span> and act in the real world.</h1>
-					<div class="space-y-4 text-lg leading-relaxed">
-						<p>I am an <b>Applied Scientist II</b> at <a href="https://www.amazon.science/research-areas/robotics" class="accent-link" target="_blank">Amazon Robotics</a>, working on <b>humanoid manipulation</b> and <b>whole-body control</b>, and collaborating with the Fauna Robotics group on Vision-Language-Action (VLA) pose-training. <i class="fa-solid fa-robot" style="color:#ff9900;"></i></p>
-						<p>My research spans <b>3D Vision &amp; Robotics</b>, <b>Vision-Language-Action models</b>, <b>Generative AI</b>, and <b>Multimodal Learning (Vision + X)</b>, with applications reaching into <b>Medical Image Analysis</b> <i class='fa-solid fa-heart-pulse' style='color:#d9534f'></i>.</p>
-						<p>I recently completed my <b>Ph.D. in Computer Science</b> at <a href="https://www.stonybrook.edu/" class="accent-link" target="_blank">Stony Brook University</a>, advised by <a href="https://www3.cs.stonybrook.edu/~zyin/index.htm" class="accent-link" target="_blank">Prof. Zhaozheng Yin</a>, after two summers at <a href="https://www.amazon.science/research-areas/robotics" class="accent-link" target="_blank">Amazon</a> solving perception and manipulation problems in embodied AI. Earlier, I was a Data Scientist at <a href="https://www.tata.com/tatadigital" class="accent-link" target="_blank">Tata Digital</a> and earned my B.E. from <a href="http://www.jaduniv.edu.in/" class="accent-link" target="_blank">Jadavpur University</a>.</p>
-					</div>
-					<div class="flex flex-wrap gap-2 mt-6">
-						<span class="chip text-sm font-medium px-3 py-1 rounded-full">VLA Models</span>
-						<span class="chip text-sm font-medium px-3 py-1 rounded-full">Manipulation</span>
-						<span class="chip text-sm font-medium px-3 py-1 rounded-full">Diffusion Models</span>
-						<span class="chip text-sm font-medium px-3 py-1 rounded-full">3D Generation</span>
-						<span class="chip text-sm font-medium px-3 py-1 rounded-full">Domain Adaptation</span>
-					</div>
-				</div>
-			</div>
-
-			<div class="relative z-10 grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
-				<div class="stat-card rounded-xl p-5 text-center">
-					<p class="text-3xl font-bold display-font gradient-text">20+</p>
-					<p class="text-sm text-slate-600 mt-1">Publications</p>
-				</div>
-				<div class="stat-card rounded-xl p-5 text-center">
-					<p class="text-3xl font-bold display-font gradient-text">CVPR &middot; ECCV</p>
-					<p class="text-sm text-slate-600 mt-1">NeurIPS &middot; MICCAI</p>
-				</div>
-				<div class="stat-card rounded-xl p-5 text-center">
-					<p class="text-3xl font-bold display-font gradient-text">9+</p>
-					<p class="text-sm text-slate-600 mt-1">Awards &amp; Grants</p>
-				</div>
-				<div class="stat-card rounded-xl p-5 text-center">
-					<p class="text-3xl font-bold display-font gradient-text">3</p>
-					<p class="text-sm text-slate-600 mt-1">Continents of Research</p>
-				</div>
-			</div>
-		</section>
-
-		<section id="updates" class="mb-24 fade-in-section">
-			<h2 class="text-4xl text-center mb-12 section-heading">Recent Updates</h2>
-			<div class="max-w-4xl mx-auto bg-white p-8 rounded-2xl shadow-md border" style="border-color: var(--border-color);">
-				<div class="max-h-96 overflow-y-auto pr-4">
-					<ul class="space-y-4">
-						<li class="update-item"><strong class="font-semibold" style="color: var(--accent-color);">[June 2026]</strong> Started as a full-time <strong>Applied Scientist II at <a href="https://www.amazon.science/research-areas/robotics" class="accent-link" target="_blank">Amazon Robotics</a></strong>, working on humanoid manipulation and whole-body control! <i class="fa-solid fa-robot" style="color:#ff9900;"></i></li>
-						<li class="update-item"><strong class="font-semibold" style="color: var(--accent-color);">[June 2026]</strong> Two papers accepted at <strong>ECCV 2026</strong> &mdash; "Exo2EgoPolicy" (pose-aligned cross-view policy learning) and "Fixed Reality, Diffused Possibility" (cluttered grasping)!</li>
-						<li class="update-item"><strong class="font-semibold" style="color: var(--accent-color);">[June 2026]</strong> Our "PhysioSplat" paper on physics-informed dynamic Gaussian Splatting was accepted to <strong>MICCAI 2026</strong>!</li>
-						<li class="update-item"><strong class="font-semibold" style="color: var(--accent-color);">[Jan 2026]</strong> Successfully defended and completed my <strong>Ph.D. in Computer Science</strong> at Stony Brook University! <i class="fa-solid fa-graduation-cap" style="color:#b07a37;"></i></li>
-						<li class="update-item"><strong class="font-semibold" style="color: var(--accent-color);">[Sep 2025]</strong> Honored to receive the <strong>ICCV/CVF Travel Grant</strong> and the <strong>IEEE RAS Travel Award</strong> for IROS 2025.</li>
-						<li class="update-item"><strong class="font-semibold" style="color: var(--accent-color);">[June 2025]</strong> Our "ViSPLA" paper was accepted to <strong>NeurIPS 2025</strong>!</li>
-						<li class="update-item"><strong class="font-semibold" style="color: var(--accent-color);">[June 2025]</strong> Our "D4Recon" paper was accepted to <strong>MICCAI 2025</strong> and our Gaussian Splatting work to <strong>IROS 2025</strong>!</li>
-						<li class="update-item"><strong class="font-semibold" style="color: var(--accent-color);">[May 2025]</strong> Back at <a href='https://www.amazon.science/research-areas/robotics' class="accent-link" target="_blank">Amazon</a> for a second research internship on VLA models and manipulation.</li>
-						<li class="update-item"><strong class="font-semibold" style="color: var(--accent-color);">[Feb 2025]</strong> Two papers, "SemiDAViL" and "UA-Pose," were accepted at <strong>CVPR 2025</strong>!</li>
-						<li class="update-item"><strong class="font-semibold" style="color: var(--accent-color);">[Nov 2024]</strong> Received the IEEE SPS Scholarship for the second consecutive year.</li>
-						<li class="update-item"><strong class="font-semibold" style="color: var(--accent-color);">[Sep 2024]</strong> Thrilled to receive the <strong>MICCAI NIH Travel Award</strong> and the <strong>ECCV DEI Award</strong>.</li>
-						<li class="update-item"><strong class="font-semibold" style="color: var(--accent-color);">[July 2024]</strong> Our paper "Forget More to Learn More" was accepted at <strong>ECCV 2024</strong>.</li>
-						<li class="update-item"><strong class="font-semibold" style="color: var(--accent-color);">[June 2024]</strong> Our "Quest for Clone" paper was accepted at <strong>MICCAI 2024</strong>.</li>
-					</ul>
-				</div>
-			</div>
-		</section>
-
-		<section id="publications" class="mb-24 fade-in-section">
-			<h2 class="text-4xl text-center mb-12 section-heading">Selected Publications</h2>
-			<div id="publications-list" class="space-y-12"></div>
-		</section>
-
-		<section id="collaborate" class="mb-24 fade-in-section">
-			<div class="collab-card max-w-5xl mx-auto rounded-2xl shadow-xl overflow-hidden">
-				<div class="grid grid-cols-1 md:grid-cols-3 items-center gap-8 p-10 text-white">
-					<div class="md:col-span-2">
-						<p class="text-sm font-semibold tracking-widest uppercase text-amber-300/90 mb-2 display-font"><i class="fa-solid fa-handshake mr-2"></i>Let's build together</p>
-						<h2 class="text-3xl md:text-4xl text-white mb-3">Always open to collaboration</h2>
-						<p class="text-slate-300 leading-relaxed">Whether it's robotics &amp; manipulation, vision-language-action models, generative AI, or medical imaging &mdash; if you have an exciting idea or want to chat about research, I'd love to hear from you. Reach out anytime.</p>
-					</div>
-					<div class="md:col-span-1 flex md:justify-end">
-						<a href="mailto:hritambasak48@gmail.com" class="accent-button text-white px-6 py-3 rounded-lg font-semibold transition-all inline-flex items-center gap-2">
-							<i class="fa-solid fa-envelope"></i> Get in touch
-						</a>
-					</div>
-				</div>
-				<div class="bg-black/20 px-10 py-4 text-center md:text-left">
-					<span class="text-slate-300 text-sm">Email me at </span>
-					<a href="mailto:hritambasak48@gmail.com" class="text-amber-300 font-semibold hover:underline">hritambasak48@gmail.com</a>
-				</div>
-			</div>
-		</section>
-
-		<section id="services" class="fade-in-section mb-24">
-			<h2 class="text-4xl text-center mb-12 section-heading">Academic Services</h2>
-			<div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
-				<div class="bg-white p-6 rounded-2xl shadow-md border" style="border-color: var(--border-color);">
-					<h3 class="text-2xl mb-4"><i class="fa-solid fa-users-viewfinder mr-2 text-amber-700/80"></i>Conference Reviewing</h3>
-					<ul class="list-disc list-inside space-y-2">
-						<li>CVPR ('24, '25)</li>
-						<li>MICCAI ('23, '24, '25)</li>
-						<li>ECCV ('24)</li>
-						<li>ICCV ('25)</li>
-						<li>IJCAI, AAAI ('23, '24, '25)</li>
-					</ul>
-				</div>
-				<div class="bg-white p-6 rounded-2xl shadow-md border" style="border-color: var(--border-color);">
-					<h3 class="text-2xl mb-4"><i class="fa-solid fa-book-open mr-2 text-amber-700/80"></i>Journal Reviewing</h3>
-					<ul class="list-disc list-inside space-y-2">
-						<li>IEEE TPAMI, TNNLS, TIP, TCSVT, TMI</li>
-						<li>Elsevier MedIA, Pattern Recognition</li>
-						<li>Nature</li>
-						<li>Intl. Journal of Computer Vision (IJCV)</li>
-					</ul>
-				</div>
-			</div>
-		</section>
-	</main>
-
-	<footer class="bg-slate-900 text-slate-400">
-		<div class="container mx-auto px-6 py-8 text-center">
-			<div class="flex justify-center space-x-6 mb-6 text-xl">
-				<a href="mailto:hritambasak48@gmail.com" aria-label="Email" class="hover:text-white transition-colors"><i class="fa-solid fa-envelope"></i></a>
-				<a href="https://scholar.google.com/citations?user=29wTOh4AAAAJ&hl=en" aria-label="Google Scholar" class="hover:text-white transition-colors"><i class="ai ai-google-scholar"></i></a>
-				<a href="https://github.com/hritam-98" aria-label="GitHub" class="hover:text-white transition-colors"><i class="fa-brands fa-github"></i></a>
-				<a href="https://www.linkedin.com/in/hritam-basak-a66114166/" aria-label="LinkedIn" class="hover:text-white transition-colors"><i class="fa-brands fa-linkedin"></i></a>
-			</div>
-			<div class="flex justify-center mb-6">
-				<a href="https://info.flagcounter.com/q0IF"><img src="https://s01.flagcounter.com/countxl/q0IF/bg_0F172A/txt_CCCCCC/border_3A3A3A/columns_3/maxflags_12/viewers_0/labels_1/pageviews_1/flags_0/percent_0/" alt="Flag Counter" border="0"></a>
-			</div>
-			<p>&copy; <span id="footer-year">2026</span> Hritam Basak. All Rights Reserved.</p>
-			<p id="last-updated" class="text-xs mt-1"></p>
-			<p class="text-xs mt-2">Crafted with Tailwind CSS &middot; <a href="#" class="hover:text-white">hritam-98.github.io</a></p>
-			<a href="#" id="back_to_top" class="inline-block mt-6 text-slate-400 hover:text-white transition-colors"><i class="fa-solid fa-chevron-up fa-lg"></i><span class="ml-2">Back to Top</span></a>
-		</div>
-	</footer>
-
-	<script>
-		const publicationsData = {
-			"2026": [
-				{ id: 'eccv26-exo2ego', conference: 'ECCV 2026', title: 'Exo2EgoPolicy: Pose-Aligned Cross-View Policy Learning', authors: ['Hritam Basak', 'Hadi Tabatabaee', 'Shreekant Gayaka', 'Xin Yang', 'Cheng-Hao Kuo', 'Zhaozheng Yin', 'Min Sun'], image: 'https://hritam-98.github.io/img/Publications/exo2ego-eccv26.png', links: { project: 'https://hritam-98.github.io/exo2egopolicy/' }, abstract: 'We present an end-to-end video generation and policy-learning pipeline for exocentric-to-egocentric viewpoint translation, enabling transformative progress in imitation learning and advancing the frontier of embodied AI.', bibtex: `@inproceedings{basak2026exo2ego, title={Exo2EgoPolicy: Pose-Aligned Cross-View Policy Learning}, author={Basak, Hritam and Tabatabaee, Hadi and Gayaka, Shreekant and Yang, Xin and Kuo, Cheng-Hao and Yin, Zhaozheng and Sun, Min}, booktitle={ECCV}, year={2026}}`},
-				{ id: 'eccv26-fixed', conference: 'ECCV 2026', title: 'Fixed Reality, Diffused Possibility: Disentangling Stochastic and Deterministic Latent for Cluttered Grasping', authors: ['Hritam Basak', 'Zhaozheng Yin'], image: 'https://hritam-98.github.io/img/Publications/fixed-reality-eccv26.png', links: { project: 'https://hritam-98.github.io/SplitDiffGrasp/', code: 'https://github.com/hritam-98/SplitDiffGrasp' }, abstract: 'We propose a split-latent hierarchical diffusion framework that disentangles deterministic geometric priors (fixed latent) from stochastic scene-level context (diffused latent) for reliable affordance-grasp prediction in cluttered, partially observed environments. A Global Conditional Diffusion produces the stochastic latent from RGB context, a Local Conditional Diffusion predicts dense point-wise affordance and grasp fields, and a Harmonic Grasp Field enforces smooth, obstacle-aware grasp manifolds, yielding physically consistent and uncertainty-aware grasp generation.', bibtex: `@inproceedings{basak2026fixed, title={Fixed Reality, Diffused Possibility: Disentangling Stochastic and Deterministic Latent for Cluttered Grasping}, author={Basak, Hritam and Yin, Zhaozheng}, booktitle={ECCV}, year={2026}}`},
-				{ id: 'miccai26-physiosplat', conference: 'MICCAI 2026', title: 'PhysioSplat: Physics-Informed Dynamic Gaussian Splatting for Surgical Scene Reconstruction', authors: ['Hritam Basak', 'Zhaozheng Yin'], image: 'https://hritam-98.github.io/img/Publications/physiosplat-miccai26.png', links: { project: 'https://hritam-98.github.io/physiosplat/' }, abstract: 'We introduce PhysioSplat, a physics-informed dynamic Gaussian Splatting framework for surgical scene reconstruction, embedding physical priors into deformable tissue modeling for geometrically coherent, real-time endoscopic rendering.', bibtex: `@inproceedings{basak2026physiosplat, title={PhysioSplat: Physics-Informed Dynamic Gaussian Splatting for Surgical Scene Reconstruction}, author={Basak, Hritam and Yin, Zhaozheng}, booktitle={MICCAI}, year={2026}}`}
-			],
-			"2025": [
-				{ id: 'neurips25', conference: 'NeurIPS 2025', title: 'ViSPLA: Visual Iterative Self-Prompting for Language-Guided 3D Affordance Learning', authors: ['Hritam Basak', 'Zhaozheng Yin'], image: 'https://hritam-98.github.io/img/Publications/vispla-neurips25.png', links: { project: 'https://hritam-98.github.io/VisPLA/' }, abstract: 'We devise a Visual Iterative Self-Prompting algorithm with Neural Affordance Field supervision for language-guided 3D affordance estimation, enabling robots to ground language instructions in 3D actionable regions.', bibtex: `@inproceedings{basak2025vispla, title={ViSPLA: Visual Iterative Self-Prompting for Language-Guided 3D Affordance Learning}, author={Basak, Hritam and Yin, Zhaozheng}, booktitle={NeurIPS}, year={2025}}`},
-				{ id: 'iros25', conference: 'IROS 2025', title: 'Enhancing Single Image to 3D Generation using Gaussian Splatting and Hybrid Diffusion Priors', authors: ['Hritam Basak', 'Hadi Tabatabaee', 'Shreekant Gayaka', 'Ming-Feng Li', 'Xin Yang', 'Cheng-Hao Kuo', 'Arnie Sen', 'Min Sun', 'Zhaozheng Yin'], image: 'https://hritam-98.github.io/img/Publications/iros-25.png', links: { pdf: 'https://arxiv.org/abs/2410.09467' }, abstract: '3D object generation from a single unposed RGB image is essential for robotic perception... Our approach achieves state-of-the-art 3D reconstruction quality, significantly improving robotic perception pipelines.', bibtex: `@inproceedings{basak2025enhancing, title={Enhancing Single Image to 3D Generation...}, author={Basak, Hritam and ...}, booktitle={IROS}, year={2025}}`},
-				{ id: 'miccai25', conference: 'MICCAI 2025', title: 'D4Recon: Dual-stage Deformation and Dual-scale Depth Guidance for Endoscopic Reconstruction', authors: ['Hritam Basak', 'Zhaozheng Yin'], image: 'https://hritam-98.github.io/img/Publications/overall-miccai25.png', links: { project: 'https://hritam-98.github.io/D4Recon/', code: 'https://github.com/hritam-98/D4Recon' }, abstract: 'Deformable tissue reconstruction in endoscopy is vital for surgery... D4Recon achieves superior geometric coherence and photorealism with real-time rendering speed, outperforming existing methods.', bibtex: `@inproceedings{basak2025d4recon, title={D4Recon: Dual-stage Deformation...}, author={Basak, Hritam and Yin, Zhaozheng}, booktitle={MICCAI}, year={2025}}`},
-				{ id: 'cvpr25-uapose', conference: 'CVPR 2025', title: 'UA-Pose: Uncertainty-aware 6D Object Pose Estimation and Online Object Completion with Partial References', authors: ['Ming-Feng Li', 'Xin Yang', 'Fu-En Wang', 'Hritam Basak', 'Yuyin Sun', 'Shreekant Gayaka', 'Min Sun', 'Cheng-Hao Kuo'], image: 'https://hritam-98.github.io/img/Publications/UA-pose.png', links: { pdf: 'https://openaccess.thecvf.com/content/CVPR2025/html/Li_UA-Pose_Uncertainty-Aware_6D_Object_Pose_Estimation_and_Online_Object_Completion_CVPR_2025_paper.html', code: 'https://minfenli.github.io/UA-Pose/' }, abstract: 'We propose UA-Pose, an uncertainty-aware approach for 6D object pose estimation... Experimental results demonstrate significant performance improvements.', bibtex: `@inproceedings{li2025ua, title={UA-Pose: Uncertainty-aware 6D object pose estimation...}, author={Li, Ming-Feng and ...}, booktitle={CVPR}, year={2025}}`},
-				{ id: 'cvpr25-semidavil', conference: 'CVPR 2025', title: 'SemiDAViL: Semi-supervised Domain Adaptation with Vision-Language Guidance for Semantic Segmentation', authors: ['Hritam Basak', 'Zhaozheng Yin'], image: 'https://hritam-98.github.io/img/Publications/cvpr-25.png', links: { pdf: 'https://openaccess.thecvf.com/content/CVPR2025/html/Basak_SemiDAViL_Semi-supervised_Domain_Adaptation_with_Vision-Language_Guidance_for_Semantic_Segmentation_CVPR_2025_paper.html', code: 'https://github.com/hritam-98/SemiDAViL' }, abstract: 'We propose the first language-guided SSDA setting for semantic segmentation. We harness the semantic generalization capabilities inherent in vision-language models (VLMs).', bibtex: `@inproceedings{basak2025semidavil, title={SemiDAViL: Semi-supervised Domain Adaptation...}, author={Basak, Hritam and Yin, Zhaozheng}, booktitle={CVPR}, year={2025}}`}
-			],
-			"2024": [
-				{ id: 'eccv24', conference: 'ECCV 2024', title: 'Forget More to Learn More: Domain-specific Feature Unlearning for Semi-supervised and Unsupervised Domain Adaptation', authors: ['Hritam Basak', 'Zhaozheng Yin'], image: 'https://hritam-98.github.io/img/Publications/eccv24-overall.png', links: { pdf: 'https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/05513.pdf', code: 'https://github.com/hritam-98/FMLM' }, abstract: 'In pursuit of greater generalizability and robustness, we present an SSDA framework with a new episodic learning strategy: "learn, forget, then learn more".', bibtex: `@inproceedings{basak2024forget, title={Forget More to Learn More...}, author={Basak, Hritam and Yin, Zhaozheng}, booktitle={ECCV}, year={2024}}`},
-				{ id: 'miccai24', conference: 'MICCAI 2024', title: 'Quest for Clone: Test-Time Domain Adaptation for Medical Image Segmentation by Searching the Closest Clone in Latent Space', authors: ['Hritam Basak', 'Zhaozheng Yin'], image: 'https://hritam-98.github.io/img/Publications/overall-miccai24-cropped.png', links: { pdf: 'https://papers.miccai.org/miccai-2024/paper/0297_paper.pdf', code: 'https://github.com/hritam-98/Quest4Clone' }, abstract: 'We propose a generative latent search paradigm to reconstruct the closest clone of every target image from the source latent space... We empirically validate the efficacy of our proposed method.', bibtex: `@inproceedings{basak2024quest, title={Quest for Clone: Test-Time Domain Adaptation...}, author={Basak, Hritam and Yin, Zhaozheng}, booktitle={MICCAI}, year={2024}}`}
-			],
-			"2023": [
-				{ id: 'cvpr23', conference: 'CVPR 2023', title: 'Pseudo Label Guided Contrastive Learning for Semi-supervised Medical Image Segmentation', authors: ['Hritam Basak', 'Zhaozheng Yin'], image: 'https://hritam-98.github.io/img/Publications/PLGCL_overall.png', links: { pdf: 'https://openaccess.thecvf.com/content/CVPR2023/papers/Basak_Pseudo-Label_Guided_Contrastive_Learning_for_Semi-Supervised_Medical_Image_Segmentation_CVPR_2023_paper.pdf', code: 'https://github.com/hritam-98/PatchCL-MedSeg' }, abstract: 'We propose a novel semi-supervised patch-based CL framework for medical image segmentation... Experimental analysis reveals the superiority of our proposed method.', bibtex: `@inproceedings{basak2023pseudo, title={Pseudo-Label Guided Contrastive Learning...}, author={Basak, Hritam and Yin, Zhaozheng}, booktitle={CVPR}, year={2023}}`},
-				{ id: 'miccai23', conference: 'MICCAI 2023', title: 'Semi-supervised Domain Adaptive Medical Image Segmentation through Consistency Regularized Disentangled Contrastive Learning', authors: ['Hritam Basak', 'Zhaozheng Yin'], image: 'https://hritam-98.github.io/img/Publications/style-content-miccai23.png', links: { pdf: 'https://link.springer.com/epdf/10.1007/978-3-031-43901-8_25', code: 'https://github.com/hritam-98/GFDA-disentangled' }, abstract: 'We investigate semi-supervised domain adaptation (SSDA) for medical image segmentation... Our proposed method outperforms the SoTA methods.', bibtex: `@inproceedings{basak2023semi, title={Semi-supervised domain adaptive medical image segmentation...}, author={Basak, Hritam and Yin, Zhaozheng}, booktitle={MICCAI}, year={2023}}`}
-			],
-			"2022": [
-				{ id: 'miccai22', conference: 'MICCAI 2022', title: 'Addressing Class Imbalance in Semi-supervised Image Segmentation: A Study on Cardiac MRI', authors: ['Hritam Basak', 'Sagnik Ghosal', 'Ram Sarkar'], image: 'https://hritam-98.github.io/img/Publications/MICCAI_Overall_final.png', links: { pdf: 'https://rdcu.be/cVRY4' }, abstract: 'To alleviate the shortcoming of class imbalance, we propose maintaining a confidence array that records class-wise performance during training.', bibtex: `@inproceedings{basak2022addressing, title={Addressing class imbalance in semi-supervised image segmentation...}, author={Basak, Hritam and Ghosal, Sagnik and Sarkar, Ram}, booktitle={MICCAI}, year={2022}}`},
-				{ id: 'isbi22', conference: 'ISBI 2022', title: 'An Embarassingly Simple Consistency Regularization Method for Semi-Supervised Medical Image Segmentation', authors: ['Hritam Basak', 'Rajarshi Bhattacharya', 'Rukhshanda Hussain', 'Agniv Chatterjee'], image: 'https://hritam-98.github.io/img/Publications/ICT-MedSeg-Overall.png', links: { pdf: 'https://arxiv.org/abs/2202.00677', code: 'https://github.com/hritam-98/ICT-MedSeg' }, abstract: 'We introduce a novel regularization strategy involving interpolation-based mixing for semi-supervised medical image segmentation.', bibtex: `@inproceedings{basak2022exceedingly, title={An exceedingly simple consistency regularization method...}, author={Basak, Hritam and ...}, booktitle={ISBI}, year={2022}}`}
-			]
-		};
-
-		document.addEventListener('DOMContentLoaded', () => {
-
-			// --- Core Initializations ---
-			renderPublications();
-			setupEventListeners();
-			initializeAnimations();
-			updateFooter();
-
-			// --- Typewriter Effect ---
-			const nameEl = document.getElementById('typewriter-name');
-			if (nameEl) {
-				typewriterEffect(nameEl, "Hritam Basak");
-			}
-		});
-
-		function renderPublications() {
-			const container = document.getElementById('publications-list');
-			if (!container) return;
-
-			let html = '';
-			const years = Object.keys(publicationsData).sort((a, b) => b - a);
-
-			years.forEach(year => {
-				html += `<h3 class="text-3xl font-semibold mb-8 display-font">${year}</h3>`;
-				publicationsData[year].forEach(paper => {
-					const authorList = paper.authors.map(author =>
-						author === 'Hritam Basak' ? `<strong class="font-semibold" style="color: var(--accent-color);">${author}</strong>` : author
-					).join(', ');
-
-					const linksHtml = Object.entries(paper.links || {}).map(([key, url]) =>
-						`<a href="${url}" target="_blank" class="accent-link capitalize">${key}</a>`
-					).join(' <span class="text-slate-300">|</span> ');
-
-					html += `
-						<div class="publication-card grid grid-cols-1 md:grid-cols-4 gap-8 bg-white p-6 rounded-xl mb-8">
-							<div class="md:col-span-1">
-								<img class="rounded-md object-cover w-full h-full shadow-sm" src="${paper.image}" alt="${paper.title} Thumbnail" onerror="this.onerror=null;this.src='https://placehold.co/400x300/e2e8f0/334155?text=Image';">
-							</div>
-							<div class="md:col-span-3">
-								<span class="conf-badge inline-block text-xs font-semibold px-2.5 py-1 rounded-full">${paper.conference}</span>
-								<h4 class="text-xl font-semibold mt-2">${paper.title}</h4>
-								<p class="text-slate-600 mt-2 text-sm">${authorList}</p>
-								<div class="flex flex-wrap gap-x-3 items-center mt-4 text-sm">
-									${linksHtml}
-									${linksHtml ? '<span class="text-slate-300">|</span>' : ''}
-									<button class="accent-link toggle-detail-btn" data-target="#${paper.id}-abstract">Abstract</button>
-									<span class="text-slate-300">|</span>
-									<button class="accent-link toggle-detail-btn" data-target="#${paper.id}-bib">BibTeX</button>
-								</div>
-								<div id="${paper.id}-abstract" class="collapsible-content mt-4 text-sm text-slate-600">
-									<div>${paper.abstract}</div>
-								</div>
-								<div id="${paper.id}-bib" class="collapsible-content mt-4 text-xs text-slate-600">
-									<pre class="overflow-x-auto"><code>${paper.bibtex}</code></pre>
-								</div>
-							</div>
-						</div>`;
-				});
-			});
-			container.innerHTML = html;
-		}
-
-		function setupEventListeners() {
-			// Mobile menu
-			const mobileMenuButton = document.getElementById('mobile-menu-button');
-			const mobileMenu = document.getElementById('mobile-menu');
-			mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-
-			// Publication buttons (Event Delegation)
-			document.getElementById('publications-list').addEventListener('click', (e) => {
-				if (e.target.matches('.toggle-detail-btn')) {
-					toggleDetail(e.target);
-				}
-			});
-		}
-
-		function initializeAnimations() {
-			const sections = document.querySelectorAll('.fade-in-section');
-			const observer = new IntersectionObserver(entries => {
-				entries.forEach(entry => {
-					if (entry.isIntersecting) {
-						entry.target.classList.add('is-visible');
-					}
-				});
-			}, { threshold: 0.1 });
-			sections.forEach(section => observer.observe(section));
-		}
-
-		function updateFooter() {
-			const today = new Date();
-			const lastUpdatedEl = document.getElementById('last-updated');
-			if (lastUpdatedEl) {
-				const options = { year: 'numeric', month: 'long', day: 'numeric' };
-				lastUpdatedEl.textContent = `Last updated on ${today.toLocaleDateString('en-US', options)}`;
-			}
-			const yearEl = document.getElementById('footer-year');
-			if (yearEl) { yearEl.textContent = today.getFullYear(); }
-		}
-
-		function toggleDetail(button) {
-			const targetId = button.dataset.target;
-			const targetElement = document.querySelector(targetId);
-			if (targetElement) {
-				// Close other open sections for a cleaner accordion effect
-				const parentContainer = button.closest('.md\\:col-span-3');
-				parentContainer.querySelectorAll('.collapsible-content.is-expanded').forEach(openEl => {
-					if (openEl !== targetElement) {
-						openEl.classList.remove('is-expanded');
-					}
-				});
-				// Toggle the clicked section
-				targetElement.classList.toggle('is-expanded');
-			}
-		}
-
-		// --- Utility Functions ---
-		function revealEmail(element) {
-			element.textContent = 'hritambasak48@gmail.com';
-			element.onmouseover = null;
-		}
-
-		function copyEmail(element) {
-			navigator.clipboard.writeText('hritambasak48@gmail.com').then(() => {
-				const original = element.textContent;
-				element.textContent = 'Copied! ✓';
-				setTimeout(() => { element.textContent = 'hritambasak48@gmail.com'; }, 1500);
-			});
-		}
-
-		function typewriterEffect(element, text, speed = 75) {
-			let i = 0;
-			element.innerHTML = "";
-			const cursor = document.createElement('span');
-			cursor.className = 'typewriter-cursor';
-			cursor.innerHTML = '&nbsp;';
-			element.appendChild(cursor);
-
-			function type() {
-				if (i < text.length) {
-					element.insertBefore(document.createTextNode(text.charAt(i)), cursor);
-					i++;
-					setTimeout(type, speed);
-				}
-			}
-			type();
-		}
-	</script>
+<body>
+  <a href="#main-content" class="skip-link">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner container">
+      <a href="#bio" class="wordmark" aria-label="Hritam Basak, home">hritam<span>.</span></a>
+      <button class="menu-toggle" id="mobile-menu-button" type="button" aria-label="Open navigation" aria-controls="site-navigation" aria-expanded="false" hidden><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 8h16M4 16h16"/></svg></button>
+      <nav class="site-nav" id="site-navigation" aria-label="Main navigation">
+        <a href="#bio">About</a><a href="#updates">Updates</a><a href="#publications">Publications</a><a href="#services">Service</a><a href="#collaborate">Contact</a>
+        <a href="ResumeCV/Hritam_Basak_CV.pdf" class="nav-cv" download="Hritam_Basak_CV.pdf">CV <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 18 18 6M6 6h12v12"/></svg></a>
+      </nav>
+    </div>
+  </header>
+  <main id="main-content" class="container" tabindex="-1">
+    <section id="bio" class="hero" aria-labelledby="hero-title">
+      <div class="hero-main">
+        <div class="hero-copy">
+          <p class="eyebrow">Applied Scientist II · Amazon Robotics</p>
+          <h1 id="hero-title">Hritam Basak<span>.</span></h1>
+          <p class="hero-statement">Teaching robots to <em>see, reason,</em> and act in the real world.</p>
+          <p class="hero-intro">I develop whole-body control and manipulation policies for humanoid robots at <a href="https://www.amazon.science/research-areas/robotics" target="_blank" rel="noopener noreferrer">Amazon Robotics</a>. Working with the Fauna Robotics and Industrial Robotics groups, I turn language goals into navigation and manipulation behaviors through agentic navigation and skill orchestration.</p>
+          <div class="hero-links">
+            <a class="button" href="ResumeCV/Hritam_Basak_CV.pdf" download="Hritam_Basak_CV.pdf">Download CV <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 18 18 6M6 6h12v12"/></svg></a>
+            <a class="text-link" href="https://scholar.google.com/citations?user=29wTOh4AAAAJ&hl=en" aria-label="Google Scholar" target="_blank" rel="noopener noreferrer">Scholar <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 18 18 6M6 6h12v12"/></svg></a>
+            <a class="text-link" href="https://github.com/hritam-98" target="_blank" rel="noopener noreferrer">GitHub <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 18 18 6M6 6h12v12"/></svg></a>
+            <a class="text-link" href="https://www.linkedin.com/in/hritam-basak-a66114166/" target="_blank" rel="noopener noreferrer">LinkedIn <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 18 18 6M6 6h12v12"/></svg></a>
+          </div>
+        </div>
+        <figure class="portrait">
+          <div class="portrait-frame"><picture><source srcset="img/optimized/portrait.webp" type="image/webp"><img src="img/About/dp-new.jpg" width="2951" height="3072" alt="Hritam Basak overlooking the city" fetchpriority="high" decoding="async"></picture></div>
+          <figcaption><span>Vision · Language · Action</span></figcaption>
+        </figure>
+      </div>
+      <div class="bio-details">
+        <p>My research spans <strong>3D vision &amp; robotics</strong>, <strong>vision-language-action models</strong>, <strong>generative AI</strong>, and <strong>multimodal learning (Vision + X)</strong>, with applications in <strong>medical image analysis</strong>. I also mentor interns working on dexterous manipulation and robust grasping in cluttered environments.</p>
+        <p>I completed my <strong>Ph.D. in Computer Science</strong> at <a href="https://www.stonybrook.edu/" target="_blank" rel="noopener noreferrer">Stony Brook University</a> in May 2026, advised by <a href="https://www3.cs.stonybrook.edu/~zyin/index.htm" target="_blank" rel="noopener noreferrer">Prof. Zhaozheng Yin</a>. Previously: two research internships at <a href="https://www.amazon.science/research-areas/robotics" target="_blank" rel="noopener noreferrer">Amazon</a>, data science at <a href="https://www.tata.com/tatadigital" target="_blank" rel="noopener noreferrer">Tata Digital / Tata Neu</a>, and research visits at ETH Zurich and Sorbonne University. I earned my B.E. in Electrical Engineering from <a href="http://www.jaduniv.edu.in/" target="_blank" rel="noopener noreferrer">Jadavpur University</a>.</p>
+      </div>
+      <ul class="research-topics" aria-label="Research interests"><li>VLA Models</li><li>Manipulation</li><li>Diffusion Models</li><li>3D Generation</li><li>Domain Adaptation</li></ul>
+      <div class="highlights" aria-label="Research highlights">
+        <div><span class="highlight-value">20+</span><span class="highlight-label">Publications</span></div>
+        <div><span class="highlight-value venues">CVPR · ECCV</span><span class="highlight-label">NeurIPS · MICCAI</span></div>
+        <div><span class="highlight-value">9+</span><span class="highlight-label">Awards &amp; grants</span></div>
+        <div><span class="highlight-value">3</span><span class="highlight-label">Continents of research</span></div>
+      </div>
+    </section>
+    <section id="updates" class="section" aria-labelledby="updates-title">
+      <div class="section-heading"><div><p class="eyebrow">01 / Along the way</p><h2 id="updates-title">Recent updates</h2></div></div>
+      <ul class="updates-list"><li class="update-item"><time datetime="2026-06">June 2026</time><div>Started as a full-time <strong>Applied Scientist II at <a href="https://www.amazon.science/research-areas/robotics" target="_blank" rel="noopener noreferrer">Amazon Robotics</a></strong>, working on humanoid manipulation and whole-body control!</div></li><li class="update-item"><time datetime="2026-06">June 2026</time><div>Two papers accepted at <strong>ECCV 2026</strong> &mdash; "Exo2EgoPolicy" (pose-aligned cross-view policy learning) and "Fixed Reality, Diffused Possibility" (cluttered grasping)!</div></li><li class="update-item"><time datetime="2026-06">June 2026</time><div>Our "PhysioSplat" paper on physics-informed dynamic Gaussian Splatting was accepted to <strong>MICCAI 2026</strong>!</div></li><li class="update-item"><time datetime="2026-05">May 2026</time><div>Completed my <strong>Ph.D. in Computer Science</strong> at Stony Brook University!</div></li></ul>
+      <details class="update-archive"><summary>Earlier updates · 9 entries</summary><ul class="updates-list"><li class="update-item"><time datetime="2025-09">Sep 2025</time><div>Honored to receive the <strong>ICCV/CVF Travel Grant</strong> and the <strong>IEEE RAS Travel Award</strong> for IROS 2025.</div></li><li class="update-item"><time datetime="2025-06">June 2025</time><div>Our "ViSPLA" paper was accepted to <strong>NeurIPS 2025</strong>!</div></li><li class="update-item"><time datetime="2025-06">June 2025</time><div>Our "D4Recon" paper was accepted to <strong>MICCAI 2025</strong> and our Gaussian Splatting work to <strong>IROS 2025</strong>!</div></li><li class="update-item"><time datetime="2025-05">May 2025</time><div>Back at <a href='https://www.amazon.science/research-areas/robotics' target="_blank" rel="noopener noreferrer">Amazon</a> for a second research internship on VLA models and manipulation.</div></li><li class="update-item"><time datetime="2025-02">Feb 2025</time><div>Two papers, "SemiDAViL" and "UA-Pose," were accepted at <strong>CVPR 2025</strong>!</div></li><li class="update-item"><time datetime="2024-11">Nov 2024</time><div>Received the IEEE SPS Scholarship for the second consecutive year.</div></li><li class="update-item"><time datetime="2024-09">Sep 2024</time><div>Thrilled to receive the <strong>MICCAI NIH Travel Award</strong> and the <strong>ECCV DEI Award</strong>.</div></li><li class="update-item"><time datetime="2024-07">July 2024</time><div>Our paper "Forget More to Learn More" was accepted at <strong>ECCV 2024</strong>.</div></li><li class="update-item"><time datetime="2024-06">June 2024</time><div>Our "Quest for Clone" paper was accepted at <strong>MICCAI 2024</strong>.</div></li></ul></details>
+    </section>
+    <section id="publications" class="section" aria-labelledby="publications-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">02 / Ideas into practice</p><h2 id="publications-title">Selected publications</h2><p class="section-description">Robotics, 3D vision, and learning from limited supervision.</p></div>
+        <a class="text-link" href="https://scholar.google.com/citations?user=29wTOh4AAAAJ&hl=en" target="_blank" rel="noopener noreferrer">All publications on Scholar <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 18 18 6M6 6h12v12"/></svg></a>
+      </div>
+      <div class="publication-toolbar" id="publication-toolbar" hidden><span class="filter-label">Browse by year</span><div class="publication-filters" id="publication-filters" role="group" aria-label="Filter publications by year"><button type="button" class="filter-button" data-year="all" aria-pressed="true">All</button><button type="button" class="filter-button" data-year="2026" aria-pressed="false">2026</button><button type="button" class="filter-button" data-year="2025" aria-pressed="false">2025</button><button type="button" class="filter-button" data-year="2024" aria-pressed="false">2024</button><button type="button" class="filter-button" data-year="2023" aria-pressed="false">2023</button><button type="button" class="filter-button" data-year="2022" aria-pressed="false">2022</button></div></div>
+      <div id="publications-list"><div class="publication-year" data-year="2026"><h3 class="year-heading">2026</h3><div><article class="publication" id="eccv26-exo2ego" aria-labelledby="eccv26-exo2ego-title">
+  <a class="paper-figure" href="img/Publications/exo2ego-eccv26.png" target="_blank" rel="noopener noreferrer" aria-label="View full figure for Exo2EgoPolicy: Pose-Aligned Cross-View Policy Learning">
+    <picture><source srcset="img/optimized/exo2ego-eccv26.webp" type="image/webp"><img src="img/Publications/exo2ego-eccv26.png" width="5564" height="2800" loading="lazy" decoding="async" alt="Research figure for Exo2EgoPolicy: Pose-Aligned Cross-View Policy Learning"></picture>
+  </a>
+  <div class="paper-content">
+    <p class="paper-venue">ECCV 2026</p>
+    <h4 class="paper-title" id="eccv26-exo2ego-title">Exo2EgoPolicy: Pose-Aligned Cross-View Policy Learning</h4>
+    <p class="paper-authors"><strong>Hritam Basak</strong>, Hadi Tabatabaee, Shreekant Gayaka, Xin Yang, Cheng-Hao Kuo, Zhaozheng Yin, Min Sun</p>
+    <div class="paper-controls">
+      <a href="https://hritam-98.github.io/exo2egopolicy/" target="_blank" rel="noopener noreferrer">Project ↗</a>
+      <button class="panel-toggle" type="button" aria-expanded="false" aria-controls="eccv26-exo2ego-abstract" hidden>Abstract</button>
+      <button class="panel-toggle" type="button" aria-expanded="false" aria-controls="eccv26-exo2ego-bib" hidden>BibTeX</button>
+    </div>
+    <div class="paper-panel" id="eccv26-exo2ego-abstract"><p>We present an end-to-end video generation and policy-learning pipeline for exocentric-to-egocentric viewpoint translation, enabling transformative progress in imitation learning and advancing the frontier of embodied AI.</p></div>
+    <div class="paper-panel" id="eccv26-exo2ego-bib">
+      <div class="panel-heading"><span>BibTeX citation</span><button class="copy-button" type="button" data-copy="eccv26-exo2ego-citation" hidden><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V4H4v12h4"/></svg><span data-copy-label>Copy citation</span></button></div>
+      <pre><code id="eccv26-exo2ego-citation">@inproceedings{basak2026exo2ego,
+  title = {Exo2EgoPolicy: Pose-Aligned Cross-View Policy Learning},
+  author = {Basak, Hritam and Tabatabaee, Hadi and Gayaka, Shreekant and Yang, Xin and Kuo, Cheng-Hao and Yin, Zhaozheng and Sun, Min},
+  booktitle = {ECCV},
+  year = {2026}
+}</code></pre>
+    </div>
+  </div>
+</article><article class="publication" id="eccv26-fixed" aria-labelledby="eccv26-fixed-title">
+  <a class="paper-figure" href="img/Publications/fixed-reality-eccv26.png" target="_blank" rel="noopener noreferrer" aria-label="View full figure for Fixed Reality, Diffused Possibility: Disentangling Stochastic and Deterministic Latent for Cluttered Grasping">
+    <picture><source srcset="img/optimized/fixed-reality-eccv26.webp" type="image/webp"><img src="img/Publications/fixed-reality-eccv26.png" width="3444" height="1482" loading="lazy" decoding="async" alt="Research figure for Fixed Reality, Diffused Possibility: Disentangling Stochastic and Deterministic Latent for Cluttered Grasping"></picture>
+  </a>
+  <div class="paper-content">
+    <p class="paper-venue">ECCV 2026</p>
+    <h4 class="paper-title" id="eccv26-fixed-title">Fixed Reality, Diffused Possibility: Disentangling Stochastic and Deterministic Latent for Cluttered Grasping</h4>
+    <p class="paper-authors"><strong>Hritam Basak</strong>, Zhaozheng Yin</p>
+    <div class="paper-controls">
+      <a href="https://hritam-98.github.io/SplitDiffGrasp/" target="_blank" rel="noopener noreferrer">Project ↗</a>
+<a href="https://github.com/hritam-98/SplitDiffGrasp" target="_blank" rel="noopener noreferrer">Code ↗</a>
+      <button class="panel-toggle" type="button" aria-expanded="false" aria-controls="eccv26-fixed-abstract" hidden>Abstract</button>
+      <button class="panel-toggle" type="button" aria-expanded="false" aria-controls="eccv26-fixed-bib" hidden>BibTeX</button>
+    </div>
+    <div class="paper-panel" id="eccv26-fixed-abstract"><p>We propose a split-latent hierarchical diffusion framework that disentangles deterministic geometric priors (fixed latent) from stochastic scene-level context (diffused latent) for reliable affordance-grasp prediction in cluttered, partially observed environments. A Global Conditional Diffusion produces the stochastic latent from RGB context, a Local Conditional Diffusion predicts dense point-wise affordance and grasp fields, and a Harmonic Grasp Field enforces smooth, obstacle-aware grasp manifolds, yielding physically consistent and uncertainty-aware grasp generation.</p></div>
+    <div class="paper-panel" id="eccv26-fixed-bib">
+      <div class="panel-heading"><span>BibTeX citation</span><button class="copy-button" type="button" data-copy="eccv26-fixed-citation" hidden><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V4H4v12h4"/></svg><span data-copy-label>Copy citation</span></button></div>
+      <pre><code id="eccv26-fixed-citation">@inproceedings{basak2026fixed,
+  title = {Fixed Reality, Diffused Possibility: Disentangling Stochastic and Deterministic Latent for Cluttered Grasping},
+  author = {Basak, Hritam and Yin, Zhaozheng},
+  booktitle = {ECCV},
+  year = {2026}
+}</code></pre>
+    </div>
+  </div>
+</article><article class="publication" id="miccai26-physiosplat" aria-labelledby="miccai26-physiosplat-title">
+  <a class="paper-figure" href="img/Publications/physiosplat-miccai26.png" target="_blank" rel="noopener noreferrer" aria-label="View full figure for PhysioSplat: Physics-Informed Dynamic Gaussian Splatting for Surgical Scene Reconstruction">
+    <picture><source srcset="img/optimized/physiosplat-miccai26.webp" type="image/webp"><img src="img/Publications/physiosplat-miccai26.png" width="4548" height="1626" loading="lazy" decoding="async" alt="Research figure for PhysioSplat: Physics-Informed Dynamic Gaussian Splatting for Surgical Scene Reconstruction"></picture>
+  </a>
+  <div class="paper-content">
+    <p class="paper-venue">MICCAI 2026</p>
+    <h4 class="paper-title" id="miccai26-physiosplat-title">PhysioSplat: Physics-Informed Dynamic Gaussian Splatting for Surgical Scene Reconstruction</h4>
+    <p class="paper-authors"><strong>Hritam Basak</strong>, Zhaozheng Yin</p>
+    <div class="paper-controls">
+      <a href="https://hritam-98.github.io/physiosplat/" target="_blank" rel="noopener noreferrer">Project ↗</a>
+      <button class="panel-toggle" type="button" aria-expanded="false" aria-controls="miccai26-physiosplat-abstract" hidden>Abstract</button>
+      <button class="panel-toggle" type="button" aria-expanded="false" aria-controls="miccai26-physiosplat-bib" hidden>BibTeX</button>
+    </div>
+    <div class="paper-panel" id="miccai26-physiosplat-abstract"><p>We introduce PhysioSplat, a physics-informed dynamic Gaussian Splatting framework for surgical scene reconstruction, embedding physical priors into deformable tissue modeling for geometrically coherent, real-time endoscopic rendering.</p></div>
+    <div class="paper-panel" id="miccai26-physiosplat-bib">
+      <div class="panel-heading"><span>BibTeX citation</span><button class="copy-button" type="button" data-copy="miccai26-physiosplat-citation" hidden><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V4H4v12h4"/></svg><span data-copy-label>Copy citation</span></button></div>
+      <pre><code id="miccai26-physiosplat-citation">@inproceedings{basak2026physiosplat,
+  title = {PhysioSplat: Physics-Informed Dynamic Gaussian Splatting for Surgical Scene Reconstruction},
+  author = {Basak, Hritam and Yin, Zhaozheng},
+  booktitle = {MICCAI},
+  year = {2026}
+}</code></pre>
+    </div>
+  </div>
+</article></div></div><div class="publication-year" data-year="2025"><h3 class="year-heading">2025</h3><div><article class="publication" id="neurips25" aria-labelledby="neurips25-title">
+  <a class="paper-figure" href="img/Publications/vispla-neurips25.png" target="_blank" rel="noopener noreferrer" aria-label="View full figure for ViSPLA: Visual Iterative Self-Prompting for Language-Guided 3D Affordance Learning">
+    <picture><source srcset="img/optimized/vispla-neurips25.webp" type="image/webp"><img src="img/Publications/vispla-neurips25.png" width="2328" height="1248" loading="lazy" decoding="async" alt="Research figure for ViSPLA: Visual Iterative Self-Prompting for Language-Guided 3D Affordance Learning"></picture>
+  </a>
+  <div class="paper-content">
+    <p class="paper-venue">NeurIPS 2025</p>
+    <h4 class="paper-title" id="neurips25-title">ViSPLA: Visual Iterative Self-Prompting for Language-Guided 3D Affordance Learning</h4>
+    <p class="paper-authors"><strong>Hritam Basak</strong>, Zhaozheng Yin</p>
+    <div class="paper-controls">
+      <a href="https://hritam-98.github.io/VisPLA/" target="_blank" rel="noopener noreferrer">Project ↗</a>
+      <button class="panel-toggle" type="button" aria-expanded="false" aria-controls="neurips25-abstract" hidden>Abstract</button>
+      <button class="panel-toggle" type="button" aria-expanded="false" aria-controls="neurips25-bib" hidden>BibTeX</button>
+    </div>
+    <div class="paper-panel" id="neurips25-abstract"><p>We devise a Visual Iterative Self-Prompting algorithm with Neural Affordance Field supervision for language-guided 3D affordance estimation, enabling robots to ground language instructions in 3D actionable regions.</p></div>
+    <div class="paper-panel" id="neurips25-bib">
+      <div class="panel-heading"><span>BibTeX citation</span><button class="copy-button" type="button" data-copy="neurips25-citation" hidden><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V4H4v12h4"/></svg><span data-copy-label>Copy citation</span></button></div>
+      <pre><code id="neurips25-citation">@inproceedings{basak2025vispla,
+  title = {ViSPLA: Visual Iterative Self-Prompting for Language-Guided 3D Affordance Learning},
+  author = {Basak, Hritam and Yin, Zhaozheng},
+  booktitle = {NeurIPS},
+  year = {2025}
+}</code></pre>
+    </div>
+  </div>
+</article><article class="publication" id="iros25" aria-labelledby="iros25-title">
+  <a class="paper-figure" href="img/Publications/iros-25.png" target="_blank" rel="noopener noreferrer" aria-label="View full figure for Enhancing Single Image to 3D Generation using Gaussian Splatting and Hybrid Diffusion Priors">
+    <picture><source srcset="img/optimized/iros-25.webp" type="image/webp"><img src="img/Publications/iros-25.png" width="1030" height="361" loading="lazy" decoding="async" alt="Research figure for Enhancing Single Image to 3D Generation using Gaussian Splatting and Hybrid Diffusion Priors"></picture>
+  </a>
+  <div class="paper-content">
+    <p class="paper-venue">IROS 2025</p>
+    <h4 class="paper-title" id="iros25-title">Enhancing Single Image to 3D Generation using Gaussian Splatting and Hybrid Diffusion Priors</h4>
+    <p class="paper-authors"><strong>Hritam Basak</strong>, Hadi Tabatabaee, Shreekant Gayaka, Ming-Feng Li, Xin Yang, Cheng-Hao Kuo, Arnie Sen, Min Sun, Zhaozheng Yin</p>
+    <div class="paper-controls">
+      <a href="https://arxiv.org/abs/2410.09467" target="_blank" rel="noopener noreferrer">Paper ↗</a>
+      <button class="panel-toggle" type="button" aria-expanded="false" aria-controls="iros25-abstract" hidden>Abstract</button>
+      <button class="panel-toggle" type="button" aria-expanded="false" aria-controls="iros25-bib" hidden>BibTeX</button>
+    </div>
+    <div class="paper-panel" id="iros25-abstract"><p>3D object generation from a single unposed RGB image is essential for robotic perception... Our approach achieves state-of-the-art 3D reconstruction quality, significantly improving robotic perception pipelines.</p></div>
+    <div class="paper-panel" id="iros25-bib">
+      <div class="panel-heading"><span>BibTeX citation</span><button class="copy-button" type="button" data-copy="iros25-citation" hidden><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V4H4v12h4"/></svg><span data-copy-label>Copy citation</span></button></div>
+      <pre><code id="iros25-citation">@inproceedings{basak2025enhancing,
+  title = {Enhancing Single Image to 3D Generation using Gaussian Splatting and Hybrid Diffusion Priors},
+  author = {Basak, Hritam and Tabatabaee, Hadi and Gayaka, Shreekant and Li, Ming-Feng and Yang, Xin and Kuo, Cheng-Hao and Sen, Arnie and Sun, Min and Yin, Zhaozheng},
+  booktitle = {IROS},
+  year = {2025}
+}</code></pre>
+    </div>
+  </div>
+</article><article class="publication" id="miccai25" aria-labelledby="miccai25-title">
+  <a class="paper-figure" href="img/Publications/overall-miccai25.png" target="_blank" rel="noopener noreferrer" aria-label="View full figure for D4Recon: Dual-stage Deformation and Dual-scale Depth Guidance for Endoscopic Reconstruction">
+    <picture><source srcset="img/optimized/overall-miccai25.webp" type="image/webp"><img src="img/Publications/overall-miccai25.png" width="2438" height="996" loading="lazy" decoding="async" alt="Research figure for D4Recon: Dual-stage Deformation and Dual-scale Depth Guidance for Endoscopic Reconstruction"></picture>
+  </a>
+  <div class="paper-content">
+    <p class="paper-venue">MICCAI 2025</p>
+    <h4 class="paper-title" id="miccai25-title">D4Recon: Dual-stage Deformation and Dual-scale Depth Guidance for Endoscopic Reconstruction</h4>
+    <p class="paper-authors"><strong>Hritam Basak</strong>, Zhaozheng Yin</p>
+    <div class="paper-controls">
+      <a href="https://hritam-98.github.io/D4Recon/" target="_blank" rel="noopener noreferrer">Project ↗</a>
+<a href="https://github.com/hritam-98/D4Recon" target="_blank" rel="noopener noreferrer">Code ↗</a>
+      <button class="panel-toggle" type="button" aria-expanded="false" aria-controls="miccai25-abstract" hidden>Abstract</button>
+      <button class="panel-toggle" type="button" aria-expanded="false" aria-controls="miccai25-bib" hidden>BibTeX</button>
+    </div>
+    <div class="paper-panel" id="miccai25-abstract"><p>Deformable tissue reconstruction in endoscopy is vital for surgery... D4Recon achieves superior geometric coherence and photorealism with real-time rendering speed, outperforming existing methods.</p></div>
+    <div class="paper-panel" id="miccai25-bib">
+      <div class="panel-heading"><span>BibTeX citation</span><button class="copy-button" type="button" data-copy="miccai25-citation" hidden><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V4H4v12h4"/></svg><span data-copy-label>Copy citation</span></button></div>
+      <pre><code id="miccai25-citation">@inproceedings{basak2025d4recon,
+  title = {D4Recon: Dual-stage Deformation and Dual-scale Depth Guidance for Endoscopic Reconstruction},
+  author = {Basak, Hritam and Yin, Zhaozheng},
+  booktitle = {MICCAI},
+  year = {2025}
+}</code></pre>
+    </div>
+  </div>
+</article><article class="publication" id="cvpr25-uapose" aria-labelledby="cvpr25-uapose-title">
+  <a class="paper-figure" href="img/Publications/UA-pose.png" target="_blank" rel="noopener noreferrer" aria-label="View full figure for UA-Pose: Uncertainty-aware 6D Object Pose Estimation and Online Object Completion with Partial References">
+    <picture><source srcset="img/optimized/UA-pose.webp" type="image/webp"><img src="img/Publications/UA-pose.png" width="742" height="792" loading="lazy" decoding="async" alt="Research figure for UA-Pose: Uncertainty-aware 6D Object Pose Estimation and Online Object Completion with Partial References"></picture>
+  </a>
+  <div class="paper-content">
+    <p class="paper-venue">CVPR 2025</p>
+    <h4 class="paper-title" id="cvpr25-uapose-title">UA-Pose: Uncertainty-aware 6D Object Pose Estimation and Online Object Completion with Partial References</h4>
+    <p class="paper-authors">Ming-Feng Li, Xin Yang, Fu-En Wang, <strong>Hritam Basak</strong>, Yuyin Sun, Shreekant Gayaka, Min Sun, Cheng-Hao Kuo</p>
+    <div class="paper-controls">
+      <a href="https://openaccess.thecvf.com/content/CVPR2025/html/Li_UA-Pose_Uncertainty-Aware_6D_Object_Pose_Estimation_and_Online_Object_Completion_CVPR_2025_paper.html" target="_blank" rel="noopener noreferrer">Paper ↗</a>
+<a href="https://minfenli.github.io/UA-Pose/" target="_blank" rel="noopener noreferrer">Code ↗</a>
+      <button class="panel-toggle" type="button" aria-expanded="false" aria-controls="cvpr25-uapose-abstract" hidden>Abstract</button>
+      <button class="panel-toggle" type="button" aria-expanded="false" aria-controls="cvpr25-uapose-bib" hidden>BibTeX</button>
+    </div>
+    <div class="paper-panel" id="cvpr25-uapose-abstract"><p>We propose UA-Pose, an uncertainty-aware approach for 6D object pose estimation... Experimental results demonstrate significant performance improvements.</p></div>
+    <div class="paper-panel" id="cvpr25-uapose-bib">
+      <div class="panel-heading"><span>BibTeX citation</span><button class="copy-button" type="button" data-copy="cvpr25-uapose-citation" hidden><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V4H4v12h4"/></svg><span data-copy-label>Copy citation</span></button></div>
+      <pre><code id="cvpr25-uapose-citation">@inproceedings{li2025ua,
+  title = {UA-Pose: Uncertainty-aware 6D Object Pose Estimation and Online Object Completion with Partial References},
+  author = {Li, Ming-Feng and Yang, Xin and Wang, Fu-En and Basak, Hritam and Sun, Yuyin and Gayaka, Shreekant and Sun, Min and Kuo, Cheng-Hao},
+  booktitle = {CVPR},
+  year = {2025}
+}</code></pre>
+    </div>
+  </div>
+</article><article class="publication" id="cvpr25-semidavil" aria-labelledby="cvpr25-semidavil-title">
+  <a class="paper-figure" href="img/Publications/cvpr-25.png" target="_blank" rel="noopener noreferrer" aria-label="View full figure for SemiDAViL: Semi-supervised Domain Adaptation with Vision-Language Guidance for Semantic Segmentation">
+    <picture><source srcset="img/optimized/cvpr-25.webp" type="image/webp"><img src="img/Publications/cvpr-25.png" width="685" height="721" loading="lazy" decoding="async" alt="Research figure for SemiDAViL: Semi-supervised Domain Adaptation with Vision-Language Guidance for Semantic Segmentation"></picture>
+  </a>
+  <div class="paper-content">
+    <p class="paper-venue">CVPR 2025</p>
+    <h4 class="paper-title" id="cvpr25-semidavil-title">SemiDAViL: Semi-supervised Domain Adaptation with Vision-Language Guidance for Semantic Segmentation</h4>
+    <p class="paper-authors"><strong>Hritam Basak</strong>, Zhaozheng Yin</p>
+    <div class="paper-controls">
+      <a href="https://openaccess.thecvf.com/content/CVPR2025/html/Basak_SemiDAViL_Semi-supervised_Domain_Adaptation_with_Vision-Language_Guidance_for_Semantic_Segmentation_CVPR_2025_paper.html" target="_blank" rel="noopener noreferrer">Paper ↗</a>
+<a href="https://github.com/hritam-98/SemiDAViL" target="_blank" rel="noopener noreferrer">Code ↗</a>
+      <button class="panel-toggle" type="button" aria-expanded="false" aria-controls="cvpr25-semidavil-abstract" hidden>Abstract</button>
+      <button class="panel-toggle" type="button" aria-expanded="false" aria-controls="cvpr25-semidavil-bib" hidden>BibTeX</button>
+    </div>
+    <div class="paper-panel" id="cvpr25-semidavil-abstract"><p>We propose the first language-guided SSDA setting for semantic segmentation. We harness the semantic generalization capabilities inherent in vision-language models (VLMs).</p></div>
+    <div class="paper-panel" id="cvpr25-semidavil-bib">
+      <div class="panel-heading"><span>BibTeX citation</span><button class="copy-button" type="button" data-copy="cvpr25-semidavil-citation" hidden><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V4H4v12h4"/></svg><span data-copy-label>Copy citation</span></button></div>
+      <pre><code id="cvpr25-semidavil-citation">@inproceedings{basak2025semidavil,
+  title = {SemiDAViL: Semi-supervised Domain Adaptation with Vision-Language Guidance for Semantic Segmentation},
+  author = {Basak, Hritam and Yin, Zhaozheng},
+  booktitle = {CVPR},
+  year = {2025}
+}</code></pre>
+    </div>
+  </div>
+</article></div></div><div class="publication-year" data-year="2024"><h3 class="year-heading">2024</h3><div><article class="publication" id="eccv24" aria-labelledby="eccv24-title">
+  <a class="paper-figure" href="img/Publications/eccv24-overall.png" target="_blank" rel="noopener noreferrer" aria-label="View full figure for Forget More to Learn More: Domain-specific Feature Unlearning for Semi-supervised and Unsupervised Domain Adaptation">
+    <picture><source srcset="img/optimized/eccv24-overall.webp" type="image/webp"><img src="img/Publications/eccv24-overall.png" width="1557" height="566" loading="lazy" decoding="async" alt="Research figure for Forget More to Learn More: Domain-specific Feature Unlearning for Semi-supervised and Unsupervised Domain Adaptation"></picture>
+  </a>
+  <div class="paper-content">
+    <p class="paper-venue">ECCV 2024</p>
+    <h4 class="paper-title" id="eccv24-title">Forget More to Learn More: Domain-specific Feature Unlearning for Semi-supervised and Unsupervised Domain Adaptation</h4>
+    <p class="paper-authors"><strong>Hritam Basak</strong>, Zhaozheng Yin</p>
+    <div class="paper-controls">
+      <a href="https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/05513.pdf" target="_blank" rel="noopener noreferrer">Paper ↗</a>
+<a href="https://github.com/hritam-98/FMLM" target="_blank" rel="noopener noreferrer">Code ↗</a>
+      <button class="panel-toggle" type="button" aria-expanded="false" aria-controls="eccv24-abstract" hidden>Abstract</button>
+      <button class="panel-toggle" type="button" aria-expanded="false" aria-controls="eccv24-bib" hidden>BibTeX</button>
+    </div>
+    <div class="paper-panel" id="eccv24-abstract"><p>In pursuit of greater generalizability and robustness, we present an SSDA framework with a new episodic learning strategy: &quot;learn, forget, then learn more&quot;.</p></div>
+    <div class="paper-panel" id="eccv24-bib">
+      <div class="panel-heading"><span>BibTeX citation</span><button class="copy-button" type="button" data-copy="eccv24-citation" hidden><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V4H4v12h4"/></svg><span data-copy-label>Copy citation</span></button></div>
+      <pre><code id="eccv24-citation">@inproceedings{basak2024forget,
+  title = {Forget More to Learn More: Domain-specific Feature Unlearning for Semi-supervised and Unsupervised Domain Adaptation},
+  author = {Basak, Hritam and Yin, Zhaozheng},
+  booktitle = {ECCV},
+  year = {2024}
+}</code></pre>
+    </div>
+  </div>
+</article><article class="publication" id="miccai24" aria-labelledby="miccai24-title">
+  <a class="paper-figure" href="img/Publications/overall-miccai24-cropped.png" target="_blank" rel="noopener noreferrer" aria-label="View full figure for Quest for Clone: Test-Time Domain Adaptation for Medical Image Segmentation by Searching the Closest Clone in Latent Space">
+    <picture><source srcset="img/optimized/overall-miccai24-cropped.webp" type="image/webp"><img src="img/Publications/overall-miccai24-cropped.png" width="8887" height="5180" loading="lazy" decoding="async" alt="Research figure for Quest for Clone: Test-Time Domain Adaptation for Medical Image Segmentation by Searching the Closest Clone in Latent Space"></picture>
+  </a>
+  <div class="paper-content">
+    <p class="paper-venue">MICCAI 2024</p>
+    <h4 class="paper-title" id="miccai24-title">Quest for Clone: Test-Time Domain Adaptation for Medical Image Segmentation by Searching the Closest Clone in Latent Space</h4>
+    <p class="paper-authors"><strong>Hritam Basak</strong>, Zhaozheng Yin</p>
+    <div class="paper-controls">
+      <a href="https://papers.miccai.org/miccai-2024/paper/0297_paper.pdf" target="_blank" rel="noopener noreferrer">Paper ↗</a>
+<a href="https://github.com/hritam-98/Quest4Clone" target="_blank" rel="noopener noreferrer">Code ↗</a>
+      <button class="panel-toggle" type="button" aria-expanded="false" aria-controls="miccai24-abstract" hidden>Abstract</button>
+      <button class="panel-toggle" type="button" aria-expanded="false" aria-controls="miccai24-bib" hidden>BibTeX</button>
+    </div>
+    <div class="paper-panel" id="miccai24-abstract"><p>We propose a generative latent search paradigm to reconstruct the closest clone of every target image from the source latent space... We empirically validate the efficacy of our proposed method.</p></div>
+    <div class="paper-panel" id="miccai24-bib">
+      <div class="panel-heading"><span>BibTeX citation</span><button class="copy-button" type="button" data-copy="miccai24-citation" hidden><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V4H4v12h4"/></svg><span data-copy-label>Copy citation</span></button></div>
+      <pre><code id="miccai24-citation">@inproceedings{basak2024quest,
+  title = {Quest for Clone: Test-Time Domain Adaptation for Medical Image Segmentation by Searching the Closest Clone in Latent Space},
+  author = {Basak, Hritam and Yin, Zhaozheng},
+  booktitle = {MICCAI},
+  year = {2024}
+}</code></pre>
+    </div>
+  </div>
+</article></div></div><div class="publication-year" data-year="2023"><h3 class="year-heading">2023</h3><div><article class="publication" id="cvpr23" aria-labelledby="cvpr23-title">
+  <a class="paper-figure" href="img/Publications/PLGCL_overall.png" target="_blank" rel="noopener noreferrer" aria-label="View full figure for Pseudo Label Guided Contrastive Learning for Semi-supervised Medical Image Segmentation">
+    <picture><source srcset="img/optimized/PLGCL_overall.webp" type="image/webp"><img src="img/Publications/PLGCL_overall.png" width="1364" height="612" loading="lazy" decoding="async" alt="Research figure for Pseudo Label Guided Contrastive Learning for Semi-supervised Medical Image Segmentation"></picture>
+  </a>
+  <div class="paper-content">
+    <p class="paper-venue">CVPR 2023</p>
+    <h4 class="paper-title" id="cvpr23-title">Pseudo Label Guided Contrastive Learning for Semi-supervised Medical Image Segmentation</h4>
+    <p class="paper-authors"><strong>Hritam Basak</strong>, Zhaozheng Yin</p>
+    <div class="paper-controls">
+      <a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Basak_Pseudo-Label_Guided_Contrastive_Learning_for_Semi-Supervised_Medical_Image_Segmentation_CVPR_2023_paper.pdf" target="_blank" rel="noopener noreferrer">Paper ↗</a>
+<a href="https://github.com/hritam-98/PatchCL-MedSeg" target="_blank" rel="noopener noreferrer">Code ↗</a>
+      <button class="panel-toggle" type="button" aria-expanded="false" aria-controls="cvpr23-abstract" hidden>Abstract</button>
+      <button class="panel-toggle" type="button" aria-expanded="false" aria-controls="cvpr23-bib" hidden>BibTeX</button>
+    </div>
+    <div class="paper-panel" id="cvpr23-abstract"><p>We propose a novel semi-supervised patch-based CL framework for medical image segmentation... Experimental analysis reveals the superiority of our proposed method.</p></div>
+    <div class="paper-panel" id="cvpr23-bib">
+      <div class="panel-heading"><span>BibTeX citation</span><button class="copy-button" type="button" data-copy="cvpr23-citation" hidden><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V4H4v12h4"/></svg><span data-copy-label>Copy citation</span></button></div>
+      <pre><code id="cvpr23-citation">@inproceedings{basak2023pseudo,
+  title = {Pseudo Label Guided Contrastive Learning for Semi-supervised Medical Image Segmentation},
+  author = {Basak, Hritam and Yin, Zhaozheng},
+  booktitle = {CVPR},
+  year = {2023}
+}</code></pre>
+    </div>
+  </div>
+</article><article class="publication" id="miccai23" aria-labelledby="miccai23-title">
+  <a class="paper-figure" href="img/Publications/style-content-miccai23.png" target="_blank" rel="noopener noreferrer" aria-label="View full figure for Semi-supervised Domain Adaptive Medical Image Segmentation through Consistency Regularized Disentangled Contrastive Learning">
+    <picture><source srcset="img/optimized/style-content-miccai23.webp" type="image/webp"><img src="img/Publications/style-content-miccai23.png" width="992" height="341" loading="lazy" decoding="async" alt="Research figure for Semi-supervised Domain Adaptive Medical Image Segmentation through Consistency Regularized Disentangled Contrastive Learning"></picture>
+  </a>
+  <div class="paper-content">
+    <p class="paper-venue">MICCAI 2023</p>
+    <h4 class="paper-title" id="miccai23-title">Semi-supervised Domain Adaptive Medical Image Segmentation through Consistency Regularized Disentangled Contrastive Learning</h4>
+    <p class="paper-authors"><strong>Hritam Basak</strong>, Zhaozheng Yin</p>
+    <div class="paper-controls">
+      <a href="https://link.springer.com/epdf/10.1007/978-3-031-43901-8_25" target="_blank" rel="noopener noreferrer">Paper ↗</a>
+<a href="https://github.com/hritam-98/GFDA-disentangled" target="_blank" rel="noopener noreferrer">Code ↗</a>
+      <button class="panel-toggle" type="button" aria-expanded="false" aria-controls="miccai23-abstract" hidden>Abstract</button>
+      <button class="panel-toggle" type="button" aria-expanded="false" aria-controls="miccai23-bib" hidden>BibTeX</button>
+    </div>
+    <div class="paper-panel" id="miccai23-abstract"><p>We investigate semi-supervised domain adaptation (SSDA) for medical image segmentation... Our proposed method outperforms the SoTA methods.</p></div>
+    <div class="paper-panel" id="miccai23-bib">
+      <div class="panel-heading"><span>BibTeX citation</span><button class="copy-button" type="button" data-copy="miccai23-citation" hidden><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V4H4v12h4"/></svg><span data-copy-label>Copy citation</span></button></div>
+      <pre><code id="miccai23-citation">@inproceedings{basak2023semi,
+  title = {Semi-supervised Domain Adaptive Medical Image Segmentation through Consistency Regularized Disentangled Contrastive Learning},
+  author = {Basak, Hritam and Yin, Zhaozheng},
+  booktitle = {MICCAI},
+  year = {2023}
+}</code></pre>
+    </div>
+  </div>
+</article></div></div><div class="publication-year" data-year="2022"><h3 class="year-heading">2022</h3><div><article class="publication" id="miccai22" aria-labelledby="miccai22-title">
+  <a class="paper-figure" href="img/Publications/MICCAI_Overall_final.png" target="_blank" rel="noopener noreferrer" aria-label="View full figure for Addressing Class Imbalance in Semi-supervised Image Segmentation: A Study on Cardiac MRI">
+    <picture><source srcset="img/optimized/MICCAI_Overall_final.webp" type="image/webp"><img src="img/Publications/MICCAI_Overall_final.png" width="843" height="421" loading="lazy" decoding="async" alt="Research figure for Addressing Class Imbalance in Semi-supervised Image Segmentation: A Study on Cardiac MRI"></picture>
+  </a>
+  <div class="paper-content">
+    <p class="paper-venue">MICCAI 2022</p>
+    <h4 class="paper-title" id="miccai22-title">Addressing Class Imbalance in Semi-supervised Image Segmentation: A Study on Cardiac MRI</h4>
+    <p class="paper-authors"><strong>Hritam Basak</strong>, Sagnik Ghosal, Ram Sarkar</p>
+    <div class="paper-controls">
+      <a href="https://rdcu.be/cVRY4" target="_blank" rel="noopener noreferrer">Paper ↗</a>
+      <button class="panel-toggle" type="button" aria-expanded="false" aria-controls="miccai22-abstract" hidden>Abstract</button>
+      <button class="panel-toggle" type="button" aria-expanded="false" aria-controls="miccai22-bib" hidden>BibTeX</button>
+    </div>
+    <div class="paper-panel" id="miccai22-abstract"><p>To alleviate the shortcoming of class imbalance, we propose maintaining a confidence array that records class-wise performance during training.</p></div>
+    <div class="paper-panel" id="miccai22-bib">
+      <div class="panel-heading"><span>BibTeX citation</span><button class="copy-button" type="button" data-copy="miccai22-citation" hidden><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V4H4v12h4"/></svg><span data-copy-label>Copy citation</span></button></div>
+      <pre><code id="miccai22-citation">@inproceedings{basak2022addressing,
+  title = {Addressing Class Imbalance in Semi-supervised Image Segmentation: A Study on Cardiac MRI},
+  author = {Basak, Hritam and Ghosal, Sagnik and Sarkar, Ram},
+  booktitle = {MICCAI},
+  year = {2022}
+}</code></pre>
+    </div>
+  </div>
+</article><article class="publication" id="isbi22" aria-labelledby="isbi22-title">
+  <a class="paper-figure" href="img/Publications/ICT-MedSeg-Overall.png" target="_blank" rel="noopener noreferrer" aria-label="View full figure for An Exceedingly Simple Consistency Regularization Method for Semi-Supervised Medical Image Segmentation">
+    <picture><source srcset="img/optimized/ICT-MedSeg-Overall.webp" type="image/webp"><img src="img/Publications/ICT-MedSeg-Overall.png" width="942" height="670" loading="lazy" decoding="async" alt="Research figure for An Exceedingly Simple Consistency Regularization Method for Semi-Supervised Medical Image Segmentation"></picture>
+  </a>
+  <div class="paper-content">
+    <p class="paper-venue">ISBI 2022</p>
+    <h4 class="paper-title" id="isbi22-title">An Exceedingly Simple Consistency Regularization Method for Semi-Supervised Medical Image Segmentation</h4>
+    <p class="paper-authors"><strong>Hritam Basak</strong>, Rajarshi Bhattacharya, Rukhshanda Hussain, Agniv Chatterjee</p>
+    <div class="paper-controls">
+      <a href="https://arxiv.org/abs/2202.00677" target="_blank" rel="noopener noreferrer">Paper ↗</a>
+<a href="https://github.com/hritam-98/ICT-MedSeg" target="_blank" rel="noopener noreferrer">Code ↗</a>
+      <button class="panel-toggle" type="button" aria-expanded="false" aria-controls="isbi22-abstract" hidden>Abstract</button>
+      <button class="panel-toggle" type="button" aria-expanded="false" aria-controls="isbi22-bib" hidden>BibTeX</button>
+    </div>
+    <div class="paper-panel" id="isbi22-abstract"><p>We introduce a novel regularization strategy involving interpolation-based mixing for semi-supervised medical image segmentation.</p></div>
+    <div class="paper-panel" id="isbi22-bib">
+      <div class="panel-heading"><span>BibTeX citation</span><button class="copy-button" type="button" data-copy="isbi22-citation" hidden><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V4H4v12h4"/></svg><span data-copy-label>Copy citation</span></button></div>
+      <pre><code id="isbi22-citation">@inproceedings{basak2022exceedingly,
+  title = {An Exceedingly Simple Consistency Regularization Method for Semi-Supervised Medical Image Segmentation},
+  author = {Basak, Hritam and Bhattacharya, Rajarshi and Hussain, Rukhshanda and Chatterjee, Agniv},
+  booktitle = {ISBI},
+  year = {2022}
+}</code></pre>
+    </div>
+  </div>
+</article></div></div></div>
+      <div class="other-publications"><h3>More from my research</h3><ul>
+        <li><a href="https://ieeexplore.ieee.org/abstract/document/10094869/" target="_blank" rel="noopener noreferrer">IDEAL: Improved Dense Local Contrastive Learning for Semi-Supervised Medical Image Segmentation</a><span>IEEE ICASSP 2023</span></li>
+        <li><a href="https://www.sciencedirect.com/science/article/pii/S0031320322001546" target="_blank" rel="noopener noreferrer">MFSNet: A Multi Focus Segmentation Network for Skin Lesion Segmentation</a><span>Pattern Recognition · 2022</span></li>
+        <li><a href="https://www.nature.com/articles/s41598-021-93658-y" target="_blank" rel="noopener noreferrer">Fuzzy rank-based fusion of CNN models using Gompertz function for screening COVID-19 CT-scans</a><span>Scientific Reports · 2021</span></li>
+        <li><a href="https://link.springer.com/article/10.1007/s42979-021-00835-x" target="_blank" rel="noopener noreferrer">DFENet: A novel dimension fusion edge guided network for brain MRI segmentation</a><span>SN Computer Science</span></li>
+      </ul></div>
+    </section>
+    <section id="services" class="section" aria-labelledby="services-title">
+      <div class="section-heading"><div><p class="eyebrow">03 / The research community</p><h2 id="services-title">Academic service</h2></div></div>
+      <div class="service-grid">
+        <div><h3>Conference reviewing</h3><ul><li>CVPR (2024, 2025)</li><li>MICCAI (2023, 2024, 2025)</li><li>ECCV (2024) · ICCV (2025)</li><li>IJCAI · AAAI (2023, 2024, 2025)</li><li>ICASSP</li></ul></div>
+        <div><h3>Journal reviewing</h3><ul><li>IEEE TPAMI · TNNLS · TIP · TCSVT · TMI</li><li>Elsevier Medical Image Analysis · Pattern Recognition</li><li>Nature</li><li>International Journal of Computer Vision (IJCV)</li></ul></div>
+      </div>
+      <p class="teaching"><strong>Teaching assistant, Stony Brook University</strong> · CSE377: Medical Imaging · CSE214: Introduction to Data Structures</p>
+      <details class="recognition"><summary>Awards &amp; recognition</summary><ul>
+        <li><strong>ICCV/CVF Travel Grant</strong> · 2025</li><li><strong>IEEE RAS Travel Award</strong> · 2025</li><li><strong>ECCV DEI Award</strong> · 2024</li><li><strong>MICCAI NIH Travel Grant</strong> · 2024</li><li><strong>IEEE SPS Scholarship</strong> · 2023 &amp; 2024</li><li><strong>IEEE ICASSP Travel Grant</strong> · 2022</li><li><strong>MICCAI STAR Award</strong> · 2022</li><li><strong>Gandhi Fellowship</strong> · 2021</li><li><strong>Charpak Fellowship</strong> · 2020</li>
+      </ul></details>
+    </section>
+    <section id="collaborate" class="section contact" aria-labelledby="contact-title">
+      <p class="eyebrow">04 / Let's build together</p>
+      <div class="contact-main"><div><h2 id="contact-title">Good ideas start with a conversation.</h2><p>Always open to collaboration. Whether it's robotics &amp; manipulation, vision-language-action models, generative AI, or medical imaging — if you have an exciting idea or want to chat about research, I'd love to hear from you.</p></div><a class="button" href="mailto:hritambasak48@gmail.com">Get in touch <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 18 18 6M6 6h12v12"/></svg></a></div>
+      <div class="contact-email"><a href="mailto:hritambasak48@gmail.com">hritambasak48@gmail.com</a><button class="copy-button" type="button" data-copy="email" aria-label="Copy email address" hidden><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V4H4v12h4"/></svg><span data-copy-label>Copy email</span></button></div>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="container">
+    <div class="footer-main"><p class="footer-copyright">© <span id="footer-year">2026</span> Hritam Basak. All rights reserved.</p><div class="footer-links"><a href="mailto:hritambasak48@gmail.com">Email</a><a href="https://scholar.google.com/citations?user=29wTOh4AAAAJ&hl=en">Scholar</a><a href="https://github.com/hritam-98">GitHub</a><a href="https://www.linkedin.com/in/hritam-basak-a66114166/">LinkedIn</a><a href="https://raw.githubusercontent.com/hritam-98/hritam-98.github.io/main/ResumeCV/Hritam_Basak_CV.pdf">Résumé</a><a href="#bio" id="back_to_top">Back to top ↑</a></div></div>
+    <details class="visitor-statistics"><summary>Visitor statistics</summary><a href="https://info.flagcounter.com/q0IF"><img src="https://s01.flagcounter.com/countxl/q0IF/bg_0F172A/txt_CCCCCC/border_3A3A3A/columns_3/maxflags_12/viewers_0/labels_1/pageviews_1/flags_0/percent_0/" alt="Visitor statistics from Flag Counter" loading="lazy"></a></details>
+  </div></footer>
+  <p class="sr-only" id="site-status" role="status" aria-live="polite"></p>
 </body>
-
 </html>
